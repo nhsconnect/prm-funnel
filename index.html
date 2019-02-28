@@ -2,64 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script>
-window.onload = function () {
-
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	theme: "light2", //"light1", "dark1", "dark2"
-	title:{
-		text: "Patient Record Migration"
-	},
-	data: [{
-		type: "funnel",
-		indexLabelPlacement: "inside",
-		indexLabelFontColor: "white",
-		toolTipContent: "<b>{label}</b>: {y} <b>({percentage}%)</b>",
-        indexLabel: "{label} ({percentage}%)",
-		neckWidth: 300,
-		neckHeight: 0,        
-		dataPoints: [
-			{ y: 325772, label: "Registrations" },
-			{ y: 200747, label: "Number of EHR Requests" },
-			{ y: 190549, label: "Number of EHR Received" },
-            { y: 155725,  label: "Number of EHR integrated with 8 days" },
-            { y: 100000,  label: "Number of first consultations with data" },
-		]
-	}]
-});
-calculatePercentage();
-chart.render();
-
-function calculatePercentage() {
-	var dataPoint = chart.options.data[0].dataPoints;
-	var total = dataPoint[0].y;
-	for(var i = 0; i < dataPoint.length; i++) {
-		if(i == 0) {
-			chart.options.data[0].dataPoints[i].percentage = 100;
-		} else {
-			chart.options.data[0].dataPoints[i].percentage = ((dataPoint[i].y / total) * 100).toFixed(2);
-		}
-	}
-}
-
-$("#chartContainer > .canvasjs-chart-container").on({
-	mousedown: function(e) {
-	},
-	mousemove: function(e) {
-	},
-	mouseup: function(e) {
-        window.location = "./doughnut.html"
-	}
-});
-
-}
-</script>
 </head>
 <body>
-<div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
-<script src="./canvasjs-2.3.1/canvasjs.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<h1>I am not ACTUALLY empty</h1>
 </body>
 </html>
