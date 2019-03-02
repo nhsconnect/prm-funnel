@@ -17,8 +17,8 @@ title: Patient Record Migrations - Data Funnel
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   This is a demo site for data collation on patient record migrations.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://nhsconnect.github.io/prm-funnel/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://nhsconnect.github.io/prm-funnel/"
+baseurl: "/prm-funnel"
 
 # Build settings
 markdown: kramdown
