@@ -3,23 +3,51 @@ layout: default
 ---
 <article class="widget" itemscope itemtype="http://schema.org/BlogPosting">
 
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+        <li>Data type: {{ page.datatype }}</li>
+        <li>Confidence in data: {{ page.confidence }}</li>
+        <li>Datasource: {{ page.datasource }}</li>
+    </ul>
+  </div>
+
   <div id="funnel"></div>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="/assets/js/d3-funnel.min.js"></script>
   <script>
-      const data = [
-          { label: 'Inquiries', value: 5000 },
-          { label: 'Applicants', value: 2500 },
-          { label: 'Admits', value: 500 },
-          { label: 'Deposits', value: 200 },
-      ];
+      const data = JSON.parse('{{page.items | jsonify}}');
       const options = {
           block: {
               dynamicHeight: true,
               minHeight: 15,
               minWidth: 500,
+              fill: {
+                  type: 'gradient'
+              },
+              highlight: true,
+              dynamicSlope: true,
+              dynamicHeight: true
           },
+          chart: {
+            animate: 500,
+            curve: {
+                enabled: true,
+                height: 20
+            }
+          },
+          label: {
+              enabled: true,
+              format: '{l}'
+          },
+          tooltip: {
+              enabled: true,
+              format: '{l}: {f}'
+          }
       };
 
       const chart = new D3Funnel('#funnel');

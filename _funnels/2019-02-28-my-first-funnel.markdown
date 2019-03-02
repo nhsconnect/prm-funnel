@@ -2,24 +2,16 @@
 layout: funnel
 title:  "My first funnel"
 date:   2019-02-28 15:46:00 +0000
-categories: jekyll update
+datatype: Quantitative
+confidence: Low
+datasource: NMS
+categories: data
+items: [
+    { "label": "Registrations", "value": 325772 },
+    { "label": "No. of EHR Requests", "value": 200747 },
+    { "label": "No. of EHR Received", "value": 190549 },
+    { "label": "No. of EHR integrated with 8 days", "value": 155725 },
+    { "label": "No. of first consultations with data", "value": 100000 }
+]
 ---
-You’ll find this post in your `_funnels_` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
-
-To add new posts, simply add a file in the `_funnels_` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+Here are some words to set context etc.
