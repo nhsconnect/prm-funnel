@@ -9,12 +9,11 @@ categories: data
 items: { "datasets":
             [{
                   "data": [
-                        90,
-                        9,
-                        150,
-                        34,
-                        20,
-                        345
+                        4101,
+                        2608,
+                        341,
+                        99,
+                        51
                   ],
                   "label": "My first donut data",
                   backgroundColor: [
@@ -23,17 +22,15 @@ items: { "datasets":
                       "#FFC4AA",
                       "#FF4FDA",
                       "#FF0000",
-                      "#FF4400",
                   ],
                   label: 'Dataset 1'
             }],
             "labels": [
-                  "2.2 -> 2.2 Messages",
-                  "2.2 -> 1.1 Messages",
-                  "1.1 -> 2.2 Messages",
-                  "1.1 -> 1.1 Messages",
-                  "Large message failure",
-                  "Unknown failures"
+                  "EMIS",
+                  "TPP",
+                  "INPS",
+                  "No Current GP2GP Endpoint",
+                  "Microtest",
             ]
       }
 ---
