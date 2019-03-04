@@ -18,8 +18,12 @@ layout: default
   <script>
       const data = JSON.parse('{{page.items | jsonify}}');
       const donuts = JSON.parse('{{page.donuts | jsonify}}');
-      const url = '{{ site.url }}';
+      let url = '{{ site.url }}';
       const baseUrl = '{{ site.baseurl }}';
+      if (url.indexOf(baseUrl) < 0) {
+        url = `${url}${baseUrl}/`;
+      }
+      
       const options = {
           block: {
               dynamicHeight: true,
@@ -51,7 +55,7 @@ layout: default
             click: {
                 block: function(somedata) {
                     let document_name = donuts[somedata.index].document_name;
-                    let link = `${url}${baseUrl}/donuts/${document_name}.html`;
+                    let link = `${url}donuts/${document_name}.html`;
                     window.location.href = link;
                 }
             }
