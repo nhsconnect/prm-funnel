@@ -1,0 +1,7 @@
+fileignoreconfig:
+- filename: assets/js/Chart.bundle.js
+  checksum: 823e8c4e89b0050545b80479737bd1812bb42b1cdf29e4f4aa832edd9916adf3
+  ignore_detectors: []
+- filename: assets/js/Chart.js
+  checksum: 31a0fd7071b9758961932b0747c64c2f099c900d454a39066457829d580e848c
+  ignore_detectors: []

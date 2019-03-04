@@ -3,13 +3,9 @@ layout: default
 ---
 <article class="widget" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <div class="post-content e-content">
-    <ul>
-        <li>Data type: {{ page.datatype }}</li>
-        <li>Confidence in data: {{ page.confidence }}</li>
-        <li>Datasource: {{ page.datasource }}</li>
-    </ul>
-  </div>
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+  </header>
 
   <div id="funnel"></div>
 
@@ -21,6 +17,9 @@ layout: default
   <script src="/prm-funnel/assets/js/d3-funnel.min.js"></script>
   <script>
       const data = JSON.parse('{{page.items | jsonify}}');
+      const donuts = JSON.parse('{{page.donuts | jsonify}}');
+      const url = '{{ site.url }}';
+      const baseUrl = '{{ site.baseurl }}';
       const options = {
           block: {
               dynamicHeight: true,
@@ -34,7 +33,7 @@ layout: default
               dynamicHeight: true
           },
           chart: {
-            animate: 500,
+            animate: 100,
             curve: {
                 enabled: true,
                 height: 20
@@ -47,6 +46,15 @@ layout: default
           tooltip: {
               enabled: true,
               format: '{l}: {f}'
+          },
+          events: {
+            click: {
+                block: function(somedata) {
+                    let document_name = donuts[somedata.index].document_name;
+                    let link = `${url}${baseUrl}/donuts/${document_name}.html`;
+                    window.location.href = link;
+                }
+            }
           }
       };
 

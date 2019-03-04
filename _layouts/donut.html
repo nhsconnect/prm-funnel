@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<script src="/prm-funnel/assets/js/Chart.min.js"></script>
+
+<article class="widget" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post-content e-content">
+    <ul>
+        <li>Data type: {{ page.datatype }}</li>
+        <li>Confidence in data: {{ page.confidence }}</li>
+        <li>Datasource: {{ page.datasource }}</li>
+    </ul>
+  </div>
+
+  <div id="canvas-holder" style="width:40%">
+    <canvas id="chart-area"></canvas>
+  </div>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <script>
+    var randomScalingFactor = function() {
+      return 100;
+    };
+
+    var config = {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: [
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+          ],
+          backgroundColor: [
+            "#FF44AA",
+            "#FF44AB",
+            "#FFC4AA",
+            "#FF4FDA",
+            "#FF0000",
+            "#FF4400",
+          ],
+          label: 'Dataset 1'
+        }],
+        labels: [
+          '2.2 -> 2.2 Messages',
+          '2.2 -> 1.1 Messages',
+          '1.1 -> 2.2 Messages',
+          '1.1 -> 1.1 Messages',
+          'Large message failure',
+          'Unknown failures'
+        ]
+      },
+      options: {
+        responsive: true,
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: 'GP2PG Message breakdown'
+        },
+        animation: {
+          animateScale: true,
+          animateRotate: true
+        }
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('chart-area').getContext('2d');
+      window.myDoughnut = new Chart(ctx, config);
+    };
+
+  </script>
+
+</article>
