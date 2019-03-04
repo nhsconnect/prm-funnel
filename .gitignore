@@ -89,3 +89,8 @@ typings/
 .dynamodb/
 
 # End of https://www.gitignore.io/api/node
+
+# Vim stuff
+*.swo
+*.swp
+*.swp
