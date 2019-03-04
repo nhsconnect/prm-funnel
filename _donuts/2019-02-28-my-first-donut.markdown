@@ -1,6 +1,6 @@
 ---
 layout: donut
-title:  "My first donut"
+title:  "My first doughnut"
 date:   2019-02-28 15:46:00 +0000
 datatype: Quantitative
 confidence: Low
@@ -16,7 +16,16 @@ items: { "datasets":
                         20,
                         345
                   ],
-                  "label": "My first donut data"
+                  "label": "My first donut data",
+                  backgroundColor: [
+                      "#FF44AA",
+                      "#FF44AB",
+                      "#FFC4AA",
+                      "#FF4FDA",
+                      "#FF0000",
+                      "#FF4400",
+                  ],
+                  label: 'Dataset 1'
             }],
             "labels": [
                   "2.2 -> 2.2 Messages",

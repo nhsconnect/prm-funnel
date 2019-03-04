@@ -1,9 +1,6 @@
 ---
 layout: default
 ---
-
-<script src="/prm-funnel/assets/js/Chart.min.js"></script>
-
 <article class="widget" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
@@ -27,41 +24,15 @@ layout: default
   </div>
 
   <script>
+    const data = JSON.parse('{{page.items | jsonify}}');
+
     var randomScalingFactor = function() {
       return 100;
     };
 
     var config = {
       type: 'doughnut',
-      data: {
-        datasets: [{
-          data: [
-            randomScalingFactor(),
-            randomScalingFactor(),
-            randomScalingFactor(),
-            randomScalingFactor(),
-            randomScalingFactor(),
-            randomScalingFactor(),
-          ],
-          backgroundColor: [
-            "#FF44AA",
-            "#FF44AB",
-            "#FFC4AA",
-            "#FF4FDA",
-            "#FF0000",
-            "#FF4400",
-          ],
-          label: 'Dataset 1'
-        }],
-        labels: [
-          '2.2 -> 2.2 Messages',
-          '2.2 -> 1.1 Messages',
-          '1.1 -> 2.2 Messages',
-          '1.1 -> 1.1 Messages',
-          'Large message failure',
-          'Unknown failures'
-        ]
-      },
+      data: data,
       options: {
         responsive: true,
         legend: {
@@ -84,5 +55,6 @@ layout: default
     };
 
   </script>
+  <script src="/prm-funnel/assets/js/Chart.min.js"></script>
 
 </article>
