@@ -13,8 +13,6 @@ layout: default
     {{ content }}
   </div>
 
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="/prm-funnel/assets/js/d3-funnel.min.js"></script>
   <script>
       const data = JSON.parse('{{page.items | jsonify}}');
       const donuts = JSON.parse('{{page.donuts | jsonify}}');
@@ -62,8 +60,13 @@ layout: default
           }
       };
 
+      
+    window.onload = function() {
       const chart = new D3Funnel('#funnel');
       chart.draw(data, options);
+    };
   </script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="/prm-funnel/assets/js/d3-funnel.min.js"></script>
 
 </article>
