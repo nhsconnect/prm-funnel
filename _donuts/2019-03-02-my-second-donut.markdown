@@ -34,4 +34,4 @@ items: { "datasets":
             ]
       }
 ---
-Here are some more words to set context etc.
+This doughnut shows the GP2GP Endpoint supplier of each receiving practice.
