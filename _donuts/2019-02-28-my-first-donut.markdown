@@ -1,6 +1,6 @@
 ---
 layout: donut
-title:  "My first doughnut"
+title:  "Type of Transfer"
 date:   2019-02-28 15:46:00 +0000
 datatype: Quantitative
 confidence: Low
@@ -13,10 +13,10 @@ items: { "datasets":
                         64198,
                         60827
                   ],
-                  "label": "My first donut data",
+                  "label": "Jan 19",
                   backgroundColor: [
-                      "#FF44AA",
-                      "#FF44AB",
+                      "red",
+                      "blue",
                       "#FFC4AA",
                   ],
                   label: 'Dataset 1'

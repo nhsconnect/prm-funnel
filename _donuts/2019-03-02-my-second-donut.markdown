@@ -17,11 +17,11 @@ items: { "datasets":
                   ],
                   "label": "My first donut data",
                   backgroundColor: [
-                      "#FF44AA",
-                      "#FF44AB",
-                      "#FFC4AA",
-                      "#FF4FDA",
-                      "#FF0000",
+                      "red",
+                      "blue",
+                      "yellow",
+                      "green",
+                      "brown",
                   ],
                   label: 'Dataset 1'
             }],
