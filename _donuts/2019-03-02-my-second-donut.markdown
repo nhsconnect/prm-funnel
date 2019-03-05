@@ -1,6 +1,6 @@
 ---
 layout: donut
-title:  "My second donut"
+title:  "GP2GP Transfer by Supplier"
 date:   2019-03-02 15:46:00 +0000
 datatype: Quantitative
 confidence: Low
@@ -28,7 +28,7 @@ items: { "datasets":
             "labels": [
                   "EMIS",
                   "TPP",
-                  "INPS",
+                  "Vision",
                   "No Current GP2GP Endpoint",
                   "Microtest",
             ]

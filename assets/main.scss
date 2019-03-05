@@ -4,5 +4,15 @@
 @import "{{ site.theme }}";
 
 .prm-wrapper {
-    margin-left: 40%;
+    display: flex;
+    justify-content: center;
 }
+
+.chart-container, .home {
+    width: calc(800px - (30px * 2))
+}
+
+#canvas-holder {
+    width: 100%;
+}
+

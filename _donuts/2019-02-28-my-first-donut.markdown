@@ -1,6 +1,6 @@
 ---
 layout: donut
-title:  "Type of Transfer"
+title:  "Type of Patient Transfer"
 date:   2019-02-28 15:46:00 +0000
 datatype: Quantitative
 confidence: Low
