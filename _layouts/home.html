@@ -15,7 +15,6 @@ layout: default
       {%- for funnel in site.funnels -%}
       <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">Published on {{ funnel.date | date: date_format }}</span>
         <h3>
           <a class="post-link" href="{{ funnel.url | relative_url }}">
             {{ funnel.title | escape }}
