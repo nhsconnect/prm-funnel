@@ -25,15 +25,26 @@ layout: default
   </div>
 
   <script>
-    const data = JSON.parse('{{page.items | jsonify}}');
+    const items = JSON.parse('{{page.items | jsonify}}');
+    const colours = JSON.parse('{{page.colours | jsonify}}');
+    const labels = JSON.parse('{{page.labels | jsonify}}');
 
     var randomScalingFactor = function() {
       return 100;
     };
 
+    var datasets = { "datasets":
+            [{
+                  "data": items,
+                  "label": '{{page.timeframe}}',
+                  backgroundColor: colours,
+            }],
+            "labels": labels
+      };
+
     var config = {
       type: 'doughnut',
-      data: data,
+      data: datasets,
       options: {
         responsive: true,
         legend: {
