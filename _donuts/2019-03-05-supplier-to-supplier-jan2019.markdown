@@ -8,6 +8,7 @@ confidence: Low
 datasource: NMS
 categories: data
 total: 325772
+chart_type: horizontalBar
 colours: [
             "#5E42A6",
             "#05C6F4",
