@@ -29,10 +29,6 @@ layout: default
     const colours = JSON.parse('{{page.colours | jsonify}}');
     const labels = JSON.parse('{{page.labels | jsonify}}');
 
-    var randomScalingFactor = function() {
-      return 100;
-    };
-
     var datasets = { "datasets":
             [{
                   "data": items,
