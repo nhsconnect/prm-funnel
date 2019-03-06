@@ -13,6 +13,22 @@ layout: default
     {{ content }}
   </div>
 
+  <div class="post-content e-content" itemprop="articleBody">
+      <h3>Raw data</h3>
+      <table style="width:100%">
+        <tr>
+          <th>Label</th>
+          <th>Data</th> 
+        </tr>
+        {%- for item in page.items -%}
+        <tr>
+          <td>{{item.label}}</td>
+          <td>{{item.value}}</td> 
+        </tr>
+        {%- endfor -%}
+      </table>
+    </div>
+
   <script>
       const data = JSON.parse('{{page.items | jsonify}}');
       const donuts = JSON.parse('{{page.donuts | jsonify}}');
