@@ -7,7 +7,7 @@ datatype: Quantitative
 confidence: Low
 datasource: NMS
 categories: data
-total: 325772
+total: 247499
 chart_type: horizontalBar
 colours: [
             "#5E42A6",
@@ -20,7 +20,7 @@ colours: [
             "#6A2973",
             "#F2AD85",
             "#DB6D83",
-            "#FCFCFF",
+            "#F45F42",
             "#E3D78D",
             "#FF2626",
             "#FF8A0C",
@@ -37,31 +37,49 @@ labels: [
             "TPP -> Vision",
             "Vision -> TPP",
             "TPP -> MT",
-            "EMIS -> MT",
-            "MT -> EMIS",
             "MT -> TPP",
+            "MT -> EMIS",
+            "EMIS -> MT",
             "MT -> MT",
             "TPP -> TPP",
             "Vision -> MT",
             "MT -> Vision"
           ]
 items: [
-            28422,
-            9199,
-            8718,
-            1510,
-            1420,
-            908,
-            413,
-            400,
-            148,
-            134,
-            116,
-            114,
-            100,
-            9,
-            4,
-            2
+            138176,
+            43707,
+            40617,
+            7761,
+            6781,
+            3648,
+            2312,
+            1680,
+            609,
+            600,
+            589,
+            580,
+            349,
+            48,
+            22,
+            20
+      ]
+percentages: [
+            56,
+            18,
+            16,
+            3,
+            3,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
       ]
 ---
 A chart representing the EHR Sent Requests split into source and target system.
@@ -72,6 +90,10 @@ The data was collected from **Splunk** with the following query:
 index="spine2-live" 
       service=gp2gp 
       interactionID="urn:nhs:names:services:gp2gp/RCMR_IN010000UK05" 
-            | stats count by fromPName, toPName 
+            | dedup conversationID 
+            | stats count by fromPName, toPName
+            | eventstats sum(count) as totalCount
+            | eval percentage=round(count/totalCount * 100, 0)
+            | table fromPName, toPName, count, percentage, totalCount
             | sort -count
 ```

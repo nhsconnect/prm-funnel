@@ -8,14 +8,15 @@ layout: default
     const items = JSON.parse('{{page.items | jsonify}}');
     const colours = JSON.parse('{{page.colours | jsonify}}');
     const labels = JSON.parse('{{page.labels | jsonify}}');
+    const percentages = JSON.parse('{{page.percentages | jsonify}}');
 
     var datasets = { "datasets":
             [{
-                  "data": items,
-                  "label": '{{page.timeframe}}',
-                  backgroundColor: colours,
+                data: items,
+                label: '{{page.timeframe}}',
+                backgroundColor: colours,
             }],
-            "labels": labels
+            labels: labels
       };
 
     var config = {
@@ -38,11 +39,8 @@ layout: default
           callbacks: {
             label: function(tooltipItem, data) {
               var dataset = data.datasets[tooltipItem.datasetIndex];
-              var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
-                return previousValue + currentValue;
-              });
               var currentValue = dataset.data[tooltipItem.index];
-              var percentage = Math.floor(((currentValue/total) * 100)+0.5);
+              var percentage = percentages[tooltipItem.index];
               return `${currentValue} (${percentage}%)`;
             }
           }
