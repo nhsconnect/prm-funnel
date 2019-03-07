@@ -4,12 +4,17 @@
       <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }} - {{ page.timeframe }}</h1>
   </header>
 
+  {% assign total = 0 %}
+  {% for item in page.items %}
+    {% assign total = total | plus: item %}
+  {% endfor %}
+
   <div class="post-content e-content">
     <ul>
         <li>Data type: {{ page.datatype }}</li>
         <li>Confidence in data: {{ page.confidence }}</li>
         <li>Datasource: {{ page.datasource }}</li>
-        <li>Total number of data points: {{ page.total }}</li>
+        <li>Total number of data points: {{ total }}</li>
     </ul>
   </div>
 
@@ -35,7 +40,7 @@
         {%- endfor -%}
         <tfoot>
           <th>Total</th>
-          <th>{{page.total}}</th> 
+          <th>{{ total }}</th> 
         </tfoot>
       </table>
     </div>
