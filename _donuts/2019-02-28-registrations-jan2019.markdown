@@ -2,10 +2,10 @@
 layout: donut
 title:  "Type of Patient Transfer"
 date:   2019-03-02 15:46:00 +0000
-timeframe: Jul 2018
+timeframe: Jan 2019
 datatype: Quantitative
 confidence: Low
-datasource: NMS
+datasource: GP2GP Utilisation Report
 categories: data
 total: 325772
 chart_type: doughnut
