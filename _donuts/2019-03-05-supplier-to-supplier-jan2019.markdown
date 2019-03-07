@@ -72,6 +72,6 @@ The data was collected from **Splunk** with the following query:
 index="spine2-live" 
       service=gp2gp 
       interactionID="urn:nhs:names:services:gp2gp/RCMR_IN010000UK05" 
-            | stats  count by fromPName, toPName 
+            | stats count by fromPName, toPName 
             | sort -count
 ```
