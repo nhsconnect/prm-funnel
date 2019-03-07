@@ -1,0 +1,39 @@
+<article class="widget" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+      <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }} - {{ page.timeframe }}</h1>
+  </header>
+
+  <div class="post-content e-content">
+    <ul>
+        <li>Data type: {{ page.datatype }}</li>
+        <li>Confidence in data: {{ page.confidence }}</li>
+        <li>Datasource: {{ page.datasource }}</li>
+        <li>Total number of data points: {{ page.total }}</li>
+    </ul>
+  </div>
+
+  <div id="canvas-holder">
+    <canvas id="chart-area"></canvas>
+  </div>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+
+    <div class="data-table">
+      <h3>Raw data</h3>
+      <table>
+        <tr>
+          <th>Label</th>
+          <th>Data</th> 
+        </tr>
+        {%- for label in page.labels -%}
+        <tr>
+          <td>{{label}}</td>
+          <td>{{page.items[forloop.index0]}}</td> 
+        </tr>
+        {%- endfor -%}
+      </table>
+    </div>
+  </div>
+</article>
