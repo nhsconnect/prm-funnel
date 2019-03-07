@@ -63,24 +63,6 @@ items: [
             22,
             20
       ]
-percentages: [
-            56,
-            bla,
-            18,
-            16,
-            3,
-            3,
-            1,
-            1,
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-      ]
 ---
 A chart representing the EHR Sent Requests split into source and target system.
 
