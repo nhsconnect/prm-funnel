@@ -29,6 +29,7 @@ colours: [
           ]
 labels: [
             "EMIS -> EMIS",
+            "TPP -> TPP",
             "TPP -> EMIS",
             "EMIS -> TPP",
             "EMIS -> Vision",
@@ -41,12 +42,12 @@ labels: [
             "MT -> EMIS",
             "EMIS -> MT",
             "MT -> MT",
-            "TPP -> TPP",
             "Vision -> MT",
             "MT -> Vision"
           ]
 items: [
             138176,
+            115836,
             43707,
             40617,
             7761,
@@ -59,12 +60,12 @@ items: [
             589,
             580,
             349,
-            48,
             22,
             20
       ]
 percentages: [
             56,
+            bla,
             18,
             16,
             3,
@@ -79,13 +80,13 @@ percentages: [
             0,
             0,
             0,
-            0,
       ]
 ---
 A chart representing the EHR Sent Requests split into source and target system.
 
-The data was collected from **Splunk** with the following query: 
+The data was collected from **Splunk** with the following queries:
 
+This is the query that gave us all the supplier to supplier system data except for TPP -> TPP transfers.
 ```sql
 index="spine2-live" 
       service=gp2gp 
@@ -96,4 +97,14 @@ index="spine2-live"
             | eval percentage=round(count/totalCount * 100, 0)
             | table fromPName, toPName, count, percentage, totalCount
             | sort -count
+```
+
+This query informed our TPP -> TPP transfer data.
+```sql
+index="gp2gp-mi" sourcetype="gppractice-RR"
+            | lookup GP2GP-Practice-Lookup PracticeCode AS RequestorODS OUTPUTNEW CurrentClinicalSupplier AS RequestorSystem
+            | lookup GP2GP-Practice-Lookup PracticeCode AS SenderODS OUTPUTNEW CurrentClinicalSupplier AS SenderSystem
+            | where SenderSystem="TPP"
+            | stats count by SenderSystem, RequestorSystem
+            | sort - count
 ```
