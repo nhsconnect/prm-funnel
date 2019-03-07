@@ -1,5 +1,5 @@
 ---
-layout: donut
+layout: chart
 title:  "EHR Extracts sent grouped by sending and receiving system type"
 date:   2019-03-05 15:46:00 +0000
 timeframe: Jan 2019

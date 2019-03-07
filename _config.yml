@@ -30,9 +30,9 @@ collections:
   funnels:
     output: true
     title: Data Funnels
-  donuts:
+  charts:
     output: true
-    title: Donuts
+    title: Charta
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

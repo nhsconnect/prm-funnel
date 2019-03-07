@@ -1,5 +1,5 @@
 ---
-layout: donut
+layout: chart
 title:  "Type of Patient Transfer"
 date:   2019-03-02 15:46:00 +0000
 timeframe: Jan 2019
