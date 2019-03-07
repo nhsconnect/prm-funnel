@@ -26,13 +26,11 @@
         <tr>
           <th>Label</th>
           <th>Data</th> 
-          <th>Percentage</th> 
         </tr>
         {%- for label in page.labels -%}
         <tr>
           <td>{{label}}</td>
           <td>{{page.items[forloop.index0]}}</td> 
-          <td>{{page.percentages[forloop.index0]}}</td> 
         </tr>
         {%- endfor -%}
         <tfoot>
