@@ -2,6 +2,7 @@
 layout: chart
 title:  "EHR Extracts sent grouped by sending and receiving system type"
 date:   2019-03-05 15:46:00 +0000
+funnel_slice: EHR Requests Sent
 timeframe: Jan 2019
 datatype: Quantitative
 confidence: Low

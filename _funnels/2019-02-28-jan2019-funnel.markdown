@@ -8,7 +8,7 @@ datasource: NMS
 categories: data
 items: [
     { "label": "Registrations", "value": 325772 },
-    { "label": "EHR Requests Sent", "value": 51617 }
+    { "label": "EHR Requests Sent", "value": 363287 }
 ]
 donuts: [
   { "title": "First", "document_name": "2019-02-28-registrations-jan2019" },
