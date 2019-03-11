@@ -67,7 +67,7 @@ items: [
 ---
 A chart representing the EHR Sent Requests split into source and target system.
 
-The data was collected from **Splunk** with the following queries:
+The data was collected from **Splunk** with the following queries, and the date range was 1st-31st January 2019:
 
 This is the query that gave us all the supplier to supplier system data except for TPP -> TPP transfers.
 ```sql
