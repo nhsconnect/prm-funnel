@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-  {% if site.url.start_with? "https://nhsconnect.github.io/prm-funnel/" %}
-    <link rel="shortcut icon" type="image/svg" href="/prm-funnel/assets/favicon.jpg">
+  {% if site.url contains 'nhsconnect.github.io' %}
+  <link rel="shortcut icon" type="image/jpg" href="/prm-funnel/assets/favicon.jpg">
   {% else %}
-    <link rel="shortcut icon" type="image/svg" href="/prm-funnel/assets/favicon.local.jpg">
+  <link rel="shortcut icon" type="image/jpg" href="/prm-funnel/assets/favicon.local.jpg">
   {% endif %}
 
   {%- include head.html -%}
