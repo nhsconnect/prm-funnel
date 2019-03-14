@@ -8,11 +8,13 @@ datasource: NMS
 categories: data
 items: [
     { "label": "Registrations", "value": 325772 },
-    { "label": "EHR Requests Sent", "value": 363287 }
+    { "label": "EHR Requests Sent", "value": 363287 },
+    { "label": "EHR Extracts Sent", "value": 300000 }
 ]
 donuts: [
-  { "title": "First", "document_name": "2019-02-28-registrations-jan2019" },
-  { "title": "Second", "document_name": "2019-03-05-supplier-to-supplier-jan2019" }
+  { "document_name": "2019-02-28-registrations-jan2019" },
+  { "document_name": "2019-03-05-supplier-to-supplier-jan2019" },
+  { "document_name": "2019-03-13-message-types-jan2019" }
 ] 
 ---
 Whilst the **EHR Requests Sent** data is sourced from **January 2019**, the **Registrations** data is collated from the **Monthly CCG GP2GP Utilisation Report - July 2018**, as that is the most recent data we have available.
