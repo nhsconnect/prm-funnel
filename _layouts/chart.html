@@ -9,6 +9,13 @@ layout: default
     const colours = JSON.parse('{{page.colours | jsonify}}');
     const labels = JSON.parse('{{page.labels | jsonify}}');
 
+    const donuts = JSON.parse('{{page.donuts | jsonify}}');
+    let url = '{{ site.url }}';
+    const baseUrl = '{{ site.baseurl }}';
+    if (url.indexOf(baseUrl) < 0) {
+      url = `${url}${baseUrl}/`;
+    }
+
     var datasets = { "datasets":
             [{
                 data: items,
@@ -34,6 +41,13 @@ layout: default
           animateScale: true,
           animateRotate: true
         },
+        onClick: function(evt) {
+          var activePoints = window.myDoughnut.getElementsAtEvent(evt);
+          var anyPoint = activePoints[0];
+          let document_name = donuts[anyPoint._index].document_name;
+          let link = `${url}charts/${document_name}.html`;
+          window.location.href = link;
+          },
         tooltips: {
           callbacks: {
             label: function(tooltipItem, data) {
