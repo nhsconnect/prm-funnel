@@ -7,7 +7,7 @@ datatype: Quantitative
 confidence: Low
 datasource: NMS
 categories: data
-total: 1234
+total: 120730
 chart_type: doughnut
 colours: [
             "#5E42A6",
@@ -17,30 +17,32 @@ colours: [
             "#F45F42"
           ]
 labels: [
-            "Success",
-            "JDI 1",
-            "JDI 2",
-            "JDI 3",
-            "JDI 4"
+            "0 / 00: Success",
+            "14: Message not sent because requesting practice is not large message compliant",
+            "19: Sender check indicates that requestor is not the patients current health care provider",
+            "20: Spine system responded with an error",
+            "23: Message not sent because sending practice is not large message compliant"
           ]
 items: [
-            1000,
-            200,
-            30,
-            2,
-            2
+            115854,
+            3972,
+            18,
+            173,
+            713
       ]
 ---
 A chart representing the details of Large messages.
 
-The data was collected from **Splunk** with the following queries, and the date range was 1st-31st January 2019:
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st January 2019**:
 
-This is the query that gave us information on what is classed as a large message
+This is the query that gave us information on the **RequestAckCode**, specifically where this was not **0** or **00**, as we have assumed the 0s are a success.
 ```sql
- INSERT
-```
-
-This query informed our TPP -> TPP transfer data.
-```sql
-INSERT
+ index="gp2gp-mi" sourcetype="gppractice-SR" 
+    LargeMessagingRequired=1 
+    (RequestAckCode!=0 AND RequestAckCode!=00)
+      | join "conversationID" 
+        [search index=spine2-live service="gp2gp" 
+          interactionID="urn:nhs:names:services:gp2gp/RCMR_IN030000UK06"
+          | rename ConversationID AS conversationID]
+      | stats dc(ConversationID) by RequestAckCode
 ```
