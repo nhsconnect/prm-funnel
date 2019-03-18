@@ -24,7 +24,7 @@ labels: [
             "23: Message not sent because sending practice is not large message compliant"
           ]
 items: [
-            115854,
+            115858,
             3972,
             18,
             173,
@@ -37,12 +37,8 @@ The data was collected from **Splunk** with the following query, and the date ra
 
 This is the query that gave us information on the **RequestAckCode**, specifically where this was not **0** or **00**, as we have assumed the 0s are a success.
 ```sql
- index="gp2gp-mi" sourcetype="gppractice-SR" 
-    LargeMessagingRequired=1 
+ index="gp2gp-mi" sourcetype="gppractice-SR"
+    LargeMessagingRequired=1
     (RequestAckCode!=0 AND RequestAckCode!=00)
-      | join "conversationID" 
-        [search index=spine2-live service="gp2gp" 
-          interactionID="urn:nhs:names:services:gp2gp/RCMR_IN030000UK06"
-          | rename ConversationID AS conversationID]
       | stats dc(ConversationID) by RequestAckCode
 ```
