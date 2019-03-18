@@ -19,8 +19,8 @@ labels: [
             "Small Messages"
           ]
 items: [
-            120730,
-            111413
+            120734,
+            111414
       ]
 donuts: [
   { "document_name": "2019-03-13-large-message-details-jan2019" },
@@ -37,5 +37,5 @@ The data was collected from **Splunk** with the following query, and the date ra
       [search index=spine2-live service="gp2gp"
         interactionID="urn:nhs:names:services:gp2gp/RCMR_IN030000UK06"
         | rename ConversationID AS conversationID]
-    | dedup ConversationID
+    | stats dc(ConversationID) by LargeMessagingRequired
 ```
