@@ -33,9 +33,5 @@ The data was collected from **Splunk** with the following query, and the date ra
 
 ```sql
  index="gp2gp-mi" sourcetype="gppractice-SR"
-    | join "conversationID" 
-      [search index=spine2-live service="gp2gp"
-        interactionID="urn:nhs:names:services:gp2gp/RCMR_IN030000UK06"
-        | rename ConversationID AS conversationID]
     | stats dc(ConversationID) by LargeMessagingRequired
 ```
