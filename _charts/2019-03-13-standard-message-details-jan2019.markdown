@@ -1,6 +1,6 @@
 ---
 layout: chart
-title:  "Small message details"
+title:  "Standard message details"
 date:   2019-03-05 15:46:00 +0000
 timeframe: Jan 2019
 datatype: Quantitative
@@ -33,7 +33,7 @@ items: [
 ---
 
 **THIS PAGE WILL BE COMPLETED AT A LATER DATE**
-A chart representing the details of Small messages.
+A chart representing the details of standard messages.
 
 The data was collected from **Splunk** with the following query, and the date range was **1st-31st January 2019**:
 
