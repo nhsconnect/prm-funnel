@@ -16,7 +16,7 @@
 title: Patient Record Migrations Data
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  This is a demo site for data collation on patient record migrations.
+  Data collation on patient record migrations.
 url: "https://nhsconnect.github.io/prm-funnel/"
 baseurl: "/prm-funnel"
 
