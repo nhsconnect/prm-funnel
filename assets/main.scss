@@ -12,9 +12,14 @@
     width: calc(800px - (30px * 2))
 }
 
+#funnel {
+    margin-bottom: 30px;
+}
+
 #canvas-holder {
     width: 100%;
     min-height: 400px;
+    margin-bottom: 30px;
 }
 
 #canvas-holder-horizontalBar {
