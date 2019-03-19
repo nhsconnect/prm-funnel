@@ -11,11 +11,11 @@ categories: data
 total: 120730
 chart_type: doughnut
 colours: [
-            "#5E42A6",
-            "#05C6F4",
-            "#F2AD85",
-            "#DB6D83",
-            "#F45F42"
+            "#FF6DA7",
+            "#E8A333",
+            "#4E8516",
+            "#27DEE8",
+            "#A35EFF"
           ]
 labels: [
             "0 / 00: Success",
