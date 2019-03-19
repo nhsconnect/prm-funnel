@@ -16,7 +16,7 @@ colours: [
           ]
 labels: [
             "Large Messages",
-            "Small Messages"
+            "Standard Messages"
           ]
 items: [
             120734,
@@ -24,7 +24,7 @@ items: [
       ]
 donuts: [
   { "document_name": "2019-03-13-large-message-details-jan2019" },
-  {"document_name": "2019-03-13-small-message-details-jan2019"}
+  { "document_name": "2019-03-13-small-message-details-jan2019" }
 ] 
 ---
 A chart representing the EHR Extracts split into message types. The data covers Emis and TPP only, as MicroTest and Vision do not report their MI.

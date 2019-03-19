@@ -30,64 +30,85 @@ colours: [
           ]
 labels: [
             "EMIS -> EMIS",
-            "TPP -> TPP",
-            "TPP -> EMIS",
             "EMIS -> TPP",
-            "EMIS -> Vision",
-            "Vision -> EMIS",
-            "Vision -> Vision",
-            "TPP -> Vision",
-            "Vision -> TPP",
-            "TPP -> MT",
-            "MT -> TPP",
-            "MT -> EMIS",
-            "EMIS -> MT",
-            "MT -> MT",
-            "Vision -> MT",
-            "MT -> Vision"
+            "TPP -> EMIS",
+            "INPS -> EMIS",
+            "INPS -> TPP",
+            "EMIS -> INPS",
+            "Microtest -> EMIS",
+            "EMIS -> Unknown",
+            "Microtest -> TPP",
+            "Unknown -> EMIS",
+            "TPP -> INPS",
+            "INPS -> INPS",
+            "EMIS -> Microtest",
+            "TPP -> TPP",
+            "Unknown -> TPP",
+            "ISOFT -> EMIS",
+            "EMIS -> ISOFT",
+            "TPP -> Unknown",
+            "TPP -> Microtest",
+            "Microtest -> Microtest",
+            "ISOFT -> TPP",
+            "INPS -> Unknown",
+            "INPS -> Microtest",
+            "TPP -> ISOFT",
+            "Microtest -> INPS",
+            "INPS -> ISOFT",
+            "Unknown -> Unknown",
+            "Unknown -> INPS",
+            "Unknown -> Microtest",
+            "Microtest -> ISOFT",
+            "Microtest -> Unknown",
+            "ISOFT -> ISOFT"
           ]
 items: [
-            138176,
-            115836,
-            43707,
-            40617,
-            7761,
-            6781,
-            3648,
-            2312,
-            1680,
-            609,
-            600,
-            589,
-            580,
-            349,
-            22,
-            20
+            134032,
+            41824,
+            38888,
+            8702,
+            2730,
+            1344,
+            721,
+            706,
+            653,
+            573,
+            337,
+            334,
+            228,
+            220,
+            155,
+            95,
+            88,
+            88,
+            78,
+            71,
+            21,
+            18,
+            17,
+            16,
+            10,
+            7,
+            5,
+            2,
+            2,
+            1,
+            1,
+            0
       ]
 ---
 A chart representing the EHR Sent Requests split into source and target system.
 
 The data was collected from **Splunk** with the following queries, and the date range was 1st-31st January 2019:
 
-This is the query that gave us all the supplier to supplier system data except for TPP -> TPP transfers.
-```sql
-index="spine2-live" 
-      service=gp2gp 
-      interactionID="urn:nhs:names:services:gp2gp/RCMR_IN010000UK05" 
-            | dedup conversationID 
-            | stats count by fromPName, toPName
-            | eventstats sum(count) as totalCount
-            | eval percentage=round(count/totalCount * 100, 0)
-            | table fromPName, toPName, count, percentage, totalCount
-            | sort -count
-```
-
-This query informed our TPP -> TPP transfer data.
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-RR"
-            | lookup GP2GP-Practice-Lookup PracticeCode AS RequestorODS OUTPUTNEW CurrentClinicalSupplier AS RequestorSystem
-            | lookup GP2GP-Practice-Lookup PracticeCode AS SenderODS OUTPUTNEW CurrentClinicalSupplier AS SenderSystem
-            | where SenderSystem="TPP"
-            | stats count by SenderSystem, RequestorSystem
+            | lookup GP2GP-Practice-Lookup PracticeCode 
+                  AS RequestorODS OUTPUTNEW CurrentClinicalSupplier
+                  AS RequestorSystem
+            | lookup GP2GP-Practice-Lookup PracticeCode 
+                  AS SenderODS OUTPUTNEW CurrentClinicalSupplier
+                  AS SenderSystem
+            | stats dc(ConversationID) as count by SenderSystem, RequestorSystem
             | sort - count
 ```

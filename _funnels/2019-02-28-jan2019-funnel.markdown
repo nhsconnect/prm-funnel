@@ -7,8 +7,8 @@ confidence: Low
 datasource: NMS
 categories: data
 items: [
-    { "label": "Registrations", "value": 233588 },
-    { "label": "EHR Requests Sent", "value": 232140 },
+    { "label": "Registrations", "value": 325772 },
+    { "label": "EHR Requests Sent", "value": 233588 },
     { "label": "EHR Extracts Sent", "value": 232148 }
 ]
 donuts: [
