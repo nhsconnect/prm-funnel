@@ -6,7 +6,7 @@ funnel_slice: EHR Extracts
 timeframe: Jan 2019
 datatype: Quantitative
 confidence: Low
-datasource: NMS
+datasource: NMS (gp2gp-mi)
 categories: data
 total: 232143
 chart_type: doughnut

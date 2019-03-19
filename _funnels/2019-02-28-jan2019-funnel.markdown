@@ -8,7 +8,7 @@ datasource: NMS
 categories: data
 items: [
     { "label": "Registrations", "value": 325772 },
-    { "label": "EHR Requests Sent", "value": 233588 },
+    { "label": "EHR Requests Sent", "value": 233586 },
     { "label": "EHR Extracts Sent", "value": 232148 }
 ]
 donuts: [
@@ -17,4 +17,4 @@ donuts: [
   { "document_name": "2019-03-13-message-types-jan2019" }
 ] 
 ---
-Whilst the **EHR Requests Sent** data is sourced from **January 2019**, the **Registrations** data is collated from the **Monthly CCG GP2GP Utilisation Report - July 2018**, as that is the most recent data we have available.
+Whilst the **EHR Requests Sent** and **EHR Extracts Sent** data is sourced from **suppliers' data - January 2019**, the **Registrations** data is collated from the **Monthly CCG GP2GP Utilisation Report - July 2018**, as that is the most recent data we have available.

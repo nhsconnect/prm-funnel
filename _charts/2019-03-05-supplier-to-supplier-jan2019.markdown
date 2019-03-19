@@ -6,95 +6,39 @@ funnel_slice: EHR Requests Sent
 timeframe: Jan 2019
 datatype: Quantitative
 confidence: Low
-datasource: NMS
+datasource: NMS (gp2gp-mi)
 categories: data
 total: 247499
 chart_type: horizontalBar
 colours: [
-            "#5E42A6",
-            "#05C6F4",
-            "#05D7B3",
-            "#798B01",
-            "#BE7D03",
-            "#09090F",
-            "#2B252A",
-            "#6A2973",
-            "#F2AD85",
-            "#DB6D83",
-            "#F45F42",
-            "#E3D78D",
-            "#FF2626",
-            "#FF8A0C",
-            "#652773",
-            "#FDA099"
+            "red",
+            "blue",
+            "pink",
+            "purple",
+            "yellow",
+            "violet",
+            "orange",
+            "green"
           ]
 labels: [
             "EMIS -> EMIS",
             "EMIS -> TPP",
             "TPP -> EMIS",
-            "INPS -> EMIS",
-            "INPS -> TPP",
-            "EMIS -> INPS",
-            "Microtest -> EMIS",
-            "EMIS -> Unknown",
-            "Microtest -> TPP",
-            "Unknown -> EMIS",
-            "TPP -> INPS",
-            "INPS -> INPS",
-            "EMIS -> Microtest",
-            "TPP -> TPP",
-            "Unknown -> TPP",
-            "ISOFT -> EMIS",
-            "EMIS -> ISOFT",
-            "TPP -> Unknown",
-            "TPP -> Microtest",
-            "Microtest -> Microtest",
-            "ISOFT -> TPP",
-            "INPS -> Unknown",
-            "INPS -> Microtest",
-            "TPP -> ISOFT",
-            "Microtest -> INPS",
-            "INPS -> ISOFT",
-            "Unknown -> Unknown",
-            "Unknown -> INPS",
-            "Unknown -> Microtest",
-            "Microtest -> ISOFT",
-            "Microtest -> Unknown",
-            "ISOFT -> ISOFT"
+            "Vision -> EMIS",
+            "Vision -> TPP",
+            "MicroTest -> TPP",
+            "MicroTest -> EMIS",
+            "TPP -> TPP"
           ]
 items: [
-            134032,
-            41824,
-            38888,
-            8702,
-            2730,
-            1344,
-            721,
-            706,
-            653,
-            573,
-            337,
-            334,
-            228,
-            220,
-            155,
-            95,
-            88,
-            88,
-            78,
-            71,
-            21,
-            18,
-            17,
-            16,
-            10,
-            7,
-            5,
-            2,
-            2,
-            1,
-            1,
-            0
+            138722,
+            43173,
+            40380,
+            7778,
+            2283,
+            608,
+            581,
+            61
       ]
 ---
 A chart representing the EHR Sent Requests split into source and target system.
@@ -102,13 +46,21 @@ A chart representing the EHR Sent Requests split into source and target system.
 The data was collected from **Splunk** with the following queries, and the date range was 1st-31st January 2019:
 
 ```sql
-index="gp2gp-mi" sourcetype="gppractice-RR"
-            | lookup GP2GP-Practice-Lookup PracticeCode 
-                  AS RequestorODS OUTPUTNEW CurrentClinicalSupplier
-                  AS RequestorSystem
-            | lookup GP2GP-Practice-Lookup PracticeCode 
-                  AS SenderODS OUTPUTNEW CurrentClinicalSupplier
-                  AS SenderSystem
-            | stats dc(ConversationID) as count by SenderSystem, RequestorSystem
-            | sort - count
+ index="gp2gp-mi" sourcetype="gppractice-RR"
+    | where RequestFailurePoint=0 OR RequestFailurePoint=60 
+    | join type=outer RequestorODS 
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"] 
+    | join type=outer SenderODS 
+        [search index="gp2gp-mi" sourcetype="gppractice-HR" 
+          | rename RequestorODS as SenderODS 
+          | rename RequestorSoftware as SenderSoftware]
+    | rex field=RequestorSoftware 
+      "(?<RequestorSupplier>.*)_(?<RequestorSystem>.*)_(?<RequestorVersion>.*)"
+    | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "unknown")
+    | rex field=SenderSoftware 
+      "(?<SenderSupplier>.*)_(?<SenderSystem>.*)_(?<SenderVersion>.*)"
+    | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName
+    | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "unknown")
+    | stats dc(ConversationID) as count by SenderSupplier, RequestorSupplier
+    | sort - count
 ```

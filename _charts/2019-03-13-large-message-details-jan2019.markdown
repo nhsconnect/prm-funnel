@@ -5,7 +5,8 @@ date:   2019-03-05 15:46:00 +0000
 timeframe: Jan 2019
 datatype: Quantitative
 confidence: Low
-datasource: NMS
+funnel_slice: EHR Extracts
+datasource: NMS (gp2gp-mi)
 categories: data
 total: 120730
 chart_type: doughnut
