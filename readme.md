@@ -13,40 +13,40 @@ Ensure you have access to the `gp2gp-mi` index in the NMS Trends instance of Spl
 1. Import the `splunk-dashboard.xml` file into Splunk
 2. Set the date range for the month you wish to produce statistics for.
 3. Create the funnel
-  1. Duplicate a file from the `_funnels` directory
-  2. Update the `title` and `date` fields
-  3. Update the date range referenced in the text 
-  4. Update the `EHR Requests sent` field using the `total` from the `EHR Requests sent grouped by sending and receiving system type` query
-  5. Update the `EHR Extracts sent` field using the `total` from the `EHR extracts grouped by message type` query
-  6. Update the file names in the `donuts` section to reference the new layer details created below
+   1. Duplicate a file from the `_funnels` directory
+   2. Update the `title` and `date` fields
+   3. Update the date range referenced in the text 
+   4. Update the `EHR Requests sent` field using the `total` from the `EHR Requests sent grouped by sending and receiving system type` query
+   5. Update the `EHR Extracts sent` field using the `total` from the `EHR extracts grouped by message type` query
+   6. Update the file names in the `donuts` section to reference the new layer details created below
 4. Update the EHR Requests sent details
-  1. Duplicate an instance of the `supplier-to-supplier` file from the `_charts` directory
-  2. Update the `date` and `timeframe` fields
-  3. Update the date range referenced in the text
-  4. Update the `total` field using the `total` from the `EHR Requests sent grouped by sending and receiving system type` query
-  5. Ensure the order of the `labels` field corresponds to the order of results in the `EHR Requests sent grouped by sending and receiving system type` query
-  6. Update the values in the `items` field with the values from the `EHR Requests sent grouped by sending and receiving system type` query
+   1. Duplicate an instance of the `supplier-to-supplier` file from the `_charts` directory
+   2. Update the `date` and `timeframe` fields
+   3. Update the date range referenced in the text
+   4. Update the `total` field using the `total` from the `EHR Requests sent grouped by sending and receiving system type` query
+   5. Ensure the order of the `labels` field corresponds to the order of results in the `EHR Requests sent grouped by sending and receiving system type` query
+   6. Update the values in the `items` field with the values from the `EHR Requests sent grouped by sending and receiving system type` query
 5. Update the EHR Extracts sent details
-  1. Duplicate an instance of the `message-types` file from the `_charts` directory
-  2. Update the `date` and `timeframe` fields
-  3. Update the date range referenced in the text
-  4. Update the `total` field using the `total` from the `EHR extracts grouped by message type` query
-  5. Update the values in the `items` field with the values from the `EHR extracts grouped by message type` query
-  6. Update the file names in the `donuts` section to reference the new layer details created below
+   1. Duplicate an instance of the `message-types` file from the `_charts` directory
+   2. Update the `date` and `timeframe` fields
+   3. Update the date range referenced in the text
+   4. Update the `total` field using the `total` from the `EHR extracts grouped by message type` query
+   5. Update the values in the `items` field with the values from the `EHR extracts grouped by message type` query
+   6. Update the file names in the `donuts` section to reference the new layer details created below
 6. Update the Large Message details
-  1. Duplicate an instance of the `large-message-details` file from the `_charts` directory
-  2. Update the `date` and `timeframe` fields
-  3. Update the date range referenced in the text
-  4. Update the `total` field using the `total` from the `Large Message details` query
-  5. Ensure that order of the `labels` field corresponds to the order of results in the `Large message details` query: error descriptions are from the `GP2GP Response Codes` document
-  6. Update the values in the `items` field with the values from the `Large Message Details` query
+   1. Duplicate an instance of the `large-message-details` file from the `_charts` directory
+   2. Update the `date` and `timeframe` fields
+   3. Update the date range referenced in the text
+   4. Update the `total` field using the `total` from the `Large Message details` query
+   5. Ensure that order of the `labels` field corresponds to the order of results in the `Large message details` query: error descriptions are from the `GP2GP Response Codes` document
+   6. Update the values in the `items` field with the values from the `Large Message Details` query
 7. Update the Standard Message details
-  1. Duplicate an instance of the `standard-message-details` file from the `_charts` directory
-  2. Update the `date` and `timeframe` fields
-  3. Update the date range referenced in the text
-  4. Update the `total` field using the `total` from the `Standard Message details` query
-  5. Ensure that order of the `labels` field corresponds to the order of results in the `Standard message details` query: error descriptions are from the `GP2GP Response Codes` document
-  6. Update the values in the `items` field with the values from the `Standard Message Details` query
+   1. Duplicate an instance of the `standard-message-details` file from the `_charts` directory
+   2. Update the `date` and `timeframe` fields
+   3. Update the date range referenced in the text
+   4. Update the `total` field using the `total` from the `Standard Message details` query
+   5. Ensure that order of the `labels` field corresponds to the order of results in the `Standard message details` query: error descriptions are from the `GP2GP Response Codes` document
+   6. Update the values in the `items` field with the values from the `Standard Message Details` query
 
 ## How to run the site locally
 
