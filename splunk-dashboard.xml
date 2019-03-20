@@ -1,0 +1,79 @@
+<form>
+  <label>GP2GP Funnel</label>
+  <fieldset submitButton="false">
+    <input type="time" token="report_time">
+      <label></label>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <table>
+        <title>EHR Requests sent grouped by sending and receiving system type</title>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR"
+    | where RequestFailurePoint=0 OR RequestFailurePoint=60 
+    | join type=outer RequestorODS 
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"] 
+    | join type=outer SenderODS 
+        [search index="gp2gp-mi" sourcetype="gppractice-HR" 
+          | rename RequestorODS as SenderODS 
+          | rename RequestorSoftware as SenderSoftware]
+    | rex field=RequestorSoftware 
+      "(?&lt;RequestorSupplier&gt;.*)_(?&lt;RequestorSystem&gt;.*)_(?&lt;RequestorVersion&gt;.*)" | eventstats sum(count) as total
+    | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "unknown")
+    | rex field=SenderSoftware 
+      "(?&lt;SenderSupplier&gt;.*)_(?&lt;SenderSystem&gt;.*)_(?&lt;SenderVersion&gt;.*)"
+    | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName
+    | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "unknown")
+    | stats dc(ConversationID) as count by SenderSupplier, RequestorSupplier
+    | sort - count | eventstats sum(count) as total</query>
+          <earliest>$report_time.earliest$</earliest>
+          <latest>$report_time.latest$</latest>
+        </search>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>EHR extracts grouped by message type</title>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-SR"
+    | stats dc(ConversationID) as count by LargeMessagingRequired | eventstats sum(count) as total</query>
+          <earliest>$report_time.earliest$</earliest>
+          <latest>$report_time.latest$</latest>
+        </search>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Large message details</title>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-SR"
+    LargeMessagingRequired=1
+      | eval RequestAckCode=if(RequestAckCode=="00","0",RequestAckCode)
+      | stats dc(ConversationID) as count by RequestAckCode | eventstats sum(count) as total</query>
+          <earliest>$report_time.earliest$</earliest>
+          <latest>$report_time.latest$</latest>
+        </search>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Small message details</title>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-SR"
+    LargeMessagingRequired=0
+      | eval RequestAckCode=if(RequestAckCode=="00","0",RequestAckCode)
+      | stats dc(ConversationID) as count by RequestAckCode | eventstats sum(count) as total</query>
+          <earliest>$report_time.earliest$</earliest>
+          <latest>$report_time.latest$</latest>
+        </search>
+      </table>
+    </panel>
+  </row>
+</form>

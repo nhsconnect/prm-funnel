@@ -3,7 +3,7 @@ layout: chart
 title:  "Type of Patient Transfer"
 date:   2019-03-02 15:46:00 +0000
 funnel_slice: Registrations
-timeframe: Jan 2019
+timeframe: Jul 2018
 datatype: Quantitative
 confidence: Low
 datasource: GP2GP Utilisation Report
