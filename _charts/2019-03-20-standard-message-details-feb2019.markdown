@@ -4,7 +4,7 @@ title:  "Standard message details"
 date:   2019-03-20 11:53:00 +0000
 timeframe: Feb 2019
 datatype: Quantitative
-confidence: Low
+confidence: Medium
 funnel_slice: EHR Extracts
 datasource: NMS (gp2gp-mi)
 categories: data

@@ -2,13 +2,13 @@
 layout: chart
 title:  "Standard message details"
 date:   2019-03-20 12:28:00 +0000
-timeframe: Dec 2018
+timeframe: Oct 2018
 datatype: Quantitative
 confidence: Medium
 funnel_slice: EHR Extracts
 datasource: NMS (gp2gp-mi)
 categories: data
-total: 71815
+total: 126546
 chart_type: doughnut
 colours: [
             "#FF6DA7",
@@ -17,6 +17,7 @@ colours: [
             "#27DEE8",
             "#A35EFF",
             "#571845",
+            "#664422",
             "#900C3E",
             "#FF5733",
             "#FFC300"
@@ -28,25 +29,27 @@ labels: [
             "10: Failed to successfully generate EHR extract",
             "19: Sender check indicates that requestor is not the patients current health care provider",
             "20: Spine system responded with an error",
+            "21: EHR Extract message not well-formed or not able to be processed",
             "23: Message not sent because sending practice is not large message compliant",
             "30: Large Message general failure",
             "99: Undocumented error code"
           ]
 items: [
-            71099,
-            119,
-            41,
-            7,
-            18,
-            20,
-            8,
-            496,
-            7
+            125358,
+            270,
+            103,
+            10,
+            43,
+            54,
+            1,
+            12,
+            687,
+            8
       ]
 ---
 A chart representing the details of Standard messages.
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-31st December 2018**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st October 2018**:
 
 This is the query that gave us information on the **RequestAckCode**, specifically where this maps **00** to **0**, as we have assumed all the 0s are a success.
 ```sql

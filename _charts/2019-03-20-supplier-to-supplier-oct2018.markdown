@@ -1,14 +1,14 @@
 ---
 layout: chart
 title:  "EHR Requests sent grouped by sending and receiving system type"
-date:   2019-03-05 15:46:00 +0000
+date:   2019-03-20 12:28:00 +0000
 funnel_slice: EHR Requests Sent
-timeframe: Jan 2019
+timeframe: Oct 2018
 datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
-total: 247499
+total: 257000
 chart_type: horizontalBar
 colours: [
             "red",
@@ -16,9 +16,10 @@ colours: [
             "pink",
             "purple",
             "yellow",
-            "violet",
             "orange",
-            "green"
+            "violet",
+            "green",
+            "cyan"
           ]
 labels: [
             "EMIS -> EMIS",
@@ -26,24 +27,28 @@ labels: [
             "TPP -> EMIS",
             "Vision -> EMIS",
             "Vision -> TPP",
-            "MicroTest -> TPP",
             "MicroTest -> EMIS",
-            "TPP -> TPP"
+            "MicroTest -> TPP",
+            "TPP -> TPP",
+            "EMIS -> unknown",
+            "Vision -> unknown"
           ]
 items: [
-            138679,
-            43160,
-            40375,
-            7778,
-            2283,
-            608,
-            581,
-            61
+            148053,
+            50072,
+            46953,
+            7776,
+            2699,
+            671,
+            637,
+            129,
+            8,
+            2
       ]
 ---
 A chart representing the EHR Sent Requests split into source and target system.
 
-The data was collected from **Splunk** with the following queries, and the date range was 1st-31st January 2019:
+The data was collected from **Splunk** with the following queries, and the date range was 1st-31st October 2018:
 
 ```sql
  index="gp2gp-mi" sourcetype="gppractice-RR"

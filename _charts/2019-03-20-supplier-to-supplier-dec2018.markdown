@@ -5,7 +5,7 @@ date:   2019-03-20 12:28:00 +0000
 funnel_slice: EHR Requests Sent
 timeframe: Dec 2018
 datatype: Quantitative
-confidence: Low
+confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
 total: 155323

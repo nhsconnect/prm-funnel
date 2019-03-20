@@ -5,7 +5,7 @@ date:   2019-03-05 15:46:00 +0000
 funnel_slice: EHR Extracts
 timeframe: Jan 2019
 datatype: Quantitative
-confidence: Low
+confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
 total: 232087
