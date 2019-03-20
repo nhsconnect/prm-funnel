@@ -8,7 +8,7 @@ datatype: Quantitative
 confidence: Low
 datasource: NMS (gp2gp-mi)
 categories: data
-total: 232143
+total: 232087
 chart_type: doughnut
 colours: [
             "red",
@@ -19,8 +19,8 @@ labels: [
             "Standard Messages"
           ]
 items: [
-            120734,
-            111414
+            120711,
+            111376
       ]
 donuts: [
   { "document_name": "2019-03-13-large-message-details-jan2019" },

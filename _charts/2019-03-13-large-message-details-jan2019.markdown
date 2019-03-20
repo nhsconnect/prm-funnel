@@ -8,7 +8,7 @@ confidence: Low
 funnel_slice: EHR Extracts
 datasource: NMS (gp2gp-mi)
 categories: data
-total: 120730
+total: 120713
 chart_type: doughnut
 colours: [
             "#FF6DA7",
@@ -25,7 +25,7 @@ labels: [
             "23: Message not sent because sending practice is not large message compliant"
           ]
 items: [
-            115858,
+            115837,
             3972,
             18,
             173,
