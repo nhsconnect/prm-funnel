@@ -18,7 +18,8 @@ colours: [
             "yellow",
             "orange",
             "violet",
-            "green"
+            "green",
+            "grey"
           ]
 labels: [
             "EMIS -> EMIS",
@@ -29,7 +30,7 @@ labels: [
             "MicroTest -> EMIS",
             "MicroTest -> TPP",
             "TPP -> TPP",
-            "EMIS" -> unknown"
+            "EMIS -> unknown"
           ]
 items: [
             124077,
