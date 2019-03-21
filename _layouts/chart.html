@@ -45,14 +45,27 @@ layout: default
         onClick: function(evt) {
             var activePoints = window.myDoughnut.getElementsAtEvent(evt);
             var anyPoint = activePoints[0];
-            if (anyPoint) {
+            if (anyPoint && links) {
               let document = links[anyPoint._index];
-              if (document) {
+              if (document && document.document_name) {
                 let link = `${url}charts/${document.document_name}.html`;
                 window.location.href = link;
               }
             }
           },
+          hover: {
+            onHover: function(evt) {
+              var point = this.getElementAtEvent(evt);
+              if (point.length && links) {
+                let document = links[point[0]._index];
+                if (document && document.document_name) {
+                  evt.target.style.cursor = 'pointer';
+                } else {
+                  evt.target.style.cursor = 'default';
+                }
+              }
+            }
+        },
         tooltips: {
           callbacks: {
             label: function(tooltipItem, data) {

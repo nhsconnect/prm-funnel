@@ -69,7 +69,7 @@ layout: default
             click: {
                 block: function(somedata) {
                     let document = links[somedata.index];
-                    if (document) {
+                    if (document && document.document_name) {
                       let link = `${url}charts/${document.document_name}.html`;
                       window.location.href = link;
                     }
