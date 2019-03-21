@@ -42,6 +42,17 @@ items: [
             731,
             5
       ]
+links: [
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  { "document_name": "2019-03-21-large-msg-30-supplier-to-supplier-jan2019" },
+  {}
+] 
 ---
 A chart representing the details of Standard messages.
 

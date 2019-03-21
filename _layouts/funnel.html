@@ -68,9 +68,11 @@ layout: default
           events: {
             click: {
                 block: function(somedata) {
-                    let document_name = links[somedata.index].document_name;
-                    let link = `${url}charts/${document_name}.html`;
-                    window.location.href = link;
+                    let document = links[somedata.index];
+                    if (document) {
+                      let link = `${url}charts/${document.document_name}.html`;
+                      window.location.href = link;
+                    }
                 }
             }
           }

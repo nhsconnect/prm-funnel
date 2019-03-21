@@ -46,9 +46,11 @@ layout: default
             var activePoints = window.myDoughnut.getElementsAtEvent(evt);
             var anyPoint = activePoints[0];
             if (anyPoint) {
-              let document_name = links[anyPoint._index].document_name;
-              let link = `${url}charts/${document_name}.html`;
-              window.location.href = link;
+              let document = links[anyPoint._index];
+              if (document) {
+                let link = `${url}charts/${document.document_name}.html`;
+                window.location.href = link;
+              }
             }
           },
         tooltips: {
