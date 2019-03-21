@@ -12,7 +12,7 @@ items: [
     { "label": "EHR Extracts Sent", "value": 269214 },
     { "label": "Successfully Integrated", "value": 90218 }
 ]
-donuts: [
+links: [
   { "document_name": "2019-02-28-registrations-jul2018" },
   { "document_name": "2019-03-20-supplier-to-supplier-sep2018" },
   { "document_name": "2019-03-20-message-types-sep2018" },

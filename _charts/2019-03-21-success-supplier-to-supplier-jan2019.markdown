@@ -42,7 +42,7 @@ items: [
 ---
 A chart representing the successful integrations split into source and target system.
 
-The data was collected from **Splunk** with the following queries, and the date range was 1st-31st January 2019:
+The data was collected from **Splunk** with the following queries, and the date range was the whole of January 2019:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-RR"

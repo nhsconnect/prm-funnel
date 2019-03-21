@@ -21,7 +21,7 @@ items: [
             98593,
             87371
       ]
-donuts: [
+links: [
   { "document_name": "2019-03-20-large-message-details-feb2019" },
   { "document_name": "2019-03-20-standard-message-details-feb2019" }
 ] 
