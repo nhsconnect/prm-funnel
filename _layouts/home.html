@@ -10,9 +10,10 @@ layout: default
   {{ content }}
 
   {%- if site.funnels.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Data grouped by months" }}</h2>
+    <h2 class="post-list-heading">{{ page.list_title | default: "Available months, latest first:" }}</h2>
     <ul class="post-list">
-      {%- for funnel in site.funnels -%}
+      {% assign funnels = site.funnels | reverse %}
+      {%- for funnel in funnels -%}
       <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         <h3>
