@@ -8,7 +8,6 @@ datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
-total: 155323
 chart_type: horizontalBar
 colours: [
             "red",

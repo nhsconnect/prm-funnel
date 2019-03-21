@@ -8,7 +8,6 @@ confidence: Medium
 funnel_slice: EHR Extracts
 datasource: NMS (gp2gp-mi)
 categories: data
-total: 137391
 chart_type: doughnut
 colours: [
             "#FF6DA7",

@@ -8,7 +8,6 @@ datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
-total: 247499
 chart_type: horizontalBar
 colours: [
             "red",
@@ -31,19 +30,19 @@ labels: [
             "TPP -> TPP"
           ]
 items: [
-            125813,
-            34566,
-            32193,
-            5564,
-            1339,
-            183,
-            164,
-            10
+            54931,
+            20858,
+            11260,
+            2510,
+            499,
+            125,
+            33,
+            2
       ]
 ---
 A chart representing the successful integrations split into source and target system.
 
-The data was collected from **Splunk** with the following queries, and the date range was 1st-31st January 2019:
+The data was collected from **Splunk** with the following queries, and the date range was the whole of September 2018:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-RR"

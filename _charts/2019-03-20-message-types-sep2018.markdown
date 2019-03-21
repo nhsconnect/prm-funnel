@@ -8,7 +8,6 @@ datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
-total: 269214
 chart_type: doughnut
 colours: [
             "red",

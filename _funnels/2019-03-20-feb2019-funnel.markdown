@@ -10,7 +10,7 @@ items: [
     { "label": "Registrations", "value": 325772 },
     { "label": "EHR Requests Sent", "value": 186659 },
     { "label": "EHR Extracts Sent", "value": 185964 },
-    { "label": "Successfully Integrated", "value": 1000 }
+    { "label": "Successfully Integrated", "value": 164859 }
 ]
 donuts: [
   { "document_name": "2019-02-28-registrations-jul2018" },
