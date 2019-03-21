@@ -8,7 +8,8 @@ datatype: Quantitative
 confidence: Medium
 datasource: GP2GP Utilisation Report
 categories: data
-chart_type: doughnut
+chart_config: 
+  type: 'doughnut'
 items: [
             200747,
             64198,

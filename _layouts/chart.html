@@ -4,7 +4,7 @@ layout: default
 
   {%- include chart-page.html -%}
 
-  
+  <script src="/prm-funnel/assets/js/deepmerge.min.js"></script>
   <script>
     const items = JSON.parse('{{page.items | jsonify}}');
     const colours = JSON.parse('{{page.colours | jsonify}}');
@@ -27,7 +27,7 @@ layout: default
       };
 
     var config = {
-      type: '{{page.chart_type}}',
+      type: 'bar',
       data: datasets,
       options: {
         responsive: true,
@@ -84,11 +84,8 @@ layout: default
     };
 
     const pageChartConfig = JSON.parse('{{page.chart_config | jsonify}}') || {};
-    const mergedChartConfig = {...config,  ...pageChartConfig};
+    const mergedChartConfig = deepmerge(config, pageChartConfig);
 
-
-    console.log('merged chart config')
-    console.log(mergedChartConfig);
     window.onload = function() {
       var ctx = document.getElementById('chart-area').getContext('2d');
       window.myDoughnut = new Chart(ctx, mergedChartConfig);

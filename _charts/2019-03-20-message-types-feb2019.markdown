@@ -7,9 +7,9 @@ timeframe: Feb 2019
 datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
-categories: data
-chart_type: doughnut
+categories: data  
 chart_config: 
+  type: 'doughnut'
   options:
     legend:
       position: "left"
