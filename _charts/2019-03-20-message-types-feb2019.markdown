@@ -9,6 +9,11 @@ confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
 chart_type: doughnut
+chart_config: 
+  options:
+    legend:
+      position: "left"
+
 colours: [
             "red",
             "blue"
