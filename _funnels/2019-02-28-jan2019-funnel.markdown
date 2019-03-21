@@ -9,7 +9,7 @@ categories: data
 items: [
     { "label": "Registrations", "value": 325772 },
     { "label": "EHR Requests Sent", "value": 233525 },
-    { "label": "EHR Extracts Sent", "value": 232087 },     
+    { "label": "EHR Extracts Sent", "value": 232087 },
     { "label": "Successfully Integrated", "value": 199843 }
 ]
 donuts: [
