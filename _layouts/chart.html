@@ -4,6 +4,7 @@ layout: default
 
   {%- include chart-page.html -%}
 
+  
   <script>
     const items = JSON.parse('{{page.items | jsonify}}');
     const colours = JSON.parse('{{page.colours | jsonify}}');
@@ -82,9 +83,15 @@ layout: default
       }
     };
 
+    const pageChartConfig = JSON.parse('{{page.chart_config | jsonify}}') || {};
+    const mergedChartConfig = {...config,  ...pageChartConfig};
+
+
+    console.log('merged chart config')
+    console.log(mergedChartConfig);
     window.onload = function() {
       var ctx = document.getElementById('chart-area').getContext('2d');
-      window.myDoughnut = new Chart(ctx, config);
+      window.myDoughnut = new Chart(ctx, mergedChartConfig);
     };
 
   </script>
