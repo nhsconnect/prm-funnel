@@ -17,7 +17,8 @@ colours: [
             "yellow",
             "violet",
             "orange",
-            "green"
+            "green",
+            "cyan"
           ]
 labels: [
             "EMIS -> EMIS",
@@ -27,22 +28,24 @@ labels: [
             "Vision -> TPP",
             "MicroTest -> EMIS",
             "MicroTest -> TPP",
-            "TPP -> TPP"
+            "TPP -> TPP",
+            "EMIS -> Unknown"
           ]
 items: [
-            125813,
-            34566,
-            32193,
-            5564,
-            1339,
-            183,
-            164,
-            10
+            140814,
+            42981,
+            38954,
+            5210,
+            1536,
+            232,
+            157,
+            38,
+            6
       ]
 ---
 A chart representing the successful integrations split into source and target system.
 
-The data was collected from **Splunk** with the following queries, and the date range was 1st-31st January 2019:
+The data was collected from **Splunk** with the following queries, and the date range was the whole of October 2018:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-RR"
