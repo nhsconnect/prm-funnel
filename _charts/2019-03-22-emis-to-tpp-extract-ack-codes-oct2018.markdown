@@ -19,8 +19,6 @@ colours: [
             "#571845",
             "#664422",
             "#900C3E",
-            "#FF5733",
-            "#AA9200",
             "#FFC300"
           ]
 labels: [
@@ -29,25 +27,21 @@ labels: [
             "12: Duplicate EHR Extract received",
             "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
             "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "21: EHR Extract message not well-formed or not able to be processed",
-            "25: Large messages rejected due to timeout duration reached of overall transfer",
-            "26: Returning Patient EHR Extract Received and filed as an attachment",
             "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
             "30: Large Message general failure",
-            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received"
+            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
+            "99: Unexpected condition"
           ]
 items: [
-            140814,
-            99,
-            1688,
-            9540,
-            111,
-            27,
-            149,
-            9,
-            62,
-            4,
-            7
+            38954,
+            51,
+            665,
+            1,
+            5,
+            72,
+            300,
+            29,
+            5
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
@@ -72,7 +66,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName     
   | search RequestorSupplier=EMIS 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
-  | search SenderSupplier=EMIS 
+  | search SenderSupplier=TPP 
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
   | sort ExtractAckCode
