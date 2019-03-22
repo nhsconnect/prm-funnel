@@ -82,7 +82,38 @@ eval RequestAckCode=if(RequestAckCode=="00","0",RequestAckCode)
   </row>
   <row>
     <panel>
-      <title>Successful Integrations</title>
+      <title>Successfully Integrated</title>
+      <single>
+        <title>Successfully Integrated</title>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR"
+    | where RequestFailurePoint=0 OR RequestFailurePoint=60 
+    | where ExtractAckCode=0 OR ExtractAckCode=00
+    | where ExtractAckStatus=1
+    | stats dc(ConversationID)</query>
+          <earliest>$report_time.earliest$</earliest>
+          <latest>$report_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="colorBy">value</option>
+        <option name="colorMode">block</option>
+        <option name="drilldown">all</option>
+        <option name="numberPrecision">0</option>
+        <option name="rangeColors">["0xd93f3c","0xf7bc38","0x65a637"]</option>
+        <option name="rangeValues">[0,100000]</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">standard</option>
+        <option name="trendDisplayMode">percent</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">1</option>
+        <option name="useThousandSeparators">1</option>
+      </single>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Successfully Integrated</title>
       <table>
         <title>Successful Integration Supplier to Supplier</title>
         <search>
@@ -158,4 +189,5 @@ eval RequestAckCode=if(RequestAckCode=="00","0",RequestAckCode)
       </table>
     </panel>
   </row>
+  
 </form>
