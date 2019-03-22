@@ -9,7 +9,7 @@ confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
 chart_config: 
-  type: 'horizontalBar'
+  type: 'doughnut'
 colours: [
             "red",
             "blue",
@@ -19,6 +19,7 @@ colours: [
             "orange",
             "violet",
             "green",
+            "brown",
             "cyan"
           ]
 labels: [
