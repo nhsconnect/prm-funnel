@@ -12,18 +12,15 @@ chart_config:
   type: 'doughnut'
 colours: [
             "#FF6DA7",
-            "#AA9200",
-            "#FFC300"
+            "#AA9200"
           ]
 labels: [
             "0: Success",
-            "12: Duplicate EHR Extract received",
-            "99: Unexpected condition"
+            "12: Duplicate EHR Extract received"
           ]
 items: [
-            157,
-            1,
-            2
+            164,
+            5
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.

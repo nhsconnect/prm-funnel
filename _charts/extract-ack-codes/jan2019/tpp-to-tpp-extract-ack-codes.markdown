@@ -11,19 +11,13 @@ categories: data
 chart_config: 
   type: 'doughnut'
 colours: [
-            "#FF6DA7",
-            "#E8A333",
-            "#4E8516"
+            "#FF6DA7"
           ]
 labels: [
-            "0: Success",
-            "12: Duplicate EHR Extract received",
-            "15: A-B-A EHR Extract Received and Stored As Suppressed Record"
+            "0: Success"
           ]
 items: [
-            38,
-            1,
-            3
+            10
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.

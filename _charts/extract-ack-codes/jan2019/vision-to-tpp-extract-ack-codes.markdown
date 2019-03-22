@@ -12,20 +12,14 @@ chart_config:
   type: 'doughnut'
 colours: [
             "#FF6DA7",
-            "#E8A333",
-            "#4E8516",
             "#27DEE8"
           ]
 labels: [
             "0: Success",
-            "12: Duplicate EHR Extract received",
-            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
             "99: Unexpected condition"
           ]
 items: [
-            1536,
-            2,
-            5,
+            1339,
             2
       ]
 ---

@@ -14,19 +14,22 @@ colours: [
             "#FF6DA7",
             "#E8A333",
             "#4E8516",
+            "#A35EFF",
             "#FFC300"
           ]
 labels: [
             "0: Success",
+            "12: Duplicate EHR Extract received",
             "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
-            "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "21: EHR Extract message not well-formed or not able to be processed"
+            "21: EHR Extract message not well-formed or not able to be processed",
+            "26: Returning Patient EHR Extract Received and filed as an attachment"
           ]
 items: [
-            232,
-            21,
-            1,
-            5
+            183,
+            3,
+            26,
+            4,
+            1
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.

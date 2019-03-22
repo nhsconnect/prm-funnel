@@ -17,7 +17,6 @@ colours: [
             "#27DEE8",
             "#A35EFF",
             "#571845",
-            "#664422",
             "#900C3E",
             "#FF5733",
             "#FFC300"
@@ -28,23 +27,21 @@ labels: [
             "12: Duplicate EHR Extract received",
             "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
             "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "21: EHR Extract message not well-formed or not able to be processed",
             "25: Large messages rejected due to timeout duration reached of overall transfer",
             "26: Returning Patient EHR Extract Received and filed as an attachment",
             "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
             "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received"
           ]
 items: [
-            42981,
-            24,
-            53,
-            3482,
-            45,
-            3,
+            34566,
+            21,
             30,
-            1,
-            20,
-            4
+            3007,
+            45,
+            16,
+            2,
+            22,
+            1
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
