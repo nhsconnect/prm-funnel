@@ -2,7 +2,7 @@
 layout: chart
 title:  "EMIS to EMIS RequestAckCodes"
 date:   2019-03-22 16:25:00 +0000
-timeframe: Jan 2019
+timeframe: Oct 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: EHR Requests Sent
@@ -41,11 +41,11 @@ items: [
             547
       ]
 ---
-A chart representing the ExtractAckCodes for messages from the sender to the requestor.
+A chart representing the RequestAckCodes for messages from the sender to the requestor.
 
-The data was collected from **Splunk** with the following query for the whole of **January 2019**:
+The data was collected from **Splunk** with the following query for the whole of **Oct 2018**:
 
-This is the query that gave us information on the **ExtractAckCode**, specifically where this maps **00** to **0**, as we have assumed all the 0s are a success.
+This is the query that gave us information on the **RequestAckCode**, specifically where this maps **00** to **0**, as we have assumed all the 0s are a success.
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"     
   | where ExtractFailurePoint=0 OR ExtractFailurePoint=60      
