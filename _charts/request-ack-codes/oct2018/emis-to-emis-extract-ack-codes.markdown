@@ -1,8 +1,8 @@
 ---
 layout: chart
-title:  "EMIS to EMIS RequestAckCodes"
-date:   2019-03-22 16:25:00 +0000
-timeframe: Jan 2019
+title:  "EMIS to EMIS ExtractAckCodes"
+date:   2019-03-22 15:25:00 +0000
+timeframe: Oct 2018
 datatype: Quantitative
 confidence: Medium
 funnel_slice: EHR Requests Sent
@@ -24,33 +24,35 @@ colours: [
             "#FFC300"
           ]
 labels: [
-            "0 / 00: Success",
-            "6: Patient not at surgery",
-            "7: GP2GP messaging not enabled on this system",
-            "10: Failed to successfully generate EHR extract",
-            "19: Sender check indicates that requestor is not the patients current health care provider",
-            "20: Spine system responded with an error",
-            "23: Message not sent because sending practice is not large message compliant",
+            "0: Success",
+            "11: Failed to successfully integrate EHR Extract",
+            "12: Duplicate EHR Extract received",
+            "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
+            "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+            "21: EHR Extract message not well-formed or not able to be processed",
+            "25: Large messages rejected due to timeout duration reached of overall transfer",
+            "26: Returning Patient EHR Extract Received and filed as an attachment",
+            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
             "30: Large Message general failure",
-            "99: Undocumented error code"
+            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received"
           ]
 items: [
-            125813,
-            57,
-            1207,
-            8943,
-            100,
-            1,
-            91,
-            8,
-            39,
+            140814,
+            99,
+            1688,
+            9540,
+            111,
+            27,
+            149,
+            9,
+            62,
             4,
             7
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
 
-The data was collected from **Splunk** with the following query for the whole of **January 2019**:
+The data was collected from **Splunk** with the following query for the whole of **October 2018**:
 
 This is the query that gave us information on the **ExtractAckCode**, specifically where this maps **00** to **0**, as we have assumed all the 0s are a success.
 ```sql
