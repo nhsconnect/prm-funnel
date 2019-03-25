@@ -14,19 +14,22 @@ colours: [
             "#FF6DA7",
             "#E8A333",
             "#4E8516",
-            "#FFC300"
+            "#FFC300",
+            "#00C3FF"
           ]
 labels: [
             "0: Success",
             "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
             "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "21: EHR Extract message not well-formed or not able to be processed"
+            "21: EHR Extract message not well-formed or not able to be processed",
+            "None"
           ]
 items: [
-            232,
+            236,
             21,
             1,
-            5
+            5,
+            558
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
@@ -52,6 +55,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | search RequestorSupplier=MicroTest 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | search SenderSupplier=EMIS 
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
   | sort ExtractAckCode

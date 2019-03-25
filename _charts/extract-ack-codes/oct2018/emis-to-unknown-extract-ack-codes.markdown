@@ -12,14 +12,17 @@ chart_config:
   type: 'doughnut'
 colours: [
             "#FF6DA7",
-            "#27DEE8"
+            "#27DEE8",
+            "#00C3FF"
           ]
 labels: [
             "0: Success",
-            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received"
+            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
+            "None"
           ]
 items: [
             6,
+            1,
             1
       ]
 ---
@@ -46,6 +49,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | search RequestorSupplier=EMIS 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | search SenderSupplier=Unknown 
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
   | sort ExtractAckCode

@@ -13,17 +13,20 @@ chart_config:
 colours: [
             "#FF6DA7",
             "#E8A333",
-            "#4E8516"
+            "#4E8516",
+            "#00C3FF"
           ]
 labels: [
             "0: Success",
             "12: Duplicate EHR Extract received",
-            "15: A-B-A EHR Extract Received and Stored As Suppressed Record"
+            "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
+            "None"
           ]
 items: [
             38,
             1,
-            3
+            3,
+            100
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
@@ -49,6 +52,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | search RequestorSupplier=TPP 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | search SenderSupplier=TPP 
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
   | sort ExtractAckCode

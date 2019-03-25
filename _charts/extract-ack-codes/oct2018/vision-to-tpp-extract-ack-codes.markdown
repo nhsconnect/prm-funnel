@@ -14,19 +14,22 @@ colours: [
             "#FF6DA7",
             "#E8A333",
             "#4E8516",
-            "#27DEE8"
+            "#27DEE8",
+            "#00C3FF"
           ]
 labels: [
             "0: Success",
             "12: Duplicate EHR Extract received",
             "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "99: Unexpected condition"
+            "99: Unexpected condition",
+            "None"
           ]
 items: [
             1536,
             2,
             5,
-            2
+            2,
+            1268
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
@@ -52,6 +55,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | search RequestorSupplier=INPS 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | search SenderSupplier=TPP 
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
   | sort ExtractAckCode

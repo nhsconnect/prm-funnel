@@ -18,7 +18,8 @@ colours: [
             "#A35EFF",
             "#571845",
             "#664422",
-            "#FFC300"
+            "#FFC300",
+            "#00C3FF"
           ]
 labels: [
             "0: Success",
@@ -28,7 +29,8 @@ labels: [
             "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
             "21: EHR Extract message not well-formed or not able to be processed",
             "26: Returning Patient EHR Extract Received and filed as an attachment",
-            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient"
+            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+            "None"
           ]
 items: [
             5210,
@@ -38,7 +40,8 @@ items: [
             5,
             57,
             1,
-            1
+            1,
+            4078
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
@@ -64,6 +67,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | search RequestorSupplier=INPS 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | search SenderSupplier=EMIS 
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
   | sort ExtractAckCode

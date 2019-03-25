@@ -13,17 +13,20 @@ chart_config:
 colours: [
             "#FF6DA7",
             "#AA9200",
-            "#FFC300"
+            "#FFC300",
+            "#00C3FF"
           ]
 labels: [
             "0: Success",
             "12: Duplicate EHR Extract received",
-            "99: Unexpected condition"
+            "99: Unexpected condition",
+            "None"
           ]
 items: [
-            157,
+            153,
             1,
-            2
+            2,
+            505
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
@@ -49,6 +52,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | search RequestorSupplier=MicroTest 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | search SenderSupplier=TPP 
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
   | sort ExtractAckCode

@@ -1,7 +1,7 @@
 ---
 layout: chart
-title:  "TPP to EMIS ExtractAckCodes"
-date:   2019-03-22 15:27:00 +0000
+title:  "Vision to Unknown ExtractAckCodes"
+date:   2019-03-22 16:30:00 +0000
 timeframe: Oct 2018
 datatype: Quantitative
 confidence: Medium
@@ -11,43 +11,13 @@ categories: data
 chart_config: 
   type: 'doughnut'
 colours: [
-            "#FF6DA7",
-            "#E8A333",
-            "#4E8516",
-            "#27DEE8",
-            "#A35EFF",
-            "#571845",
-            "#664422",
-            "#900C3E",
-            "#FF5733",
-            "#FFC300",
             "#00C3FF"
           ]
 labels: [
-            "0: Success",
-            "11: Failed to successfully integrate EHR Extract",
-            "12: Duplicate EHR Extract received",
-            "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
-            "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "21: EHR Extract message not well-formed or not able to be processed",
-            "25: Large messages rejected due to timeout duration reached of overall transfer",
-            "26: Returning Patient EHR Extract Received and filed as an attachment",
-            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
             "None"
           ]
 items: [
-            42962,
-            24,
-            53,
-            3478,
-            45,
-            3,
-            30,
-            1,
-            20,
-            4,
-            15592
+            2
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
@@ -70,9 +40,9 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | rex field=SenderSoftware        
       "(?<SenderSupplier>.*)_(?<SenderSystem>.*)_(?<SenderVersion>.*)"     
   | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName     
-  | search RequestorSupplier=TPP 
+  | search RequestorSupplier=INPS 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
-  | search SenderSupplier=EMIS 
+  | search SenderSupplier=Unknown 
   | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
