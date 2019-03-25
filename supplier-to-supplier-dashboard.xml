@@ -31,8 +31,8 @@
       <table>
         <title>Supplier to Supplier ExtractAckCodes</title>
         <search>
-          <query>index="gp2gp-mi" sourcetype="gppractice-RR"     
-                    | where RequestFailurePoint=0 OR RequestFailurePoint=60      
+          <query>index="gp2gp-mi" sourcetype="gppractice-SR"     
+                    | where ExtractFailurePoint=0 OR ExtractFailurePoint=60      
                     | join type=outer RequestorODS        
                         [search index="gp2gp-mi" sourcetype="gppractice-HR"]      
                     | join type=outer SenderODS          
@@ -45,12 +45,13 @@
                     | rex field=SenderSoftware        
                         "(?&lt;SenderSupplier&gt;.*)_(?&lt;SenderSystem&gt;.*)_(?&lt;SenderVersion&gt;.*)"     
                     | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName     
-                    | search RequestorSupplier=$requestor_supplier$ 
-                    | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
-                    | search SenderSupplier=$sender_supplier$ 
-                    | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
-                    | stats dc(ConversationID) as count by SenderSupplier, RequestorSupplier, ExtractAckCode 
-                    | sort ExtractAckCode</query>
+                    | search RequestorSupplier=$requestor_supplier$  
+                    | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")
+                    | search SenderSupplier=$sender_supplier$
+                    | eval RequestAckCode=coalesce(RequestAckCode, RequestAckCode, "None")
+                    | eval RequestAckCode=if(RequestAckCode=="00","0",RequestAckCode)
+                    | stats dc(ConversationID) as count by SenderSupplier, RequestorSupplier, RequestAckCode 
+                    | sort RequestAckCode</query>
           <earliest>$report_time.earliest$</earliest>
           <latest>$report_time.latest$</latest>
           <sampleRatio>1</sampleRatio>
