@@ -29,7 +29,6 @@ labels: [
 A chart representing the percentage of types of patient transfer that occurred.
 
 At the moment, "Unknown" represents a group that includes (but may not be limited to):
-- Births (where there is no data to migrate)
 - Those who have never had a Primary Care registration before (where there is no data to migrate)
 - Those who have had a Primary Care registration before (where there is data to migrate but no known data migration has happened)
 
