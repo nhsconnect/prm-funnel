@@ -41,15 +41,15 @@ items: [
             61
       ]
 links: [
-  { "document_name": "request-ack-codes/jan2019/emis-to-emis-request-ack-codes" },
-  { "document_name": "request-ack-codes/jan2019/emis-to-tpp-request-ack-codes" },
-  { "document_name": "request-ack-codes/jan2019/tpp-to-emis-request-ack-codes" },
-  { "document_name": "request-ack-codes/jan2019/vision-to-emis-request-ack-codes" },
-  { "document_name": "request-ack-codes/jan2019/vision-to-tpp-request-ack-codes" },
-  { "document_name": "request-ack-codes/jan2019/microtest-to-emis-request-ack-codes" },
-  { "document_name": "request-ack-codes/jan2019/microtest-to-tpp-request-ack-codes" },
-  { "document_name": "request-ack-codes/jan2019/tpp-to-tpp-request-ack-codes" },
-  { "document_name": "request-ack-codes/jan2019/emis-to-unknown-request-ack-codes8" }
+  { "document_name": "extract-ack-codes/jan2019/emis-to-emis-extract-ack-codes" },
+  { "document_name": "extract-ack-codes/jan2019/emis-to-tpp-extract-ack-codes" },
+  { "document_name": "extract-ack-codes/jan2019/tpp-to-emis-extract-ack-codes" },
+  { "document_name": "extract-ack-codes/jan2019/vision-to-emis-extract-ack-codes" },
+  { "document_name": "extract-ack-codes/jan2019/vision-to-tpp-extract-ack-codes" },
+  { "document_name": "extract-ack-codes/jan2019/microtest-to-emis-extract-ack-codes" },
+  { "document_name": "extract-ack-codes/jan2019/microtest-to-tpp-extract-ack-codes" },
+  { "document_name": "extract-ack-codes/jan2019/tpp-to-tpp-extract-ack-codes" },
+  { "document_name": "extract-ack-codes/jan2019/emis-to-unknown-extract-ack-codes8" }
 ]
 ---
 A chart representing the EHR Sent Requests split into source and target system.
