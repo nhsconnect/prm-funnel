@@ -45,7 +45,7 @@ A chart representing the ExtractAckCodes for messages from the sender to the req
 
 The data was collected from **Splunk** with the following query for the whole of **January 2019**:
 
-This is the query that gave us information on the **ExtractAckCode**, specifically where this maps **00** to **0**, as we have assumed all the 0s are a success.
+This is the query that gave us information on the **RequestAckCode**, specifically where this maps **00** to **0**, as we have assumed all the 0s are a success.
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"     
   | where ExtractFailurePoint=0 OR ExtractFailurePoint=60      
