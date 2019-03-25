@@ -26,16 +26,18 @@ labels: [
             "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
             "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
             "21: EHR Extract message not well-formed or not able to be processed",
-            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient"
+            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+            "None"
           ]
 items: [
-            5564,
+            5572,
             6,
             2,
-            331,
+            332,
             4,
             66,
-            8
+            8,
+           3203
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
@@ -61,6 +63,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | search RequestorSupplier=INPS 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | search SenderSupplier=EMIS 
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
   | sort ExtractAckCode

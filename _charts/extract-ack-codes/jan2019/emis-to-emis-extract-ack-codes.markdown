@@ -34,20 +34,22 @@ labels: [
             "26: Returning Patient EHR Extract Received and filed as an attachment",
             "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
             "30: Large Message general failure",
-            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received"
+            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
+            "None"
           ]
 items: [
-            125813,
+            126005,
             57,
-            1207,
-            8943,
-            100,
+            1209,
+            8972,
+            102,
             1,
             91,
             8,
             39,
             4,
-            7
+            7,
+            33441
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
@@ -73,6 +75,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | search RequestorSupplier=EMIS 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | search SenderSupplier=EMIS 
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
   | sort ExtractAckCode

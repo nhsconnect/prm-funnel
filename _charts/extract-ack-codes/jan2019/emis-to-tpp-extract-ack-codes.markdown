@@ -30,10 +30,11 @@ labels: [
             "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
             "30: Large Message general failure",
             "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
-            "99: Unexpected condition"
+            "99: Unexpected condition",
+            "None"
           ]
 items: [
-            32193,
+            32167,
             45,
             524,
             6,
@@ -41,6 +42,8 @@ items: [
             39,
             371,
             19,
+            4,
+            9964
             
       ]
 ---
@@ -67,6 +70,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | search RequestorSupplier=EMIS 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | search SenderSupplier=TPP 
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
   | sort ExtractAckCode

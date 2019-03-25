@@ -30,18 +30,20 @@ labels: [
             "25: Large messages rejected due to timeout duration reached of overall transfer",
             "26: Returning Patient EHR Extract Received and filed as an attachment",
             "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received"
+            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
+            "None"
           ]
 items: [
-            34566,
+            34565,
             21,
             30,
             3007,
-            45,
+            47,
             16,
             2,
             22,
-            1
+            1,
+            11402
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
@@ -67,6 +69,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | search RequestorSupplier=TPP 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | search SenderSupplier=EMIS 
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
   | sort ExtractAckCode

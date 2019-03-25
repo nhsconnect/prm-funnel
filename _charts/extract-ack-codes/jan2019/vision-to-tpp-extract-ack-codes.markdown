@@ -16,11 +16,13 @@ colours: [
           ]
 labels: [
             "0: Success",
-            "99: Unexpected condition"
+            "99: Unexpected condition",
+            "None"
           ]
 items: [
-            1339,
-            2
+            1338,
+            2,
+            942
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
@@ -46,6 +48,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | search RequestorSupplier=INPS 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | search SenderSupplier=TPP 
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
   | sort ExtractAckCode
