@@ -12,6 +12,7 @@ chart_config:
   type: 'doughnut'
 colours: [
             "#FF6DA7",
+            "#18A3FF",
             "#AA9200"
           ]
 labels: [

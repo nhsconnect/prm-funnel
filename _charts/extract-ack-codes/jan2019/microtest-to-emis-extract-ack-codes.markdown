@@ -13,6 +13,7 @@ chart_config:
 colours: [
             "#FF6DA7",
             "#E8A333",
+            "#18A3FF",
             "#4E8516",
             "#A35EFF",
             "#FFC300"

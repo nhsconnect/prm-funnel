@@ -11,6 +11,7 @@ categories: data
 chart_config: 
   type: 'doughnut'
 colours: [
+            "#18A3FF",
             "#FF6DA7"
           ]
 labels: [
