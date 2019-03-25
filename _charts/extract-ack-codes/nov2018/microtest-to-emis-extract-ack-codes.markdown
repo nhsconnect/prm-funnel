@@ -16,7 +16,8 @@ colours: [
             "#4E8516",
             "#A35EFF",
             "#FFC300",
-            
+            "#900C3E",
+            "#FF5733"
           ]
 labels: [
             "0: Success",

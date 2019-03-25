@@ -12,7 +12,10 @@ chart_config:
   type: 'doughnut'
 colours: [
             "#FF6DA7",
-            "#27DEE8"
+            "#27DEE8",
+            "#900C3E",
+            "#FF5733",
+            "#AA9200"
           ]
 labels: [
             "0: Success",
