@@ -1,6 +1,6 @@
 ---
 layout: chart
-title:  "EMIS to TPP RequestAckCodes"
+title:  "EMIS to TPP ExtractAckCodes"
 date:   2019-03-22 16:26:00 +0000
 timeframe: Jan 2019
 datatype: Quantitative
@@ -18,38 +18,41 @@ colours: [
             "#A35EFF",
             "#571845",
             "#664422",
-            "#900C3E"
+            "#900C3E",
+            "#FFC300"
           ]
 labels: [
-            "0 / 00: Success",
-            "7: GP2GP messaging not enabled on this system",
-            "10: Failed to successfully generate EHR extract",
+            "0: Success",
+            "11: Failed to successfully integrate EHR Extract",
+            "12: Duplicate EHR Extract received",
+            "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
             "20: Spine system responded with an error",
-            "23: Message not sent because sending practice is not large message compliant",
+            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
             "30: Large Message general failure",
-            "99: Undocumented error code",
-            "None"
+            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
+            "99: Unexpected condition"
           ]
 items: [
-            154756,
-            61,
+            32193,
+            45,
+            524,
             6,
-            87,
-            7,
-            7,
-            7,
-            547
+            1,
+            39,
+            371,
+            19,
+            
       ]
 ---
-A chart representing the RequestAckCode for messages from the sender to the requestor.
+A chart representing the ExtractAckCodes for messages from the sender to the requestor.
 
 The data was collected from **Splunk** with the following query for the whole of **January 2019**:
 
-This is the query that gave us information on the **RequestAckCode**, specifically where this maps **00** to **0**, as we have assumed all the 0s are a success.
+This is the query that gave us information on the **ExtractAckCode**, specifically where this maps **00** to **0**, as we have assumed all the 0s are a success.
 ```sql
-index="gp2gp-mi" sourcetype="gppractice-SR"     
-  | where ExtractFailurePoint=0 OR ExtractFailurePoint=60      
-  | join type=outer RequestorODS        
+index="gp2gp-mi" sourcetype="gppractice-RR"     
+  | where RequestFailurePoint=0 OR RequestFailurePoint=60      
+  | join type=outer RequestorODS
       [search index="gp2gp-mi" sourcetype="gppractice-HR"]      
   | join type=outer SenderODS          
       [search index="gp2gp-mi" sourcetype="gppractice-HR"            
@@ -61,11 +64,10 @@ index="gp2gp-mi" sourcetype="gppractice-SR"
   | rex field=SenderSoftware        
       "(?<SenderSupplier>.*)_(?<SenderSystem>.*)_(?<SenderVersion>.*)"     
   | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName     
-  | search RequestorSupplier=EMIS  
-  | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")
-  | search SenderSupplier=EMIS
-  | eval RequestAckCode=coalesce(RequestAckCode, RequestAckCode, "None")
-  | eval RequestAckCode=if(RequestAckCode=="00","0",RequestAckCode)
-  | stats dc(ConversationID) as count by SenderSupplier, RequestorSupplier, RequestAckCode 
-  | sort RequestAckCode
+  | search RequestorSupplier=EMIS 
+  | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
+  | search SenderSupplier=TPP 
+  | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
+  | stats dc(ConversationID) as count by ExtractAckCode 
+  | sort ExtractAckCode
 ```
