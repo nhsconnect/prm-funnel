@@ -14,7 +14,7 @@ layout: default
     let url = '{{ site.url }}';
     const baseUrl = '{{ site.baseurl }}';
     if (url.indexOf(baseUrl) < 0) {
-      url = `${url}${baseUrl}/`;
+      url = url + baseUrl;
     }
 
     var datasets = { "datasets":
@@ -49,7 +49,7 @@ layout: default
             if (anyPoint && links) {
               let document = links[anyPoint._index];
               if (document && document.document_name) {
-                let link = `${url}charts/${document.document_name}.html`;
+                let link = url + "/" + document.document_name + ".html";
                 window.location.href = link;
               }
             }
@@ -76,7 +76,7 @@ layout: default
               });
               var currentValue = dataset.data[tooltipItem.index];
               var percentage = Math.floor(((currentValue/total) * 100)+0.5);
-              return `${currentValue} (${percentage}%)`;
+              return currentValue + " " + percentage + "%";
             }
           }
         } 

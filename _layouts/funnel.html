@@ -35,7 +35,7 @@ layout: default
       let url = '{{ site.url }}';
       const baseUrl = '{{ site.baseurl }}';
       if (url.indexOf(baseUrl) < 0) {
-        url = `${url}${baseUrl}/`;
+        url = url + baseUrl + "/";
       }
       
       const options = {
@@ -70,7 +70,7 @@ layout: default
                 block: function(somedata) {
                     let document = links[somedata.index];
                     if (document && document.document_name) {
-                      let link = `${url}charts/${document.document_name}.html`;
+                      let link = url + "charts/" + document.document_name + ".html";
                       window.location.href = link;
                     }
                 }
