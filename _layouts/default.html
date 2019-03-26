@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<!--
+    So Simple Jekyll Theme 3.1.2
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="{{ page.lang | default: site.lang | default: 'en-US' }}" class="no-js">
+  {% include head.html %}
 
-  {% if site.url contains 'nhsconnect.github.io' %}
-  <link rel="shortcut icon" type="image/jpg" href="/prm-funnel/assets/favicon.jpg">
-  {% else %}
-  <link rel="shortcut icon" type="image/jpg" href="/prm-funnel/assets/favicon.local.jpg">
-  {% endif %}
-
-  {%- include head.html -%}
-
-  <body>
-
-    {%- include header.html -%}
+  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %} {% if page.entries_layout == 'grid' %}page--wide{% endif %} {{ page.title | slugify }}">
+    {% include skip-links.html %}
+    {% include navigation.html %}
+    {% include masthead.html %}
 
     <main class="page-content" aria-label="Content">
       <div class="prm-wrapper">
@@ -21,8 +21,8 @@
       </div>
     </main>
 
-    {%- include footer.html -%}
-
+    {% include footer.html %}
+    {% include scripts.html %}
   </body>
 
 </html>

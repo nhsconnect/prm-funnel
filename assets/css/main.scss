@@ -1,15 +1,15 @@
 ---
+# Only the main Sass file needs front matter (the dashes are enough)
+sitemap: false
 ---
 
-@import "{{ site.theme }}";
+@charset "utf-8";
+
+@import "so-simple";
 
 .prm-wrapper {
     display: flex;
     justify-content: center;
-}
-
-.default-content-wrapper {
-    width: calc(800px - (30px * 2))
 }
 
 #funnel {
@@ -25,11 +25,5 @@
 #canvas-holder-horizontalBar {
     #canvas-holder {
         min-height: 600px;
-    }
-}
-
-.data-table {
-    table {
-        width: 100%;
     }
 }
