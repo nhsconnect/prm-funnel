@@ -31,20 +31,18 @@ labels: [
             "25: Large messages rejected due to timeout duration reached of overall transfer",
             "26: Returning Patient EHR Extract Received and filed as an attachment",
             "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
-            "None"
+            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received"
           ]
 items: [
-            34565,
-            21,
-            30,
-            3007,
-            47,
-            16,
+            34256,
+            20,
+            31,
+            2981,
+            44,
+            17,
             2,
             22,
-            1,
-            11402
+            1
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.

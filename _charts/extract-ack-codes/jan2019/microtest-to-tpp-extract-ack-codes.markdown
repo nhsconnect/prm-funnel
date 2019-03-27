@@ -17,13 +17,11 @@ colours: [
           ]
 labels: [
             "0: Success",
-            "12: Duplicate EHR Extract received",
-            "None"
+            "12: Duplicate EHR Extract received"
           ]
 items: [
-            163,
-            5,
-            434
+            160,
+            5
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.

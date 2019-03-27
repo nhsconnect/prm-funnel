@@ -23,16 +23,14 @@ labels: [
             "12: Duplicate EHR Extract received",
             "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
             "21: EHR Extract message not well-formed or not able to be processed",
-            "26: Returning Patient EHR Extract Received and filed as an attachment",
-            "None"
+            "26: Returning Patient EHR Extract Received and filed as an attachment"
           ]
 items: [
-            184,
+            187,
             3,
             26,
             4,
-            1,
-            442
+            1
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.

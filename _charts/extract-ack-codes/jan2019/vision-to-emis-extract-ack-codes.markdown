@@ -27,18 +27,16 @@ labels: [
             "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
             "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
             "21: EHR Extract message not well-formed or not able to be processed",
-            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "None"
+            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient"
           ]
 items: [
-            5572,
+            5568,
             6,
             2,
             332,
             4,
             66,
-            8,
-           3203
+            8
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.

@@ -17,13 +17,11 @@ colours: [
           ]
 labels: [
             "0: Success",
-            "99: Unexpected condition",
-            "None"
+            "99: Unexpected condition"
           ]
 items: [
-            1338,
-            2,
-            942
+            1342,
+            2
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.

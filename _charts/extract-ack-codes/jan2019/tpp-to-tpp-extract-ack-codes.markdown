@@ -19,8 +19,8 @@ labels: [
             "None"
           ]
 items: [
-            10,
-            51
+            50,
+            1
       ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
