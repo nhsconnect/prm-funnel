@@ -112,20 +112,16 @@ layout: default
   const data = JSON.parse('{{page.items | jsonify}}');
   const links = JSON.parse('{{page.links | jsonify}}');
 
+  let url = '{{ site.url }}';
+  const baseUrl = '{{ site.baseurl }}';
+  if (url.indexOf(baseUrl) < 0) {
+    url = url + baseUrl + "/";
+  }
+
   chart.data = data;
   
   var funnelSlice = new am4charts.FunnelSeries();
   
-  // funnelSlice.events.on('hit', function(e){
-  //   console.log(e)
-  //   let document = links[e.index];
-  //   if (document && document.document_name) {
-  //     let link = url + "charts/" + document.document_name + ".html";
-  //     console.log(link)
-  //     window.open(link);
-  //   }
-  // })
-
   var series = chart.series.push(new am4charts.FunnelSeries());
   series.colors.step = 2;
   series.dataFields.value = "value";
@@ -136,8 +132,13 @@ layout: default
   series.labelsContainer.width = 200;
 
   series.slices.template.events.on("hit", function(ev) {
- console.log("clicked on ", ev.target);
-}, this);
+    console.log("clicked on ", ev.target);
+    let document = links[ev.target.dataItem.index];
+    if (document && document.document_name) {
+      let link = url + "charts/" + document.document_name + ".html";
+      window.location.href = link;
+    }
+  }, this);
   
   //series.orientation = "horizontal";
   //series.bottomRatio = 1;
