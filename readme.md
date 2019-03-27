@@ -10,7 +10,7 @@ The hosted site can be found [here](https://nhsconnect.github.io/prm-funnel/).
 Ensure you have access to the `gp2gp-mi` index in the NMS Trends instance of Splunk.  
 
 **Process**
-1. Import the `splunk-dashboard.xml` file into Splunk
+1. Import the `splunk-dashboard.xml` and `supplier-to-supplier-dashboard` files into Splunk
 2. Set the date range for the month you wish to produce statistics for.
 3. Create the funnel
    1. Duplicate a file from the `_funnels` directory
@@ -60,11 +60,11 @@ Ensure you have access to the `gp2gp-mi` index in the NMS Trends instance of Spl
  - set local ruby version
    - `rbenv local 2.5.3`
  - install bundler
-   - `gem install bundler`
+   - `rbenv exec gem install bundler`
  - install the gems for the website
-   - `bundle`
+   - `rbenv exec bundle`
  - run the site locally
-   - `rbenv exec jekyll serve`
+   - `rbenv exec bundle exec jekyll serve`
  - browse to [locally running site](http://127.0.0.1:4000/)
 
 ## How to update the site
