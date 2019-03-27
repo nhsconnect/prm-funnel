@@ -10,6 +10,8 @@ sitemap: false
 .prm-wrapper {
     display: flex;
     justify-content: center;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 #funnel {
@@ -26,4 +28,9 @@ sitemap: false
     #canvas-holder {
         min-height: 600px;
     }
+}
+
+// funnel.html
+#chartdiv {
+    height: 500px;
 }

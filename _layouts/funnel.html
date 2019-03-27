@@ -6,6 +6,7 @@ layout: default
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
   </header>
+  
   <div id="chartdiv"></div>
 
   <div class="post-content e-content" itemprop="articleBody">
@@ -28,71 +29,6 @@ layout: default
       </table>
     </div>
 
-  <!--  <script>
-      const data = JSON.parse('{{page.items | jsonify}}');
-      const links = JSON.parse('{{page.links | jsonify}}');
-      let url = '{{ site.url }}';
-      const baseUrl = '{{ site.baseurl }}';
-      if (url.indexOf(baseUrl) < 0) {
-        url = url + baseUrl + "/";
-      }
-      
-      const options = {
-          block: {
-              dynamicHeight: true,
-              minHeight: 15,
-              minWidth: 500,
-              fill: {
-                  type: 'gradient'
-              },
-              highlight: true,
-              dynamicSlope: true,
-              dynamicHeight: true
-          },
-          chart: {
-            animate: 100,
-            curve: {
-                enabled: true,
-                height: 20
-            }
-          },
-          label: {
-              enabled: true,
-              format: '{l}'
-          },
-          tooltip: {
-              enabled: true,
-              format: '{l}: {f}'
-          },
-          events: {
-            click: {
-                block: function(somedata) {
-                    let document = links[somedata.index];
-                    if (document && document.document_name) {
-                      let link = url + "charts/" + document.document_name + ".html";
-                      window.location.href = link;
-                    }
-                }
-            }
-          }
-      };
-
-      
-    window.onload = function() {
-      const chart = new D3Funnel('#funnel');
-      chart.draw(data, options);
-    }; -->
-  <!-- </script> -->
-
-<!-- Styles -->
-<style>
-  #chartdiv {
-    width: 100%;
-    height: 500px;
-  }
-  
-  </style>
-  
   <!-- Resources -->
   <script src="https://www.amcharts.com/lib/4/core.js"></script>
   <script src="https://www.amcharts.com/lib/4/charts.js"></script>
@@ -120,8 +56,6 @@ layout: default
 
   chart.data = data;
   
-  var funnelSlice = new am4charts.FunnelSeries();
-  
   var series = chart.series.push(new am4charts.FunnelSeries());
   series.colors.step = 2;
   series.dataFields.value = "value";
@@ -139,10 +73,7 @@ layout: default
       window.location.href = link;
     }
   }, this);
-  
-  //series.orientation = "horizontal";
-  //series.bottomRatio = 1;
-  
+
   chart.legend = new am4charts.Legend();
   chart.legend.position = "left";
   chart.legend.valign = "bottom";
@@ -150,6 +81,4 @@ layout: default
 
   </script>
   
-  
-
 </article>
