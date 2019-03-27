@@ -2,9 +2,23 @@
 layout: default
 ---
 
-  {%- include chart-page.html -%}
+<div class=wsd wsd_style="rose" ><pre>
+    title Patient Record Migration
+    Patient->RR: Patient Registers
+    note over RR,SR: GP2GP Messages
+    RR->SR:
+    SR->RR:
+    opt Large Messages
+        SR->RR:
+        RR->SR:
+    end
+    RR->SR:
+    RR->Patient:  
+</pre></div>
 
+  {%- include chart-page.html -%}
   <script src="/prm-funnel/assets/js/deepmerge.min.js"></script>
+  <script type="text/javascript" src="http://www.websequencediagrams.com/service.js"></script>
   <script>
     const items = JSON.parse('{{page.items | jsonify}}');
     const colours = JSON.parse('{{page.colours | jsonify}}');
@@ -93,4 +107,4 @@ layout: default
 
   </script>
   <script src="/prm-funnel/assets/js/Chart.min.js"></script>
-
+  
