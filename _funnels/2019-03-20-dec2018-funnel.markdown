@@ -7,10 +7,10 @@ confidence: Low
 datasource: NMS
 categories: data
 items: [
-    { "label": "Registrations", "value": 325772 },
-    { "label": "EHR Requests Sent", "value": 155323 },
-    { "label": "EHR Extracts Sent", "value": 153970 },
-    { "label": "Successfully Integrated", "value": 130927 }
+    { "name": "Registrations", "value": 325772 },
+    { "name": "EHR Requests Sent", "value": 155323 },
+    { "name": "EHR Extracts Sent", "value": 153970 },
+    { "name": "Successfully Integrated", "value": 130927 }
 ]
 links: [
   { "document_name": "2019-02-28-registrations-jul2018" },
