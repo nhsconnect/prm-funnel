@@ -66,7 +66,6 @@ layout: default
   series.labelsContainer.width = 200;
 
   series.slices.template.events.on("hit", function(ev) {
-    console.log("clicked on ", ev.target);
     let document = links[ev.target.dataItem.index];
     if (document && document.document_name) {
       let link = url + "charts/" + document.document_name + ".html";
@@ -78,7 +77,3 @@ layout: default
   chart.legend.position = "left";
   chart.legend.valign = "bottom";
   chart.legend.margin(5,5,20,5);
-
-  </script>
-  
-</article>
