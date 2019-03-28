@@ -26,8 +26,8 @@ items: [
             72178
       ]
 links: [
-  { "document_name": "2019-03-20-large-message-details-dec2018" },
-  { "document_name": "2019-03-20-standard-message-details-dec2018" }
+  { "document_name": "charts/2019-03-20-large-message-details-dec2018" },
+  { "document_name": "charts/2019-03-20-standard-message-details-dec2018" }
 ] 
 ---
 A chart representing the EHR Extracts split into message types. The data covers Emis and TPP only, as MicroTest and Vision do not report their MI.

@@ -55,7 +55,7 @@ links: [
   {},
   {},
   {},
-  { "document_name": "2019-03-22-large-msg-30-supplier-to-supplier-oct2018" },
+  { "document_name": "charts/2019-03-22-large-msg-30-supplier-to-supplier-oct2018" },
   {}
 ] 
 ---

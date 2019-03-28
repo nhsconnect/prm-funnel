@@ -47,16 +47,16 @@ items: [
             2
       ]
 links: [
-  { "document_name": "extract-ack-codes/oct2018/emis-to-emis-extract-ack-codes" },
-  { "document_name": "extract-ack-codes/oct2018/emis-to-tpp-extract-ack-codes" },
-  { "document_name": "extract-ack-codes/oct2018/tpp-to-emis-extract-ack-codes" },
-  { "document_name": "extract-ack-codes/oct2018/vision-to-emis-extract-ack-codes" },
-  { "document_name": "extract-ack-codes/oct2018/vision-to-tpp-extract-ack-codes" },
-  { "document_name": "extract-ack-codes/oct2018/microtest-to-emis-extract-ack-codes" },
-  { "document_name": "extract-ack-codes/oct2018/microtest-to-tpp-extract-ack-codes" },
-  { "document_name": "extract-ack-codes/oct2018/tpp-to-tpp-extract-ack-codes" },
-  { "document_name": "extract-ack-codes/oct2018/emis-to-unknown-extract-ack-codes" },
-  { "document_name": "extract-ack-codes/oct2018/vision-to-unknown-extract-ack-codes" }
+  { "document_name": "charts/extract-ack-codes/oct2018/emis-to-emis-extract-ack-codes" },
+  { "document_name": "charts/extract-ack-codes/oct2018/emis-to-tpp-extract-ack-codes" },
+  { "document_name": "charts/extract-ack-codes/oct2018/tpp-to-emis-extract-ack-codes" },
+  { "document_name": "charts/extract-ack-codes/oct2018/vision-to-emis-extract-ack-codes" },
+  { "document_name": "charts/extract-ack-codes/oct2018/vision-to-tpp-extract-ack-codes" },
+  { "document_name": "charts/extract-ack-codes/oct2018/microtest-to-emis-extract-ack-codes" },
+  { "document_name": "charts/extract-ack-codes/oct2018/microtest-to-tpp-extract-ack-codes" },
+  { "document_name": "charts/extract-ack-codes/oct2018/tpp-to-tpp-extract-ack-codes" },
+  { "document_name": "charts/extract-ack-codes/oct2018/emis-to-unknown-extract-ack-codes" },
+  { "document_name": "charts/extract-ack-codes/oct2018/vision-to-unknown-extract-ack-codes" }
 ]
 ---
 A chart representing the EHR Sent Requests split into source and target system.
