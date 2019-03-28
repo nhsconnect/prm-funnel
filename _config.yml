@@ -22,7 +22,7 @@ baseurl: "/prm-funnel"
 
 # Build settings
 markdown: kramdown
-theme: minima
+remote_theme: "mmistakes/so-simple-theme"
 plugins:
   - jekyll-feed
 

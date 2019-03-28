@@ -6,8 +6,8 @@ layout: default
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
   </header>
-
-  <div class="chart-container" id="funnel"></div>
+  
+  <div id="chartdiv"></div>
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
@@ -29,62 +29,51 @@ layout: default
       </table>
     </div>
 
+  <!-- Resources -->
+  <script src="https://www.amcharts.com/lib/4/core.js"></script>
+  <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
+  <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+  
+  <!-- Chart code -->
   <script>
-      const data = JSON.parse('{{page.items | jsonify}}');
-      const links = JSON.parse('{{page.links | jsonify}}');
-      let url = '{{ site.url }}';
-      const baseUrl = '{{ site.baseurl }}';
-      if (url.indexOf(baseUrl) < 0) {
-        url = `${url}${baseUrl}/`;
-      }
-      
-      const options = {
-          block: {
-              dynamicHeight: true,
-              minHeight: 15,
-              minWidth: 500,
-              fill: {
-                  type: 'gradient'
-              },
-              highlight: true,
-              dynamicSlope: true,
-              dynamicHeight: true
-          },
-          chart: {
-            animate: 100,
-            curve: {
-                enabled: true,
-                height: 20
-            }
-          },
-          label: {
-              enabled: true,
-              format: '{l}'
-          },
-          tooltip: {
-              enabled: true,
-              format: '{l}: {f}'
-          },
-          events: {
-            click: {
-                block: function(somedata) {
-                    let document = links[somedata.index];
-                    if (document && document.document_name) {
-                      let link = `${url}charts/${document.document_name}.html`;
-                      window.location.href = link;
-                    }
-                }
-            }
-          }
-      };
+  // Themes begin
+  am4core.useTheme(am4themes_material);
+  am4core.useTheme(am4themes_animated);
+  // Themes end
+  
+  var chart = am4core.create("chartdiv", am4charts.SlicedChart);
+  chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
+  
+  const data = JSON.parse('{{page.items | jsonify}}');
+  const links = JSON.parse('{{page.links | jsonify}}');
 
-      
-    window.onload = function() {
-      const chart = new D3Funnel('#funnel');
-      chart.draw(data, options);
-    };
-  </script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="/prm-funnel/assets/js/d3-funnel.min.js"></script>
+  let url = '{{ site.url }}';
+  const baseUrl = '{{ site.baseurl }}';
+  if (url.indexOf(baseUrl) < 0) {
+    url = url + baseUrl + "/";
+  }
 
-</article>
+  chart.data = data;
+  
+  var series = chart.series.push(new am4charts.FunnelSeries());
+  series.colors.step = 2;
+  series.dataFields.value = "value";
+  series.dataFields.category = "name";
+  series.alignLabels = true;
+  
+  series.labelsContainer.paddingLeft = 15;
+  series.labelsContainer.width = 200;
+
+  series.slices.template.events.on("hit", function(ev) {
+    let document = links[ev.target.dataItem.index];
+    if (document && document.document_name) {
+      let link = url + "charts/" + document.document_name + ".html";
+      window.location.href = link;
+    }
+  }, this);
+
+  chart.legend = new am4charts.Legend();
+  chart.legend.position = "left";
+  chart.legend.valign = "bottom";
+  chart.legend.margin(5,5,20,5);
