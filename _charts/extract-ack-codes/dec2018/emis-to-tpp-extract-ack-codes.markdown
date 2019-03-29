@@ -8,41 +8,44 @@ confidence: Medium
 funnel_slice: EHR Requests Sent
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "#FF6DA7",
-            "#E8A333",
-            "#4E8516",
-            "#27DEE8",
-            "#A35EFF",
-            "#571845",
-            "#664422",
-            "#900C3E",
-            "#FFC300"
-          ]
-labels: [
-            "0: Success",
-            "11: Failed to successfully integrate EHR Extract",
-            "12: Duplicate EHR Extract received",
-            "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "30: Large Message general failure",
-            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
-            "99: Unexpected condition",
-            "None"
-          ]
 items: [
-            22127,
-            40,
-            367,
-            3,
-            34,
-            226,
-            13,
-            3,
-            7706            
-      ]
+  {
+    "name": "0: Success",
+    "value": 22127
+  },
+  {
+    "name": "11: Failed to successfully integrate EHR Extract",
+    "value": 40
+  },
+  {
+    "name": "12: Duplicate EHR Extract received",
+    "value": 367
+  },
+  {
+    "name": "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+    "value": 3
+  },
+  {
+    "name": "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+    "value": 34
+  },
+  {
+    "name": "30: Large Message general failure",
+    "value": 226
+  },
+  {
+    "name": "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
+    "value": 13
+  },
+  {
+    "name": "99: Unexpected condition",
+    "value": 3
+  },
+  {
+    "name": "None",
+    "value": 7706
+  }
+]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
 

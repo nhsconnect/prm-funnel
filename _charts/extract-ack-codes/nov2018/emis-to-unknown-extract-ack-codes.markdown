@@ -14,14 +14,16 @@ colours: [
             "#AA9200",
             "#FFC300"
           ]
-labels: [
-            "12: Duplicate EHR Extract received",
-            "None"
-          ]
 items: [
-            1,
-            4
-      ]
+  {
+    "name": "12: Duplicate EHR Extract received",
+    "value": 1
+  },
+  {
+    "name": "None",
+    "value": 4
+  }
+]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
 

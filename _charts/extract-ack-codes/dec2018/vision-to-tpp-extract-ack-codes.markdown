@@ -8,26 +8,24 @@ confidence: Medium
 funnel_slice: EHR Requests Sent
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "#FF6DA7",
-            "#E8A333",
-            "#AA9200",
-            "#FFC300"
-          ]
-labels: [
-            "0: Success",
-            "12: Duplicate EHR Extract received",
-            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "None"
-          ]
 items: [
-            832,
-            1,
-            1,
-            805
-      ]
+  {
+    "name": "0: Success",
+    "value": 832
+  },
+  {
+    "name": "12: Duplicate EHR Extract received",
+    "value": 1
+  },
+  {
+    "name": "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+    "value": 1
+  },
+  {
+    "name": "None",
+    "value": 805
+  }
+]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
 

@@ -8,37 +8,39 @@ confidence: Medium
 funnel_slice: EHR Requests Sent
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "#FF6DA7",
-            "#E8A333",
-            "#4E8516",
-            "#27DEE8",
-            "#A35EFF",
-            "#571845",
-            "#664422",
-            "#FFC300"
-          ]
-labels: [
-            "0: Success",
-            "11: Failed to successfully integrate EHR Extract",
-            "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
-            "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "21: EHR Extract message not well-formed or not able to be processed",
-            "26: Returning Patient EHR Extract Received and filed as an attachment",
-            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "None"
-          ]
 items: [
-            3459,
-            2,
-            204,
-            3,
-            56,
-            1,
-            1,
-            2682
+  {
+    "name": "0: Success",
+    "value": 3459
+  },
+  {
+    "name": "11: Failed to successfully integrate EHR Extract",
+    "value": 2
+  },
+  {
+    "name": "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
+    "value": 204
+  },
+  {
+    "name": "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+    "value": 3
+  },
+  {
+    "name": "21: EHR Extract message not well-formed or not able to be processed",
+    "value": 56
+  },
+  {
+    "name": "26: Returning Patient EHR Extract Received and filed as an attachment",
+    "value": 1
+  },
+  {
+    "name": "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+    "value": 1
+  },
+  {
+    "name": "None",
+    "value": 2682
+  }
 ]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
