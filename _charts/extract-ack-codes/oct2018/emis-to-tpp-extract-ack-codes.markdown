@@ -8,44 +8,48 @@ confidence: Medium
 funnel_slice: EHR Requests Sent
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "#FF6DA7",
-            "#E8A333",
-            "#4E8516",
-            "#27DEE8",
-            "#A35EFF",
-            "#571845",
-            "#664422",
-            "#900C3E",
-            "#FFC300",
-            "#00C3FF"
-          ]
-labels: [
-            "0: Success",
-            "11: Failed to successfully integrate EHR Extract",
-            "12: Duplicate EHR Extract received",
-            "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
-            "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "30: Large Message general failure",
-            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
-            "99: Unexpected condition",
-            "None"
-          ]
 items: [
-            38926,
-            51,
-            665,
-            1,
-            5,
-            72,
-            300,
-            29,
-            5,
-            12506
-      ]
+  {
+    "name": "0: Success",
+    "value": 38926
+  },
+  {
+    "name": "11: Failed to successfully integrate EHR Extract",
+    "value": 51
+  },
+  {
+    "name": "12: Duplicate EHR Extract received",
+    "value": 665
+  },
+  {
+    "name": "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
+    "value": 1
+  },
+  {
+    "name": "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+    "value": 5
+  },
+  {
+    "name": "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+    "value": 72
+  },
+  {
+    "name": "30: Large Message general failure",
+    "value": 300
+  },
+  {
+    "name": "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
+    "value": 29
+  },
+  {
+    "name": "99: Unexpected condition",
+    "value": 5
+  },
+  {
+    "name": "None",
+    "value": 12506
+  }
+]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
 

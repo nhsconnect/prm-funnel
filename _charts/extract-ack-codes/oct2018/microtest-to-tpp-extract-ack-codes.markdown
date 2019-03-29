@@ -8,26 +8,24 @@ confidence: Medium
 funnel_slice: EHR Requests Sent
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "#FF6DA7",
-            "#AA9200",
-            "#FFC300",
-            "#00C3FF"
-          ]
-labels: [
-            "0: Success",
-            "12: Duplicate EHR Extract received",
-            "99: Unexpected condition",
-            "None"
-          ]
 items: [
-            153,
-            1,
-            2,
-            505
-      ]
+  {
+    "name": "0: Success",
+    "value": 153
+  },
+  {
+    "name": "12: Duplicate EHR Extract received",
+    "value": 1
+  },
+  {
+    "name": "99: Unexpected condition",
+    "value": 2
+  },
+  {
+    "name": "None",
+    "value": 505
+  }
+]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
 

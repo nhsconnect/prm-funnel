@@ -8,44 +8,48 @@ confidence: Medium
 funnel_slice: EHR Requests Sent
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "#FF6DA7",
-            "#E8A333",
-            "#18A3FF",
-            "#4E8516",
-            "#27DEE8",
-            "#A35EFF",
-            "#571845",
-            "#900C3E",
-            "#FF5733",
-            "#FFC300"
-          ]
-labels: [
-            "0: Success",
-            "11: Failed to successfully integrate EHR Extract",
-            "12: Duplicate EHR Extract received",
-            "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
-            "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "21: EHR Extract message not well-formed or not able to be processed",
-            "25: Large messages rejected due to timeout duration reached of overall transfer",
-            "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
-            "None"
-          ]
 items: [
-            28422,
-            9,
-            44,
-            2418,
-            15,
-            2,
-            7,
-            17,
-            2,
-            9412
-      ]
+  {
+    "name": "0: Success",
+    "value": 28422
+  },
+  {
+    "name": "11: Failed to successfully integrate EHR Extract",
+    "value": 9
+  },
+  {
+    "name": "12: Duplicate EHR Extract received",
+    "value": 44
+  },
+  {
+    "name": "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
+    "value": 2418
+  },
+  {
+    "name": "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+    "value": 15
+  },
+  {
+    "name": "21: EHR Extract message not well-formed or not able to be processed",
+    "value": 2
+  },
+  {
+    "name": "25: Large messages rejected due to timeout duration reached of overall transfer",
+    "value": 7
+  },
+  {
+    "name": "28: Non A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+    "value": 17
+  },
+  {
+    "name": "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
+    "value": 2
+  },
+  {
+    "name": "None",
+    "value": 9412
+  }
+]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
 

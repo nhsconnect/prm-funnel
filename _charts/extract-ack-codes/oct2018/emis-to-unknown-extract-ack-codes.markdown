@@ -8,23 +8,20 @@ confidence: Medium
 funnel_slice: EHR Requests Sent
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "#FF6DA7",
-            "#27DEE8",
-            "#00C3FF"
-          ]
-labels: [
-            "0: Success",
-            "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
-            "None"
-          ]
 items: [
-            6,
-            1,
-            1
-      ]
+  {
+    "name": "0: Success",
+    "value": 6
+  },
+  {
+    "name": "31: The overall EHR Extract has been rejected because one or more attachments via Large Messages were not received",
+    "value": 1
+  },
+  {
+    "name": "None",
+    "value": 1
+  }
+]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
 

@@ -8,29 +8,28 @@ confidence: Medium
 funnel_slice: EHR Requests Sent
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "#FF6DA7",
-            "#E8A333",
-            "#4E8516",
-            "#FFC300",
-            "#00C3FF"
-          ]
-labels: [
-            "0: Success",
-            "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
-            "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
-            "21: EHR Extract message not well-formed or not able to be processed",
-            "None"
-          ]
 items: [
-            236,
-            21,
-            1,
-            5,
-            558
-      ]
+  {
+    "name": "0: Success",
+    "value": 236
+  },
+  {
+    "name": "15: A-B-A EHR Extract Received and Stored As Suppressed Record",
+    "value": 21
+  },
+  {
+    "name": "17: A-B-A EHR Extract Received and rejected due to wrong record or wrong patient",
+    "value": 1
+  },
+  {
+    "name": "21: EHR Extract message not well-formed or not able to be processed",
+    "value": 5
+  },
+  {
+    "name": "None",
+    "value": 558
+  }
+]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
 

@@ -8,17 +8,12 @@ confidence: Medium
 funnel_slice: EHR Requests Sent
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "#FF6DA7"
-          ]
-labels: [
-            "None"
-          ]
 items: [
-            14
-      ]
+  {
+    "name": "None",
+    "value": 4
+  }
+]
 ---
 A chart representing the ExtractAckCodes for messages from the sender to the requestor.
 
