@@ -6,11 +6,13 @@ layout: default
 
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/kelly.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
 <!-- Chart code -->
 <script>
 // Themes begin
+am4core.useTheme(am4themes_kelly);
 am4core.useTheme(am4themes_animated);
 // Themes end
 
@@ -29,6 +31,15 @@ if (url.indexOf(baseUrl) < 0) {
 // Add data
 chart.data = items;
 chart.legend = new am4charts.Legend();
+chart.legend.labels.template.maxWidth = 400;
+chart.legend.itemContainers.template.tooltipText = "{category}";
+chart.legend.labels.template.truncate = false;
+chart.legend.labels.template.wrap = true;
+
+const pageChartConfig = JSON.parse('{{page.chart_config | jsonify}}') || {};
+if (pageChartConfig.options && pageChartConfig.options.legend.position === "left"){
+  chart.legend.position = "left";
+}
 
 // Add and configure Series
 var pieSeries = chart.series.push(new am4charts.PieSeries());

@@ -19,18 +19,10 @@ sitemap: false
 }
 
 #canvas-holder {
-    width: 100%;
-    min-height: 400px;
     margin-bottom: 30px;
-}
-
-#canvas-holder-horizontalBar {
-    #canvas-holder {
-        min-height: 600px;
-    }
 }
 
 // funnel.html
 #chartdiv {
-    height: 500px;
+    min-height: 600px;
 }
