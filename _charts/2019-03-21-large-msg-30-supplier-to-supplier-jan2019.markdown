@@ -8,26 +8,24 @@ datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'horizontalBar'
-colours: [
-            "red",
-            "blue",
-            "pink",
-            "purple"
-          ]
-labels: [
-            "TPP -> EMIS",
-            "TPP -> Unknown",
-            "EMIS -> EMIS",
-            "TPP -> TPP"
-          ]
 items: [
-            695,
-            34,
-            2,
-            1
-      ]
+  {
+    "name": "TPP -> EMIS",
+    "value": 695
+  },
+  {
+    "name": "TPP -> Unknown",
+    "value": 34
+  },
+  {
+    "name": "EMIS -> EMIS",
+    "value": 2
+  },
+  {
+    "name": "TPP -> TPP",
+    "value": 1
+  }
+]
 ---
 A chart representing the successful integrations split into source and target system.
 

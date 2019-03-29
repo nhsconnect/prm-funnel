@@ -8,40 +8,44 @@ datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'horizontalBar'
-colours: [
-            "red",
-            "pink",
-            "blue",
-            "purple",
-            "yellow",
-            "orange",
-            "violet",
-            "green"
-          ]
-labels: [
-            "EMIS -> EMIS",
-            "TPP -> EMIS",
-            "EMIS -> TPP",
-            "Vision -> EMIS",
-            "Vision -> TPP",
-            "MicroTest -> EMIS",
-            "MicroTest -> TPP",
-            "TPP -> TPP",
-            "EMIS -> unknown"
-          ]
 items: [
-            150107,
-            54806,
-            52371,
-            8541,
-            2919,
-            757,
-            690,
-            349,
-            6
-      ]
+  {
+    "name": "EMIS -> EMIS",
+    "value": 150107
+  },
+  {
+    "name": "TPP -> EMIS",
+    "value": 54806
+  },
+  {
+    "name": "EMIS -> TPP",
+    "value": 52371
+  },
+  {
+    "name": "Vision -> EMIS",
+    "value": 8541
+  },
+  {
+    "name": "Vision -> TPP",
+    "value": 2919
+  },
+  {
+    "name": "MicroTest -> EMIS",
+    "value": 757
+  },
+  {
+    "name": "MicroTest -> TPP",
+    "value": 690
+  },
+  {
+    "name": "TPP -> TPP",
+    "value": 349
+  },
+  {
+    "name": "EMIS -> unknown",
+    "value": 6
+  }
+]
 ---
 A chart representing the EHR Sent Requests split into source and target system.
 
