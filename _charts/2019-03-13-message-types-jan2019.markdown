@@ -13,17 +13,10 @@ chart_config:
   options:
     legend:
       position: "left"
-colours: [
-            "red",
-            "blue"
-          ]
-labels: [
-            "Large Messages",
-            "Standard Messages"
-          ]
+
 items: [
-            120711,
-            111376
+          { "name": "Large Messages", "value": 120711 },
+          { "name": "Standard Messages", "value": 111376 }
       ]
 links: [
   { "document_name": "charts/2019-03-13-large-message-details-jan2019" },

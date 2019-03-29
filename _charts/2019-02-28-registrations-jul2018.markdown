@@ -8,23 +8,12 @@ datatype: Quantitative
 confidence: Medium
 datasource: GP2GP Utilisation Report
 categories: data
-chart_config: 
-  type: 'doughnut'
 items: [
-            200747,
-            64198,
-            60827
-       ]
-colours: [
-          "red",
-          "blue",
-          "#FFC4AA"
-         ]
-labels: [
-          "GP2GP",
-          "TPP Internal",
-          "Unknown"
-        ]
+  { "name": "GP2GP", "value": 200747 },
+  { "name": "TPP Internal", "value": 64198 },
+  { "name": "Unknown", "value": 60827 }
+]
+
 ---
 A chart representing the percentage of types of patient transfer that occurred.
 

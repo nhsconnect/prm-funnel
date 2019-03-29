@@ -8,37 +8,15 @@ datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'horizontalBar'
-colours: [
-            "red",
-            "blue",
-            "pink",
-            "purple",
-            "yellow",
-            "violet",
-            "orange",
-            "green"
-          ]
-labels: [
-            "EMIS -> EMIS",
-            "TPP -> EMIS",
-            "EMIS -> TPP",
-            "Vision -> EMIS",
-            "Vision -> TPP",
-            "MicroTest -> EMIS",
-            "MicroTest -> TPP",
-            "TPP -> TPP"
-          ]
 items: [
-            125813,
-            34566,
-            32193,
-            5564,
-            1339,
-            183,
-            164,
-            10
+          { "name": "EMIS -> EMIS", "value": 125813 },
+          { "name": "TPP -> EMIS", "value": 34566 },
+          { "name": "EMIS -> TPP", "value": 32193 },
+          { "name": "Vision -> EMIS", "value": 5564 },
+          { "name": "Vision -> TPP", "value": 1339 },
+          { "name": "MicroTest -> EMIS", "value": 183 },
+          { "name": "MicroTest -> TPP", "value": 164 },
+          { "name": "TPP -> TPP", "value": 10 }
       ]
 ---
 A chart representing the successful integrations split into source and target system.
