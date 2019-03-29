@@ -8,44 +8,48 @@ confidence: Medium
 funnel_slice: EHR Extracts
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "#FF6DA7",
-            "#E8A333",
-            "#4E8516",
-            "#27DEE8",
-            "#A35EFF",
-            "#571845",
-            "#900C3E",
-            "#C70039",
-            "#FF5733",
-            "#FFC300"
-          ]
-labels: [
-            "0 / 00: Success",
-            "6: Patient not at surgery",
-            "7: GP2GP messaging not enabled on this system",
-            "10: Failed to successfully generate EHR extract",
-            "19: Sender check indicates that requestor is not the patients current health care provider",
-            "20: Spine system responded with an error",
-            "23: Message not sent because sending practice is not large message compliant",
-            "24: SDS lookup provided zero or more than one result to the query for each interaction",
-            "30: Large Message general failure",
-            "99: Undocumented error code"
-          ]
 items: [
-            86027,
-            203,
-            18,
-            4,
-            16,
-            10,
-            12,
-            1,
-            638,
-            5
-      ]
+  {
+    "name": "0 / 00: Success",
+    "value": 86027
+  },
+  {
+    "name": "6: Patient not at surgery",
+    "value": 203
+  },
+  {
+    "name": "7: GP2GP messaging not enabled on this system",
+    "value": 18
+  },
+  {
+    "name": "10: Failed to successfully generate EHR extract",
+    "value": 4
+  },
+  {
+    "name": "19: Sender check indicates that requestor is not the patients current health care provider",
+    "value": 16
+  },
+  {
+    "name": "20: Spine system responded with an error",
+    "value": 10
+  },
+  {
+    "name": "23: Message not sent because sending practice is not large message compliant",
+    "value": 12
+  },
+  {
+    "name": "24: SDS lookup provided zero or more than one result to the query for each interaction",
+    "value": 1
+  },
+  {
+    "name": "30: Large Message general failure",
+    "value": 638
+  },
+  {
+    "name": "99: Undocumented error code",
+    "value": 5
+  }
+]
 links: [
   {},
   {},

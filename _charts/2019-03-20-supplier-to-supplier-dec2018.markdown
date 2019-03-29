@@ -8,38 +8,40 @@ datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "red",
-            "blue",
-            "pink",
-            "purple",
-            "yellow",
-            "violet",
-            "orange",
-            "green"
-          ]
-labels: [
-            "EMIS -> EMIS",
-            "EMIS -> TPP",
-            "TPP -> EMIS",
-            "Vision -> EMIS",
-            "Vision -> TPP",
-            "MicroTest -> TPP",
-            "MicroTest -> EMIS",
-            "TPP -> TPP"
-          ]
 items: [
-            90095,
-            30455,
-            26843,
-            5448,
-            1634,
-            413,
-            387,
-            48
-      ]
+  {
+    "name": "EMIS -> EMIS",
+    "value": 90095
+  },
+  {
+    "name": "EMIS -> TPP",
+    "value": 30455
+  },
+  {
+    "name": "TPP -> EMIS",
+    "value": 26843
+  },
+  {
+    "name": "Vision -> EMIS",
+    "value": 5448
+  },
+  {
+    "name": "Vision -> TPP",
+    "value": 1634
+  },
+  {
+    "name": "MicroTest -> TPP",
+    "value": 413
+  },
+  {
+    "name": "MicroTest -> EMIS",
+    "value": 387
+  },
+  {
+    "name": "TPP -> TPP",
+    "value": 48
+  }
+]
 links: [
   { "document_name": "charts/extract-ack-codes/dec2018/emis-to-emis-extract-ack-codes" },
   { "document_name": "charts/extract-ack-codes/dec2018/emis-to-tpp-extract-ack-codes" },

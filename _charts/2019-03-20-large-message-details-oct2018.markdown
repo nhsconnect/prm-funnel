@@ -8,30 +8,16 @@ confidence: Medium
 funnel_slice: EHR Extracts
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "#FF6DA7",
-            "#E8A333",
-            "#4E8516",
-            "#27DEE8",
-            "#A35EFF"
-          ]
-labels: [
-            "0 / 00: Success",
-            "14: Message not sent because requesting practice is not large message compliant",
-            "19: Sender check indicates that requestor is not the patients current health care provider",
-            "20: Spine system responded with an error",
-            "23: Message not sent because sending practice is not large message compliant",
-            "99: Undocumented error code"
-          ]
-items: [
-            123219,
-            4100,
-            24,
-            172,
-            736,
-            1
+items: [ 
+          { name: '0 / 00: Success', value: 123219 },
+          { name: '14: Message not sent because requesting practice is not large message compliant',
+            value: 4100 },
+          { name: '19: Sender check indicates that requestor is not the patients current health care provider',
+            value: 24 },
+          { name: '20: Spine system responded with an error', value: 172 },
+          { name: '23: Message not sent because sending practice is not large message compliant',
+            value: 736 },
+          { name: '99: Undocumented error code', value: 1 } 
       ]
 ---
 A chart representing the details of Large messages.

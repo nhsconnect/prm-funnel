@@ -8,23 +8,16 @@ datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-  options:
-    legend:
-      position: "left"
-colours: [
-            "red",
-            "blue"
-          ]
-labels: [
-            "Large Messages",
-            "Standard Messages"
-          ]
 items: [
-            109006,
-            101856
-      ]
+          {
+            "name": "Large Messages",
+            "value": 109006
+          },
+          {
+            "name": "Standard Messages",
+            "value": 101856
+          }
+]
 links: [
   { "document_name": "charts/2019-03-20-large-message-details-nov2018" },
   { "document_name": "charts/2019-03-20-standard-message-details-nov2018" }

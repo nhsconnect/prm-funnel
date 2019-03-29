@@ -8,41 +8,44 @@ confidence: Medium
 funnel_slice: EHR Extracts
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
-  type: 'doughnut'
-colours: [
-            "#FF6DA7",
-            "#E8A333",
-            "#4E8516",
-            "#27DEE8",
-            "#A35EFF",
-            "#571845",
-            "#900C3E",
-            "#FF5733",
-            "#FFC300"
-          ]
-labels: [
-            "0 / 00: Success",
-            "6: Patient not at surgery",
-            "7: GP2GP messaging not enabled on this system",
-            "10: Failed to successfully generate EHR extract",
-            "19: Sender check indicates that requestor is not the patients current health care provider",
-            "20: Spine system responded with an error",
-            "23: Message not sent because sending practice is not large message compliant",
-            "30: Large Message general failure",
-            "99: Undocumented error code"
-          ]
 items: [
-            100374,
-            156,
-            20,
-            26,
-            35,
-            22,
-            7,
-            702,
-            8
-      ]
+  {
+    "name": "0 / 00: Success",
+    "value": 100374
+  },
+  {
+    "name": "6: Patient not at surgery",
+    "value": 156
+  },
+  {
+    "name": "7: GP2GP messaging not enabled on this system",
+    "value": 20
+  },
+  {
+    "name": "10: Failed to successfully generate EHR extract",
+    "value": 26
+  },
+  {
+    "name": "19: Sender check indicates that requestor is not the patients current health care provider",
+    "value": 35
+  },
+  {
+    "name": "20: Spine system responded with an error",
+    "value": 22
+  },
+  {
+    "name": "23: Message not sent because sending practice is not large message compliant",
+    "value": 7
+  },
+  {
+    "name": "30: Large Message general failure",
+    "value": 702
+  },
+  {
+    "name": "99: Undocumented error code",
+    "value": 8
+  }
+]
 links: [
   {},
   {},

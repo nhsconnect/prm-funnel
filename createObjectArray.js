@@ -1,11 +1,23 @@
-var labels = [
-  "0: Success",
-  "99: Unexpected condition"
+var labels =[
+  "EMIS -> EMIS",
+  "EMIS -> TPP",
+  "TPP -> EMIS",
+  "Vision -> EMIS",
+  "Vision -> TPP",
+  "MicroTest -> TPP",
+  "MicroTest -> EMIS",
+  "TPP -> TPP"
 ]
 
 var values = [
-  1342,
-  2
+  90095,
+  30455,
+  26843,
+  5448,
+  1634,
+  413,
+  387,
+  48
 ]
 
 var result = [];
@@ -15,4 +27,6 @@ labels.forEach((label, i) => {
     obj["value"] = values[i]
     result.push(obj)
 });
-console.log(result);
+result = JSON.stringify(result, null, 2);
+var proc = require('child_process').spawn('pbcopy'); 
+proc.stdin.write("items: " + result); proc.stdin.end();
