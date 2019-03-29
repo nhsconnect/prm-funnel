@@ -3,31 +3,7 @@ layout: default
 ---
 <article class="widget" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-  </header>
-  
-  <div id="chartdiv"></div>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
-  </div>
-
-  <div class="post-content e-content" itemprop="articleBody">
-      <h3>Raw data</h3>
-      <table style="width:100%">
-        <tr>
-          <th>Label</th>
-          <th>Data</th> 
-        </tr>
-        {%- for item in page.items -%}
-        <tr>
-          <td>{{item.label}}</td>
-          <td>{{item.value}}</td> 
-        </tr>
-        {%- endfor -%}
-      </table>
-    </div>
+  {%- include chart-page.html -%}
 
   <!-- Resources -->
   <script src="https://www.amcharts.com/lib/4/core.js"></script>
@@ -68,7 +44,7 @@ layout: default
   series.slices.template.events.on("hit", function(ev) {
     let document = links[ev.target.dataItem.index];
     if (document && document.document_name) {
-      let link = url + "charts/" + document.document_name + ".html";
+      let link = url + document.document_name + ".html";
       window.location.href = link;
     }
   }, this);
