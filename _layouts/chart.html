@@ -4,93 +4,48 @@ layout: default
 
   {%- include chart-page.html -%}
 
-  <script src="/prm-funnel/assets/js/deepmerge.min.js"></script>
-  <script>
-    const items = JSON.parse('{{page.items | jsonify}}');
-    const colours = JSON.parse('{{page.colours | jsonify}}');
-    const labels = JSON.parse('{{page.labels | jsonify}}');
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
-    const links = JSON.parse('{{page.links | jsonify}}');
-    let url = '{{ site.url }}';
-    const baseUrl = '{{ site.baseurl }}';
-    if (url.indexOf(baseUrl) < 0) {
-      url = url + baseUrl;
+<!-- Chart code -->
+<script>
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// Create chart instance
+var chart = am4core.create("chartdiv", am4charts.PieChart);
+
+const items = JSON.parse('{{page.items | jsonify}}');
+const links = JSON.parse('{{page.links | jsonify}}');
+
+let url = '{{ site.url }}';
+const baseUrl = '{{ site.baseurl }}';
+if (url.indexOf(baseUrl) < 0) {
+  url = url + baseUrl + "/";
+}
+
+// Add data
+chart.data = items;
+chart.legend = new am4charts.Legend();
+
+// Add and configure Series
+var pieSeries = chart.series.push(new am4charts.PieSeries());
+
+pieSeries.slices.template.events.on("hit", function(ev) {
+    let document = links[ev.target.dataItem.index];
+    if (document && document.document_name) {
+      let link = url + document.document_name + ".html";
+      window.location.href = link;
     }
+  }, this);
 
-    var datasets = { "datasets":
-            [{
-                data: items,
-                label: '{{page.timeframe}}',
-                backgroundColor: colours,
-            }],
-            labels: labels
-      };
-
-    var config = {
-      type: 'bar',
-      data: datasets,
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        legend: {
-          position: 'top',
-        },
-        title: {
-          display: true,
-          text: '{{page.title}}'
-        },
-        animation: {
-          animateScale: true,
-          animateRotate: true
-        },
-        onClick: function(evt) {
-            var activePoints = window.myDoughnut.getElementsAtEvent(evt);
-            var anyPoint = activePoints[0];
-            if (anyPoint && links) {
-              let document = links[anyPoint._index];
-              if (document && document.document_name) {
-                let link = url + "/" + document.document_name + ".html";
-                window.location.href = link;
-              }
-            }
-          },
-          hover: {
-            onHover: function(evt) {
-              var point = this.getElementAtEvent(evt);
-              if (point.length && links) {
-                let document = links[point[0]._index];
-                if (document && document.document_name) {
-                  evt.target.style.cursor = 'pointer';
-                } else {
-                  evt.target.style.cursor = 'default';
-                }
-              }
-            }
-        },
-        tooltips: {
-          callbacks: {
-            label: function(tooltipItem, data) {
-              var dataset = data.datasets[tooltipItem.datasetIndex];
-              var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
-                return previousValue + currentValue;
-              });
-              var currentValue = dataset.data[tooltipItem.index];
-              var percentage = Math.floor(((currentValue/total) * 100)+0.5);
-              return currentValue + " " + percentage + "%";
-            }
-          }
-        } 
-      }
-    };
-
-    const pageChartConfig = JSON.parse('{{page.chart_config | jsonify}}') || {};
-    const mergedChartConfig = deepmerge(config, pageChartConfig);
-
-    window.onload = function() {
-      var ctx = document.getElementById('chart-area').getContext('2d');
-      window.myDoughnut = new Chart(ctx, mergedChartConfig);
-    };
-
-  </script>
-  <script src="/prm-funnel/assets/js/Chart.min.js"></script>
-
+pieSeries.labels.template.disabled = true;
+pieSeries.ticks.template.disabled = true;
+pieSeries.dataFields.value = "value";
+pieSeries.dataFields.category = "name";
+pieSeries.slices.template.stroke = am4core.color("#fff");
+pieSeries.slices.template.strokeWidth = 2;
+pieSeries.slices.template.strokeOpacity = 1;
+</script>
