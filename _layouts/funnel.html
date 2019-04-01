@@ -36,10 +36,10 @@ layout: default
   series.colors.step = 2;
   series.dataFields.value = "value";
   series.dataFields.category = "name";
-  series.alignLabels = true;
-  
-  series.labelsContainer.paddingLeft = 15;
-  series.labelsContainer.width = 200;
+ 
+  series.labels.template.disabled = true;
+  series.ticks.template.disabled = true; 
+  series.slices.template.tooltipText = "{category}: {value.value}";
 
   series.slices.template.events.on("hit", function(ev) {
     let document = links[ev.target.dataItem.index];
@@ -50,9 +50,7 @@ layout: default
   }, this);
 
   chart.legend = new am4charts.Legend();
-  chart.legend.position = "left";
-  chart.legend.valign = "bottom";
-  chart.legend.margin(5,5,20,5);
+  series.legendSettings.itemValueText = "{category}";
 
   </script>
 </article>
