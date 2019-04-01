@@ -35,9 +35,9 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
   | rex field=SenderSoftware        
       "(?<SenderSupplier>.*)_(?<SenderSystem>.*)_(?<SenderVersion>.*)"     
   | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName     
-  | search RequestorSupplier=INPS 
+  | search RequestorSupplier=Unknown 
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
-  | search SenderSupplier=Unknown 
+  | search SenderSupplier=INPS  
   | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | stats dc(ConversationID) as count by ExtractAckCode 
