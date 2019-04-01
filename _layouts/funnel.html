@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article class="widget" itemscope itemtype="http://schema.org/BlogPosting">
+<!-- <article class="widget" itemscope itemtype="http://schema.org/BlogPosting"> -->
 
   {%- include chart-page.html -%}
 
@@ -17,6 +17,7 @@ layout: default
   am4core.useTheme(am4themes_material);
   am4core.useTheme(am4themes_animated);
   // Themes end
+  
   
   var chart = am4core.create("chartdiv", am4charts.SlicedChart);
   chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
@@ -50,7 +51,15 @@ layout: default
   }, this);
 
   chart.legend = new am4charts.Legend();
-  series.legendSettings.itemValueText = "{category}";
+  chart.legend.margin(20,5,20,5);
+  series.legendSettings.itemValueText = " ";
+  series.legendSettings.itemLabelText = "{category}";
+
 
   </script>
-</article>
+  <style>
+    #chartdiv {
+      min-height: 600px;
+      max-width: 800px;
+    }
+  </style>
