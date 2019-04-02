@@ -34,6 +34,7 @@
   | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName     
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
+  | where ExtractAckCode!=0 AND ExtractAckCode!=15
   | dedup ConversationID
   | table ExtractAckTime, ConversationID, RequestFailurePoint, ExtractAckCode, RequestorODS, RequestorSupplier, RequestorSystem, RequestorVersion, SenderODS, SenderSupplier, SenderSystem, SenderVersion
   | sort ExtractAckTime</query>
