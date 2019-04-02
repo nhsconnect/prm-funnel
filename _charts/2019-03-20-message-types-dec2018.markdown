@@ -8,6 +8,11 @@ datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
+chart_config: 
+  type: 'doughnut'
+  options:
+    legend:
+      position: "left"
 items: [ 
           { name: 'Large Messages', value: 81792 },
           { name: 'Standard Messages', value: 72178} 
