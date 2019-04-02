@@ -1,0 +1,54 @@
+<form>
+  <label>GP2GP Practice Visits</label>
+  <fieldset submitButton="false">
+    <input type="time" token="report_time">
+      <label>Search date range</label>
+      <default>
+        <earliest></earliest>
+        <latest></latest>
+      </default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <title>Conversations requested by specified practice</title>
+      <input type="text" token="practice_ods" searchWhenChanged="true">
+        <label>Practice ODS</label>
+      </input>
+      <table>
+        <title>Results</title>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR"     
+  | where RequestorODS="$practice_ods$"
+  | join type=outer RequestorODS
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"]      
+  | join type=outer SenderODS          
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"            
+  | rename RequestorODS as SenderODS            
+  | rename RequestorSoftware as SenderSoftware]     
+  | rex field=RequestorSoftware        
+      "(?&lt;RequestorSupplier&gt;.*)_(?&lt;RequestorSystem&gt;.*)_(?&lt;RequestorVersion&gt;.*)"     
+  | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "Unknown")     
+  | rex field=SenderSoftware        
+      "(?&lt;SenderSupplier&gt;.*)_(?&lt;SenderSystem&gt;.*)_(?&lt;SenderVersion&gt;.*)"     
+  | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName     
+  | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
+  | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
+  | dedup ConversationID
+  | table ExtractAckTime, ConversationID, RequestFailurePoint, ExtractAckCode, RequestorODS, RequestorSupplier, RequestorSystem, RequestorVersion, SenderODS, SenderSupplier, SenderSystem, SenderVersion
+  | sort ExtractAckTime</query>
+          <earliest>$report_time.earliest$</earliest>
+          <latest>$report_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">100</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+</form>
