@@ -1,23 +1,4 @@
-<article class="widget" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-      <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }} {% if page.timeframe %}-{% endif %} {{ page.timeframe }}</h1>
-  </header>
-
-  {% assign total = 0 %}
-  {% for item in page.items %}
-    {% assign total = total | plus: item.value %}
-  {% endfor %}
-
-  <div class="post-content e-content">
-    <ul>
-        <li>Funnel slice: {{ page.funnel_slice }}</li>
-        <li>Data type: {{ page.datatype }}</li>
-        <li>Confidence in data: {{ page.confidence }}</li>
-        <li>Datasource: {{ page.datasource }}</li>
-        <li>Total number of data points: {{ total }}</li>
-    </ul>
-  </div>
 
   <div id="canvas-holder">
     <div id="chartdiv"></div>
@@ -45,4 +26,3 @@
         </tfoot>
       </table>
     </div>
-</article>
