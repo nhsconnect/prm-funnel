@@ -13,6 +13,9 @@ items: [
           { name: 'TPP internal', value: 67269 },
           { name: 'Non GP2GP practice', value: 4254 }
     ]
+links : [
+          { "document_name": "charts/2019-03/gp2gp" }
+]
 ---
 A chart representing the details of transfer registrations.
 

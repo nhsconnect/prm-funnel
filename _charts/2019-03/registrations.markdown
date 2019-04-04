@@ -16,6 +16,9 @@ items: [
           { name: 'Returning registrant (no other GP)', value: 13994 } ,
           { name: 'Already registered at practice', value: 9843 } 
     ]
+links : [
+          { "document_name": "charts/2019-03/transfers" }
+]
 ---
 A chart representing the breakdown of registrations by category.
 
