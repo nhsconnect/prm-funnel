@@ -15,5 +15,5 @@ The information presented is mainly gathered from the MI data. The PRM teame hav
 
 Information about the 11% of GP practices that do not provide MI data (and 8% of GP2GP interactions) is obtained from messages sent over Spine.
 
-Registration data is returned from the GP2GP utilisation report (which obtains data from NHAIS and other data-sources which the PRM team does not currently have access to).  The data is from July 2018 as that is the most recent report currently available.
+Registration data before March 2019 is returned from the GP2GP utilisation report (which obtains data from NHAIS and other data-sources which the PRM team does not currently have access to).  The data is from July 2018 as that is the most recent report currently available. From March 2019 onwards, registration data is retrieved from the MI dataset.
 
