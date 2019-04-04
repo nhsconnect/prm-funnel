@@ -8,6 +8,10 @@ confidence: Medium
 funnel_slice: GP2GP
 datasource: NMS (gp2gp-mi)
 categories: data
+chart_config: 
+  options:
+    legend:
+      position: "bottom"
 items: [ 
           { name: 'Unknown', value: 5541 },
           { name: 'Large message failure', value: 1660 },

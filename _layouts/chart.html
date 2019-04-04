@@ -41,7 +41,9 @@ const pageChartConfig = JSON.parse('{{page.chart_config | jsonify}}') || {};
 if (pageChartConfig.options && pageChartConfig.options.legend.position === "left"){
   chart.legend.position = "left";
 }
-
+if (pageChartConfig.options && pageChartConfig.options.legend.position === "bottom"){
+  chart.legend.labels.template.maxWidth = 300;
+}
 // Add and configure Series
 var pieSeries = chart.series.push(new am4charts.PieSeries());
 
