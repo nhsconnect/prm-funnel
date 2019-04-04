@@ -14,7 +14,9 @@ items: [
           { name: 'Non GP2GP practice', value: 4254 }
     ]
 links : [
-          { "document_name": "charts/2019-03/gp2gp" }
+          { "document_name": "charts/2019-03/gp2gp" },
+          {},
+          {}
 ]
 ---
 A chart representing the details of transfer registrations.
