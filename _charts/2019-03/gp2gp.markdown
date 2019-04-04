@@ -13,6 +13,11 @@ items: [
           { name: 'Not integrated', value: 28636 },
           { name: 'Error', value: 9537 }
     ]
+links: [
+  { "document_name": "charts/2019-03/integrations" },
+  { "document_name": "charts/2019-03/integrations" },
+  { "document_name": "charts/2019-03/errors" }
+] 
 ---
 A chart representing the details of GP2GP registrations.
 
