@@ -1,0 +1,22 @@
+---
+layout: funnel
+title:  "March 2019"
+date:   2019-03-28 15:46:00 +0000
+datatype: Quantitative
+confidence: Medium
+datasource: NMS (gp2gp-mi)
+categories: data
+items: [
+    { "name": "Registrations", "value": 434062 },
+    { "name": "Transfers", "value": 265642 },
+    { "name": "GP2GP", "value": 194119 },
+    { "name": "Integratations", "value": 194119 }
+]
+links: [
+  { "document_name": "charts/2019-03/registrations" },
+  { "document_name": "charts/2019-03/transfers" },
+  { "document_name": "charts/2019-03/gp2gp" },
+  { "document_name": "charts/2019-03/integrations" }
+] 
+---
+Data is sourced from **suppliers' data (MI) - March 2019**.
