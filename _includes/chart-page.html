@@ -20,10 +20,12 @@
           <td>{{item.value}}</td> 
         </tr>
         {%- endfor -%}
+        {%- if total -%}
         <tfoot>
           <th>Total</th>
           <th>{{ total }}</th> 
         </tfoot>
+        {%- endif -%}
       </table>
     </div>
   </div>
