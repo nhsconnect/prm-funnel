@@ -127,6 +127,47 @@
   <row>
     <panel>
       <table>
+        <title>GP2GP category by Pathway</title>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR" 
+          | eval key=RegistrationTime + "-" + RequestorODS + "-" + coalesce(SenderODS, "Unknown") 
+          | join type=outer RequestorODS [search index="gp2gp-mi" sourcetype="gppractice-HR"] 
+          | rex field=RequestorSoftware "(?&lt;RequestorSupplier&gt;.*)_(?&lt;RequestorSystem&gt;.*)_(?&lt;RequestorVersion&gt;.*)"
+          | eval RequestorSupplier=coalesce(RequestorSupplier, "Unknown")
+          | join type=outer SenderODS [search index="gp2gp-mi" sourcetype="gppractice-HR" | rename RequestorODS as SenderODS | rename RequestorSoftware as SenderSoftware]
+          | rex field=SenderSoftware "(?&lt;SenderSupplier&gt;.*)_(?&lt;SenderSystem&gt;.*)_(?&lt;SenderVersion&gt;.*)"
+          | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS SenderMName
+          | eval SenderSupplier=coalesce(SenderSupplier, SenderMName, "Unknown")
+          | eval SenderSupplier=case(SenderSupplier=="EMIS", "EMIS", SenderSupplier=="TPP", "TPP", SenderSupplier=="INPS", "INPS", SenderSupplier=="Microtest", "Microtest", 1=1, "Unknown")
+          | eval RegistrationType=coalesce(RegistrationType,0)
+          | eval RequestFailureType=coalesce(RequestFailureType,-1) 
+          | eval RequestFailurePoint=coalesce(RequestFailurePoint,-1)
+          | eval RequestErrorCode=tonumber(coalesce(RequestErrorCode,-1))
+          | eval ExtractAckCode=tonumber(coalesce(ExtractAckCode,-1))
+          | eval ExtractEventTime=coalesce(ExtractAckTime,ExtractTime)
+          | eval ExtractResult=if(ExtractAckCode==-1 and isnotnull(ExtractEventTime),0,ExtractAckCode)
+          | eval category=case(
+  RequestFailurePoint==0 and RequestErrorCode==-1 and (ExtractResult==0 or ExtractResult==15) and ((ExtractAckStatus==1 and ExtractAckCode==0) or (ExtractAckStatus==5 and ExtractAckCode==15)),"GP2GP Success and Integrated",
+  RequestFailurePoint==0 and RequestErrorCode==-1 and (ExtractResult==0 or ExtractResult==15),"GP2GP Success not Integrated",
+  (RegistrationType!=3 and RequestFailureType!=2 and RequestFailureType!=5 and RequestFailurePoint==60) or (RequestFailurePoint==0 and isnull(RequestFailureTime) and (RequestErrorCode!=-1 or (ExtractResult!=0 and ExtractResult!=15))),"GP2GP Failure"
+)
+          | eval is_integrated=if(category=="GP2GP Success and Integrated",1,0)
+          | eval is_not_integrated=if(category=="GP2GP Success not Integrated",1,0)
+          | eval is_error=if(category=="GP2GP Failure",1,0)
+          | eval pathway=RequestorSupplier + "-" + SenderSupplier
+          | dedup key 
+          | stats sum(is_integrated) as integrated_count, sum(is_not_integrated) as not_integrated_count, sum(is_error) as error_count by pathway
+          | addcoltotals
+          | addtotals</query>
+          <earliest>$range.earliest$</earliest>
+          <latest>$range.latest$</latest>
+        </search>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
         <title>GP2GP Interactions Filing Status</title>
         <search>
           <query>index="gp2gp-mi" sourcetype="gppractice-RR" 
@@ -182,6 +223,48 @@
           | where (RequestFailurePoint==0 and isnull(RequestFailureTime)) or (RegistrationType!=3 and RequestFailureType!=2 and RequestFailureType!=5 and RequestFailurePoint==60)
           | dedup key 
           | stats count by ExtractAckStatusLabel
+          | eventstats sum(count) as total
+          | sort -count</query>
+          <earliest>$range.earliest$</earliest>
+          <latest>$range.latest$</latest>
+        </search>
+      </table>
+      <table>
+        <title>Filing Status by Pathway</title>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR" 
+          | eval key=RegistrationTime + "-" + RequestorODS + "-" + coalesce(SenderODS,"Unknown")            
+          | join type=outer RequestorODS [search index="gp2gp-mi" sourcetype="gppractice-HR"] 
+          | rex field=RequestorSoftware "(?&lt;RequestorSupplier&gt;.*)_(?&lt;RequestorSystem&gt;.*)_(?&lt;RequestorVersion&gt;.*)"
+          | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "unknown")
+          | join type=outer SenderODS [search index="gp2gp-mi" sourcetype="gppractice-HR" | rename RequestorODS as SenderODS | rename RequestorSoftware as SenderSoftware]
+          | rex field=SenderSoftware "(?&lt;SenderSupplier&gt;.*)_(?&lt;SenderSystem&gt;.*)_(?&lt;SenderVersion&gt;.*)"
+          | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName
+          | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")
+          | eval RegistrationType=coalesce(RegistrationType,0)
+          | eval RequestFailureType=coalesce(RequestFailureType,-1) 
+          | eval RequestFailurePoint=coalesce(RequestFailurePoint,-1)
+          | eval ExtractAckStatus=tonumber(coalesce(ExtractAckStatus,-1))
+          | eval ExtractAckCode=tonumber(coalesce(ExtractAckCode,-1))
+          | eval ExtractEventTime=coalesce(ExtractAckTime,ExtractTime)
+          | eval ExtractResult=if(ExtractAckCode==-1 and isnotnull(ExtractEventTime),0,ExtractAckCode)
+          | eval ExtractResultLabel=if(ExtractResult==0,"NONE",ExtractResult)
+          | eval ExtractAckStatusLabel=case(
+            ExtractAckStatus==-1,"Not acknowledged",
+            ExtractAckStatus==0,"Not sent",
+            ExtractAckStatus==1 and ExtractResultLabel=="NONE","Integrated",
+            ExtractAckStatus==2,"Filing rejected",
+            ExtractAckStatus==3,"Duplicate",
+            ExtractAckStatus==4,"Not requested",
+            ExtractAckStatus==5 and ExtractResultLabel==15,"Suppressed",
+            ExtractAckStatus==5 and ExtractResultLabel!=15,"Filed as attachment",
+            ExtractAckStatus==6,"Large message failure",
+            ExtractAckStatus==7,"Filing failed",
+            1=1,"Other"
+)
+          | where (RequestFailurePoint==0 and isnull(RequestFailureTime)) or (RegistrationType!=3 and RequestFailureType!=2 and RequestFailureType!=5 and RequestFailurePoint==60)
+          | dedup key 
+          | stats count by ExtractAckStatusLabel, RequestorSupplier, SenderSupplier
           | eventstats sum(count) as total
           | sort -count</query>
           <earliest>$range.earliest$</earliest>
@@ -282,6 +365,51 @@
           | eval JDIEText=if(RequestErrorText!="Unknown",RequestErrorText,ExtractResultText) 
           | dedup key 
           | stats count by JDIEText
+          | eventstats sum(count) as total
+          | sort -count</query>
+          <earliest>$range.earliest$</earliest>
+          <latest>$range.latest$</latest>
+        </search>
+      </table>
+    </panel>
+    <panel>
+      <table>
+        <title>GP2GP Failures by Pathway</title>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR" 
+          | eval key=RegistrationTime + "-" + RequestorODS + "-" + coalesce(SenderODS, "Unknown") 
+          | join type=outer RequestorODS [search index="gp2gp-mi" sourcetype="gppractice-HR"] 
+          | rex field=RequestorSoftware "(?&lt;RequestorSupplier&gt;.*)_(?&lt;RequestorSystem&gt;.*)_(?&lt;RequestorVersion&gt;.*)"
+          | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "unknown")
+          | join type=outer SenderODS [search index="gp2gp-mi" sourcetype="gppractice-HR" | rename RequestorODS as SenderODS | rename RequestorSoftware as SenderSoftware]
+          | rex field=SenderSoftware "(?&lt;SenderSupplier&gt;.*)_(?&lt;SenderSystem&gt;.*)_(?&lt;SenderVersion&gt;.*)"
+          | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName
+          | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")
+          | eval RegistrationType=coalesce(RegistrationType,0)
+          | eval RequestFailureType=coalesce(RequestFailureType,-1) 
+          | eval RequestFailurePoint=coalesce(RequestFailurePoint,-1)
+          | eval RequestErrorCode=tonumber(coalesce(RequestErrorCode,-1))
+          | eval RequestErrorLabel=if(RequestErrorCode==0,"NONE",RequestErrorCode)
+          | eval ExtractAckCode=tonumber(coalesce(ExtractAckCode,-1))
+          | eval ExtractEventTime=coalesce(ExtractAckTime,ExtractTime)
+          | eval ExtractResult=if(ExtractAckCode==-1 and isnotnull(ExtractEventTime),0,ExtractAckCode)
+          | eval ExtractResultLabel=if(ExtractResult==0,"NONE",ExtractResult)
+          | where (RequestFailurePoint==0 and isnull(RequestFailureTime)) or 
+              (RegistrationType!=3 and RequestFailureType!=2 and RequestFailureType!=5 and RequestFailurePoint==60)
+          | eval is_error=if(ExtractResultLabel=="NONE" or ExtractResultLabel==15,0,1)
+          | search is_error=1
+          | eval service="gp2gp"
+          | lookup JDIE-Lookup jdiEvent AS ExtractResultLabel,service OUTPUTNEW JDIEText AS ExtractResultText 
+          | eval ExtractResultText=if (ExtractResult==100,"TPP attachment limit",ExtractResultText) 
+          | eval ExtractResultText=if(like(ExtractResultText,"%Large %"),"Large Message failure",ExtractResultText)
+          | eval ExtractResultText=coalesce(ExtractResultText,"Unknown")
+          | lookup JDIE-Lookup jdiEvent AS RequestErrorLabel,service OUTPUTNEW JDIEText AS RequestErrorText 
+          | eval RequestErrorText=if (RequestErrorCode==100,"TPP attachment limit",RequestErrorText) 
+          | eval RequestErrorText=if(like(RequestErrorText,"%Large %"),"Large Message failure",RequestErrorText)
+          | eval RequestErrorText=coalesce(RequestErrorText,"Unknown")
+          | eval JDIEText=if(RequestErrorText!="Unknown",RequestErrorText,ExtractResultText) 
+          | dedup key 
+          | stats count by JDIEText, RequestorSupplier, SenderSupplier
           | eventstats sum(count) as total
           | sort -count</query>
           <earliest>$range.earliest$</earliest>

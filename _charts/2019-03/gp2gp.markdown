@@ -12,16 +12,19 @@ items: [
           { name: 'Integrated', value: 155946 },
           { name: 'Not integrated', value: 28636 },
           { name: 'Error', value: 9537 }
-    ]
+        ]
 links: [
           { "document_name": "charts/2019-03/integrations" },
           { "document_name": "charts/2019-03/integrations" },
           { "document_name": "charts/2019-03/errors" }
-] 
+        ] 
 ---
 A chart representing the details of GP2GP registrations.
 
+**[Click here to see the same information broken down into supplier pathways](/prm-funnel/charts/2019-03/gp2gp-pathways.html)**
+
 The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
+
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-RR" 

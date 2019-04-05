@@ -1,0 +1,34 @@
+
+
+  <div id="canvas-holder">
+    <div id="chartdiv"></div>
+  </div>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+
+    <div class="data-table">
+      <h3>Raw data</h3>
+      <table>
+        <tr>
+          <th>Pathway</th>
+          <th>Integrated</th> 
+          <th>Not integrated</th> 
+          <th>Failure</th> 
+        </tr>
+        {%- for item in page.items -%}
+        <tr>
+          <td>{{item.pathway}}</td>
+          <td>{{item.Integrated}}</td>
+          <td>{{item.NotIntegrated}}</td>
+          <td>{{item.Failure}}</td> 
+        </tr>
+        {%- endfor -%}
+        <tfoot>
+          <th>Total</th>
+          <th>{{ totalIntegrated }}</th> 
+          <th>{{ totalNotIntegrated }}</th> 
+          <th>{{ totalFailure}}</th> 
+        </tfoot>
+      </table>
+    </div>

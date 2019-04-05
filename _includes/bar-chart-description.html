@@ -1,0 +1,28 @@
+
+<header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }} {% if page.timeframe %}-{% endif %} {{ page.timeframe }}</h1>
+</header>
+
+{% assign totalIntegrated = 0 %}
+{% assign totalNotIntegrated = 0 %}
+{% assign totalFailure = 0 %}
+{% assign total = 0 %}
+
+{% for item in page.items %}
+
+{% assign totalIntegrated = totalIntegrated | plus: item.Integrated %}
+{% assign totalNotIntegrated = totalNotIntegrated | plus: item.NotIntegrated %}
+{% assign totalFailure = totalFailure | plus: item.Failure %}
+{% assign total = total | plus: item.Integrated | plus: item.NotIntegrated | plus: item.Failure %}
+
+{% endfor %}
+
+<div class="post-content e-content">
+    <ul>
+        <li>Funnel slice: {{ page.funnel_slice }}</li>
+        <li>Data type: {{ page.datatype }}</li>
+        <li>Confidence in data: {{ page.confidence }}</li>
+        <li>Datasource: {{ page.datasource }}</li>
+        <li>Total number of data points: {{ total }}</li>
+    </ul>
+</div>
