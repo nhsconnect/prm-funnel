@@ -24,6 +24,8 @@ items: [
 ---
 A chart representing the details of GP2GP integrations.
 
+**[Click here to see more information about the filing of records, broken down by the requesting supplier](/prm-funnel/charts/2019-03/filing-details.html)**
+
 The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
 
 ```sql

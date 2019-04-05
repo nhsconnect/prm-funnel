@@ -1,5 +1,5 @@
 ---
-layout: bar
+layout: integration-bar
 title:  "GP2GP"
 date:   203-20 12:28:00 +0000
 timeframe: March 2019

@@ -1,0 +1,49 @@
+
+
+  <div id="canvas-holder">
+    <div id="chartdiv"></div>
+  </div>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+
+    <div class="data-table">
+      <h3>Raw data</h3>
+      <table>
+        <tr>
+          <th>Requesting Supplier</th>
+          <th>Not Acknowleged</th> 
+          <th>Not Sent</th> 
+          <th>Integrated</th> 
+          <th>Filing Rejected</th>
+          <th>Duplicate</th> 
+          <th>Suppressed</th> 
+          <th>Filing Failed</th> 
+          <th>Other</th> 
+        </tr>
+        {%- for item in page.items -%}
+        <tr>
+          <td>{{item.RequestingSupplier}}</td>
+          <td>{{item.NotAcknowleged}}</td>
+          <td>{{item.NotSent}}</td>
+          <td>{{item.Integrated}}</td> 
+          <td>{{item.FilingRej}}</td>
+          <td>{{item.Duplicate}}</td>
+          <td>{{item.Suppressed}}</td>
+          <td>{{item.FilingFailed}}</td> 
+          <td>{{item.Other}}</td> 
+        </tr>
+        {%- endfor -%}
+        <tfoot>
+          <th>Total</th>
+          <th>{{ totalNotAcknowleged }}</th> 
+          <th>{{ totalNotSent }}</th> 
+          <th>{{ totalIntegrated}}</th> 
+          <th>{{ totalFilingRej }}</th> 
+          <th>{{ totalDuplicate }}</th> 
+          <th>{{ totalSuppressed}}</th> 
+          <th>{{ totalFilingFailed}}</th> 
+          <th>{{ totalOther}}</th> 
+        </tfoot>
+      </table>
+    </div>
