@@ -8,17 +8,16 @@
         <latest></latest>
       </default>
     </input>
+    <input type="text" token="practice_ods" searchWhenChanged="true">
+      <label>Practice ODS</label>
+    </input>
   </fieldset>
   <row>
     <panel>
-      <title>Conversations requested by specified practice</title>
-      <input type="text" token="practice_ods" searchWhenChanged="true">
-        <label>Practice ODS</label>
-      </input>
-      <table>
-        <title>Results</title>
+      <title>Total successful integrations</title>
+      <single>
         <search>
-          <query>index="gp2gp-mi" sourcetype="gppractice-RR"     
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR"  
   | where RequestorODS="$practice_ods$"
   | join type=outer RequestorODS
       [search index="gp2gp-mi" sourcetype="gppractice-HR"]      
@@ -27,16 +26,213 @@
   | rename RequestorODS as SenderODS            
   | rename RequestorSoftware as SenderSoftware]     
   | rex field=RequestorSoftware        
-      "(?&lt;RequestorSupplier&gt;.*)_(?&lt;RequestorSystem&gt;.*)_(?&lt;RequestorVersion&gt;.*)"     
+      "(?&lt;RequestorSupplier&gt;.*)_(?&lt;RequestorSystem&gt;.*)_(?&lt;RequestorVersion&gt;.*)"  
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW MName AS MName
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW OrgName AS RequestorOrgName
   | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "Unknown")     
   | rex field=SenderSoftware        
       "(?&lt;SenderSupplier&gt;.*)_(?&lt;SenderSystem&gt;.*)_(?&lt;SenderVersion&gt;.*)"     
   | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName     
+  | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW OrgName AS SenderOrgName
+  | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
+  | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
+  | where ExtractAckCode=0 OR ExtractAckCode=15 AND ExtractAckStatus=1
+  | stats dc(ConversationID)</query>
+          <earliest>$report_time.earliest$</earliest>
+          <latest>$report_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="colorBy">value</option>
+        <option name="colorMode">block</option>
+        <option name="drilldown">all</option>
+        <option name="numberPrecision">0</option>
+        <option name="rangeColors">["0xd93f3c","0xf7bc38","0x65a637"]</option>
+        <option name="rangeValues">[0,1000]</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">standard</option>
+        <option name="trendDisplayMode">absolute</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">0</option>
+        <option name="useThousandSeparators">1</option>
+      </single>
+    </panel>
+    <panel>
+      <title>Total unsuccessful integrations</title>
+      <single>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR"  
+  | where RequestorODS="$practice_ods$"
+  | join type=outer RequestorODS
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"]      
+  | join type=outer SenderODS          
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"            
+  | rename RequestorODS as SenderODS            
+  | rename RequestorSoftware as SenderSoftware]     
+  | rex field=RequestorSoftware        
+      "(?&lt;RequestorSupplier&gt;.*)_(?&lt;RequestorSystem&gt;.*)_(?&lt;RequestorVersion&gt;.*)"  
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW MName AS MName
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW OrgName AS RequestorOrgName
+  | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "Unknown")     
+  | rex field=SenderSoftware        
+      "(?&lt;SenderSupplier&gt;.*)_(?&lt;SenderSystem&gt;.*)_(?&lt;SenderVersion&gt;.*)"     
+  | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName     
+  | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW OrgName AS SenderOrgName
+  | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
+  | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
+  | where ExtractAckCode!=0 AND ExtractAckCode!=15 AND ExtractAckStatus!=1
+  | stats dc(ConversationID)</query>
+          <earliest>$report_time.earliest$</earliest>
+          <latest>$report_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="colorBy">value</option>
+        <option name="colorMode">none</option>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="rangeColors">["0x65a637","0x6db7c6","0xf7bc38","0xf58f39","0xd93f3c"]</option>
+        <option name="rangeValues">[0,30,70,100]</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trendColorInterpretation">standard</option>
+        <option name="trendDisplayMode">absolute</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">0</option>
+        <option name="useThousandSeparators">1</option>
+      </single>
+    </panel>
+    <panel>
+      <title>Large message general failures with integrated status</title>
+      <single>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR"  
+  | where RequestorODS="$practice_ods$"
+  | join type=outer RequestorODS
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"]      
+  | join type=outer SenderODS          
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"            
+  | rename RequestorODS as SenderODS            
+  | rename RequestorSoftware as SenderSoftware]     
+  | rex field=RequestorSoftware        
+      "(?&lt;RequestorSupplier&gt;.*)_(?&lt;RequestorSystem&gt;.*)_(?&lt;RequestorVersion&gt;.*)"  
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW MName AS MName
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW OrgName AS RequestorOrgName
+  | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "Unknown")     
+  | rex field=SenderSoftware        
+      "(?&lt;SenderSupplier&gt;.*)_(?&lt;SenderSystem&gt;.*)_(?&lt;SenderVersion&gt;.*)"     
+  | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName     
+  | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW OrgName AS SenderOrgName
+  | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
+  | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
+  | where ExtractAckCode=30 AND ExtractAckStatus=1
+  | stats dc(ConversationID) as Total</query>
+          <earliest>$report_time.earliest$</earliest>
+          <latest>$report_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="drilldown">all</option>
+      </single>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Successful requests with failed acks</title>
+      <table>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR"  
+  | where RequestFailurePoint=0 OR RequestFailurePoint=60 
+  | where RequestorODS="$practice_ods$"
+  | join type=outer RequestorODS
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"]      
+  | join type=outer SenderODS          
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"            
+  | rename RequestorODS as SenderODS            
+  | rename RequestorSoftware as SenderSoftware]     
+  | rex field=RequestorSoftware        
+      "(?&lt;RequestorSupplier&gt;.*)_(?&lt;RequestorSystem&gt;.*)_(?&lt;RequestorVersion&gt;.*)"  
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW MName AS MName
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW OrgName AS RequestorOrgName
+  | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "Unknown")     
+  | rex field=SenderSoftware        
+      "(?&lt;SenderSupplier&gt;.*)_(?&lt;SenderSystem&gt;.*)_(?&lt;SenderVersion&gt;.*)"     
+  | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName     
+  | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW OrgName AS SenderOrgName
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | where ExtractAckCode!=0 AND ExtractAckCode!=15
   | dedup ConversationID
-  | table ExtractAckTime, ConversationID, RequestFailurePoint, ExtractAckCode, RequestorODS, RequestorSupplier, RequestorSystem, RequestorVersion, SenderODS, SenderSupplier, SenderSystem, SenderVersion
+  | table ExtractAckTime, ConversationID, 
+RegistrationSmartcardUID, RequestFailurePoint, RequestFailureType, ExtractAckCode, 
+ExtractAckStatus, RequestorOrgName, RequestorODS, RequestorSupplier, RequestorSystem, RequestorVersion, SenderOrgName, SenderODS, SenderSupplier, SenderSystem, SenderVersion
+  | sort ExtractAckTime</query>
+          <earliest>$report_time.earliest$</earliest>
+          <latest>$report_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">100</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Unsuccessful requests with failure points (trends only - no ConversationIDs)</title>
+      <chart>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR"  
+  | where RequestFailurePoint!=0 AND RequestFailurePoint!=60 
+  | where RequestorODS="$practice_ods$"
+  | join type=outer RequestorODS
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"] 
+  | rex field=RequestorSoftware        
+      "(?&lt;RequestorSupplier&gt;.*)_(?&lt;RequestorSystem&gt;.*)_(?&lt;RequestorVersion&gt;.*)"  
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW MName AS MName
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW OrgName AS RequestorOrgName
+  | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "Unknown") 
+  | stats dc(RequestFailureTime) by RequestFailurePoint as Total</query>
+          <earliest>$report_time.earliest$</earliest>
+          <latest>$report_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="charting.chart">column</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Extracts not integrated</title>
+      <table>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR"  
+  | where RequestorODS="$practice_ods$"
+  | join type=outer RequestorODS
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"]      
+  | join type=outer SenderODS          
+      [search index="gp2gp-mi" sourcetype="gppractice-HR"            
+  | rename RequestorODS as SenderODS            
+  | rename RequestorSoftware as SenderSoftware]     
+  | rex field=RequestorSoftware        
+      "(?&lt;RequestorSupplier&gt;.*)_(?&lt;RequestorSystem&gt;.*)_(?&lt;RequestorVersion&gt;.*)"  
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW MName AS MName
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW OrgName AS RequestorOrgName
+  | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "Unknown")     
+  | rex field=SenderSoftware        
+      "(?&lt;SenderSupplier&gt;.*)_(?&lt;SenderSystem&gt;.*)_(?&lt;SenderVersion&gt;.*)"     
+  | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW MName AS MName     
+  | lookup Spine2-NACS-Lookup NACS AS SenderODS OUTPUTNEW OrgName AS SenderOrgName
+  | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
+  | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
+  | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
+  | where ExtractAckCode!=0 AND ExtractAckCode!=15 AND ExtractAckStatus!=0 AND ExtractAckStatus!=1
+  | dedup ConversationID
+  | table ExtractAckTime, ConversationID, 
+RegistrationSmartcardUID, RequestFailurePoint, RequestFailureType, ExtractAckCode, ExtractAckStatus, RequestorOrgName, RequestorODS, RequestorSupplier, RequestorSystem, RequestorVersion, SenderOrgName, SenderODS, SenderSupplier, SenderSystem, SenderVersion
   | sort ExtractAckTime</query>
           <earliest>$report_time.earliest$</earliest>
           <latest>$report_time.latest$</latest>
