@@ -195,6 +195,7 @@ ExtractAckStatus, RequestorOrgName, RequestorODS, RequestorSupplier, RequestorSy
   | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW MName AS MName
   | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW OrgName AS RequestorOrgName
   | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "Unknown") 
+| eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
   | stats dc(RequestFailureTime) by RequestFailurePoint</query>
           <earliest>$report_time.earliest$</earliest>
           <latest>$report_time.latest$</latest>
@@ -229,7 +230,7 @@ ExtractAckStatus, RequestorOrgName, RequestorODS, RequestorSupplier, RequestorSy
   | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")     
   | eval ExtractAckCode=if(ExtractAckCode=="00","0",ExtractAckCode)
   | eval ExtractAckCode=coalesce(ExtractAckCode, ExtractAckCode, "None")
-  | where ExtractAckCode!=0 AND ExtractAckCode!=15 AND ExtractAckStatus!=0 AND ExtractAckStatus!=1
+  | where ExtractAckStatus!=1
   | dedup ConversationID
   | table ExtractAckTime, ConversationID, 
 RegistrationSmartcardUID, RequestFailurePoint, RequestFailureType, ExtractAckCode, ExtractAckStatus, RequestorOrgName, RequestorODS, RequestorSupplier, RequestorSystem, RequestorVersion, SenderOrgName, SenderODS, SenderSupplier, SenderSystem, SenderVersion
@@ -246,6 +247,44 @@ RegistrationSmartcardUID, RequestFailurePoint, RequestFailureType, ExtractAckCod
         <option name="totalsRow">false</option>
         <option name="wrap">true</option>
       </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Total registration failure types</title>
+      <chart>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-RR"  
+  | where RequestorODS="$practice_ods$"
+  | stats dc(RegistrationTime) by RequestFailureType</query>
+          <earliest>$report_time.earliest$</earliest>
+          <latest>$report_time.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.enabled">0</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">bar</option>
+        <option name="charting.chart.bubbleMaximumSize">50</option>
+        <option name="charting.chart.bubbleMinimumSize">10</option>
+        <option name="charting.chart.bubbleSizeBy">area</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.showDataLabels">none</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+      </chart>
     </panel>
   </row>
 </form>
