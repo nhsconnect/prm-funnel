@@ -195,7 +195,7 @@ ExtractAckStatus, RequestorOrgName, RequestorODS, RequestorSupplier, RequestorSy
   | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW MName AS MName
   | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW OrgName AS RequestorOrgName
   | eval RequestorSupplier=coalesce(RequestorSupplier, RequestorSupplier, "Unknown") 
-  | stats dc(RequestFailureTime) by RequestFailurePoint as Total</query>
+  | stats dc(RequestFailureTime) by RequestFailurePoint</query>
           <earliest>$report_time.earliest$</earliest>
           <latest>$report_time.latest$</latest>
           <sampleRatio>1</sampleRatio>
