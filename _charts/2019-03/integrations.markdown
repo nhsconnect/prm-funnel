@@ -9,15 +9,15 @@ funnel_slice: Integrations
 datasource: NMS (gp2gp-mi)
 categories: data
 items: [ 
-          { name: 'Integrated', value: 147007 },
-          { name: 'Not acknowledged', value: 26485 },
-          { name: 'Not sent', value: 10258 },
-          { name: 'Suppressed', value: 8585 },
-          { name: 'Duplicate', value: 1103 } ,
+          { name: 'Integrated', value: 151280 },
+          { name: 'Not acknowledged', value: 24662 },
+          { name: 'Not sent', value: 10278},
+          { name: 'Suppressed', value: 8987 },
+          { name: 'Duplicate', value: 1090 } ,
           { name: 'Other', value: 336 },
-          { name: 'Filing rejected', value: 227 },
-          { name: 'Filing failed', value: 64 },
-          { name: 'Large message failure', value: 43 } ,
+          { name: 'Filing rejected', value: 239 },
+          { name: 'Filing failed', value: 62 },
+          { name: 'Large message failure', value: 44 } ,
           { name: 'Filed as attachment', value: 10 },
           { name: 'Not requested', value: 1 }
     ]

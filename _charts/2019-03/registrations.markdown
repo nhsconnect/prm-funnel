@@ -9,12 +9,12 @@ funnel_slice: Registrations
 datasource: NMS (gp2gp-mi)
 categories: data
 items: [ 
-          { name: 'Transfer', value: 265642 },
-          { name: 'New registrant', value: 70427 },
-          { name: 'Unknown', value: 51176 },
-          { name: 'Patient lookup failure', value: 22980 },
-          { name: 'Returning registrant (no other GP)', value: 13994 } ,
-          { name: 'Already registered at practice', value: 9843 } 
+          { name: 'Transfer', value: 268775 },
+          { name: 'New registrant', value: 71355 },
+          { name: 'Unknown', value: 52159 },
+          { name: 'Patient lookup failure', value: 23101 },
+          { name: 'Returning registrant (no other GP)', value: 14112 } ,
+          { name: 'Already registered at practice', value: 10000 } 
     ]
 links : [
           { "document_name": "charts/2019-03/transfers" },

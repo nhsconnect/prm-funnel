@@ -9,9 +9,9 @@ funnel_slice: GP2GP
 datasource: NMS (gp2gp-mi)
 categories: data
 items: [ 
-          { name: 'Integrated', value: 155946 },
-          { name: 'Not integrated', value: 28636 },
-          { name: 'Error', value: 9537 }
+          { name: 'Integrated', value: 157569 },
+          { name: 'Not integrated', value: 30254 },
+          { name: 'Error', value: 9166 }
         ]
 links: [
           { "document_name": "charts/2019-03/integrations" },

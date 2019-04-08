@@ -7,10 +7,10 @@ confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
 items: [
-    { "name": "Registrations", "value": 434062 },
-    { "name": "Transfers", "value": 265642 },
-    { "name": "GP2GP", "value": 194119 },
-    { "name": "Integratations", "value": 158900 }
+    { "name": "Registrations", "value": 439502 },
+    { "name": "Transfers", "value": 268775 },
+    { "name": "GP2GP", "value": 196989 },
+    { "name": "Integratations", "value": 157569 }
 ]
 links: [
   { "document_name": "charts/2019-03/registrations" },
