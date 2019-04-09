@@ -24,14 +24,14 @@
         {%- for item in page.items -%}
         <tr>
           <td>{{item.RequestingSupplier}}</td>
-          <td>{{item.NotAcknowleged}}</td>
-          <td>{{item.NotSent}}</td>
-          <td>{{item.Integrated}}</td> 
-          <td>{{item.FilingRej}}</td>
-          <td>{{item.Duplicate}}</td>
-          <td>{{item.Suppressed}}</td>
-          <td>{{item.FilingFailed}}</td> 
-          <td>{{item.Other}}</td> 
+          <td>{{item.not_acknowledged_count}}</td>
+          <td>{{item.not_sent_count}}</td>
+          <td>{{item.integrated_count}}</td> 
+          <td>{{item.rejected_count}}</td>
+          <td>{{item.duplicate_count}}</td>
+          <td>{{item.suppressed_count}}</td>
+          <td>{{item.filing_failed_count}}</td> 
+          <td>{{item.other_count}}</td> 
         </tr>
         {%- endfor -%}
         <tfoot>

@@ -15,21 +15,21 @@
 
 {% for item in page.items %}
 
-{% assign totalNotAcknowleged = totalNotAcknowleged | plus: item.NotAcknowleged %}
-{% assign totalNotSent = totalNotSent | plus: item.NotSent %}
-{% assign totalIntegrated = totalIntegrated | plus: item.Integrated %}
-{% assign totalFilingRej = totalFilingRej | plus: item.FilingRej %}
-{% assign totalDuplicate  = totalDuplicate  | plus: item.Duplicate  %}
-{% assign totalSuppressed = totalSuppressed | plus: item.Suppressed %}
-{% assign totalFilingFailed = totalFilingFailed | plus: item.FilingFailed %}
-{% assign totalOther  = totalOther  | plus: item.Other  %}
+{% assign totalNotAcknowleged = totalNotAcknowleged | plus: item.not_acknowledged_count %}
+{% assign totalNotSent = totalNotSent | plus: item.not_sent_count %}
+{% assign totalIntegrated = totalIntegrated | plus: item.integrated_count %}
+{% assign totalFilingRej = totalFilingRej | plus: item.rejected_count %}
+{% assign totalDuplicate  = totalDuplicate  | plus: item.duplicate_count  %}
+{% assign totalSuppressed = totalSuppressed | plus: item.suppressed_count %}
+{% assign totalFilingFailed = totalFilingFailed | plus: item.filing_failed_count %}
+{% assign totalOther  = totalOther  | plus: item.other_count  %}
 
 {% assign total = total 
-    | plus: item.NotAcknowleged
-    | plus: item.NotSent | plus: item.Integrated 
-    | plus: item.FilingRej | plus: item.Duplicate 
-    | plus: item.Suppressed | plus: item.FilingFailed 
-    | plus: item.Other %}
+    | plus: item.not_acknowledged_count
+    | plus: item.not_sent_count | plus: item.integrated_count 
+    | plus: item.rejected_count | plus: item.duplicate_count 
+    | plus: item.suppressed_count | plus: item.filing_failed_count 
+    | plus: item.other_count %}
 
 {% endfor %}
 

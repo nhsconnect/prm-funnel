@@ -8,54 +8,64 @@ confidence: Medium
 funnel_slice: GP2GP
 datasource: NMS (gp2gp-mi)
 categories: data    
-items: [ 
-    {
-      "pathway": "Emis - Emis",
-      "Integrated": 94907,
-      "NotIntegrated": 15427,
-      "Failure": 2443
-    }, {
-      "pathway": "TPP - Emis",
-      "Integrated": 26575,
-      "NotIntegrated": 8666,
-      "Failure": 1106
-    }, {
-      "pathway": "Emis - TPP",
-      "Integrated": 24919,
-      "NotIntegrated": 5017,
-      "Failure": 1614
-    }, {
-      "pathway": "Emis - Vision",
-      "Integrated": 3664,
-      "NotIntegrated": 761,
-      "Failure": 3114
-    }, {
-      "pathway": "Unknown - Emis",
-      "Integrated": 1727,
-      "NotIntegrated": 482,
-      "Failure": 53
-    }, {
-      "pathway": "TPP - Vision",
-      "Integrated": 987,
-      "NotIntegrated": 340,
-      "Failure": 504
-    }, {
-      "pathway": "Unknown - TPP",
-      "Integrated": 457,
-      "NotIntegrated": 156,
-      "Failure": 31
-    }, {
-      "pathway": "TPP - Microtest",
-      "Integrated": 138,
-      "NotIntegrated": 77,
-      "Failure": 334
-    }, {
-      "pathway": "Emis - Microtest",
-      "Integrated": 122,
-      "NotIntegrated": 33,
-      "Failure": 297
-    }
-    ]
+items: [
+  {
+    "pathway": "EMIS-EMIS",
+    "integrated_count": 71452,
+    "not_integrated_count": 13135,
+    "error_count": 1856,
+    "Total": 86443
+  },
+  {
+    "pathway": "EMIS-Vision",
+    "integrated_count": 2930,
+    "not_integrated_count": 761,
+    "error_count": 2600,
+    "Total": 6291
+  },
+  {
+    "pathway": "EMIS-Microtest",
+    "integrated_count": 92,
+    "not_integrated_count": 26,
+    "error_count": 201,
+    "Total": 319
+  },
+  {
+    "pathway": "EMIS-TPP",
+    "integrated_count": 18501,
+    "not_integrated_count": 4318,
+    "error_count": 1123,
+    "Total": 23942
+  },
+  {
+    "pathway": "TPP-EMIS",
+    "integrated_count": 8949,
+    "not_integrated_count": 3234,
+    "error_count": 361,
+    "Total": 12544
+  },
+  {
+    "pathway": "TPP-Vision",
+    "integrated_count": 364,
+    "not_integrated_count": 128,
+    "error_count": 174,
+    "Total": 666
+  },
+  {
+    "pathway": "TPP-Microtest",
+    "integrated_count": 57,
+    "not_integrated_count": 40,
+    "error_count": 150,
+    "Total": 247
+  },
+  {
+    "pathway": "TPP-TPP",
+    "integrated_count": 0,
+    "not_integrated_count": 0,
+    "error_count": 6,
+    "Total": 6
+  }
+]
 ---
 A chart representing the details of GP2GP failures.
 

@@ -19,9 +19,9 @@
         {%- for item in page.items -%}
         <tr>
           <td>{{item.pathway}}</td>
-          <td>{{item.Integrated}}</td>
-          <td>{{item.NotIntegrated}}</td>
-          <td>{{item.Failure}}</td> 
+          <td>{{item.integrated_count}}</td>
+          <td>{{item.not_integrated_count}}</td>
+          <td>{{item.error_count}}</td> 
         </tr>
         {%- endfor -%}
         <tfoot>

@@ -28,7 +28,7 @@ layout: default
     
     // Create axes
     var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-    categoryAxis.dataFields.category = "RequestingSupplier";
+    categoryAxis.dataFields.category = "RequestorSupplier";
     categoryAxis.renderer.grid.template.opacity = 0;
     
     var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
@@ -45,7 +45,7 @@ layout: default
     function createSeries(field, name) {
       var series = chart.series.push(new am4charts.ColumnSeries());
       series.dataFields.valueX = field;
-      series.dataFields.categoryY = "RequestingSupplier";
+      series.dataFields.categoryY = "RequestorSupplier";
       series.stacked = true;
       series.name = name;
       
@@ -55,14 +55,14 @@ layout: default
       labelBullet.label.fill = am4core.color("#fff");
     }
     
-    createSeries("NotAcknowleged", "Not Acknowleged");
-    createSeries("NotSent", "Not Sent");
-    createSeries("Integrated", "Integrated");
-    createSeries("FilingRej", "Filing Rejected");
-    createSeries("Duplicate", "Duplicate");
-    createSeries("Suppressed", "Suppressed");
-    createSeries("FilingFailed", "Filing Failed");
-    createSeries("Other", "Other");
+    createSeries("not_acknowledged_count", "Not Acknowleged");
+    createSeries("not_sent_count", "Not Sent");
+    createSeries("integrated_count", "Integrated");
+    createSeries("rejected_count", "Filing Rejected");
+    createSeries("duplicate_count", "Duplicate");
+    createSeries("suppressed_count", "Suppressed");
+    createSeries("filing_failed_count", "Filing Failed");
+    createSeries("other_count", "Other");
 
 
   

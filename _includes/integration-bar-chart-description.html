@@ -1,6 +1,7 @@
 
 <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }} {% if page.timeframe %}-{% endif %} {{ page.timeframe }}</h1>
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title 
+        | escape }} {% if page.timeframe %}-{% endif %} {{ page.timeframe }}</h1>
 </header>
 
 {% assign totalIntegrated = 0 %}
@@ -10,16 +11,19 @@
 
 {% for item in page.items %}
 
-{% assign totalIntegrated = totalIntegrated | plus: item.Integrated %}
-{% assign totalNotIntegrated = totalNotIntegrated | plus: item.NotIntegrated %}
-{% assign totalFailure = totalFailure | plus: item.Failure %}
-{% assign total = total | plus: item.Integrated | plus: item.NotIntegrated | plus: item.Failure %}
+{% assign totalIntegrated = totalIntegrated | plus: item.integrated_count %}
+{% assign totalNotIntegrated = totalNotIntegrated | plus: item.not_integrated_count %}
+{% assign totalFailure = totalFailure | plus: item.error_count %}
+{% assign total = total 
+    | plus: item.integrated_count 
+    | plus: item.not_integrated_count 
+    | plus: item.error_count %}
 
 {% endfor %}
 
 <div class="post-content e-content">
     <ul>
-        <li>Funnel slice: {{ page.funnel_slice }}</li>
+        <li>Funnel slice: {{ page.funnel_slice }}</li>  
         <li>Data type: {{ page.datatype }}</li>
         <li>Confidence in data: {{ page.confidence }}</li>
         <li>Datasource: {{ page.datasource }}</li>

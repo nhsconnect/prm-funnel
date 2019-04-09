@@ -13,16 +13,16 @@ chart_config:
     legend:
       position: "bottom"
 items: [ 
-          { name: 'Unknown', value: 5541 },
-          { name: 'Large message failure', value: 1660 },
-          { name: 'Duplicate EHR extract received', value: 1527 },
+          { name: 'Unknown', value: 5608 },
+          { name: 'Large message failure', value: 1686 },
+          { name: 'Duplicate EHR extract received', value: 1683 },
           { name: 'TPP attachment limit', value: 336 },
-          { name: 'Failed to successfully generate EHR extract', value: 231 },
-          { name: 'Patient not at surgery', value: 198 },
-          { name: 'A-B-A EHR extract received and rejected', value: 103 },
+          { name: 'Failed to successfully generate EHR extract', value: 233 },
+          { name: 'Patient not at surgery', value: 199 },
+          { name: 'A-B-A EHR extract received and rejected', value: 114 },
           { name: 'Spine system responded with an error', value: 96 },
-          { name: 'Non A-B-A EHR extract received and rejected', value: 76 },
-          { name: 'Failed to successfully integrate EHR extract', value: 69 },
+          { name: 'Non A-B-A EHR extract received and rejected', value: 81 },
+          { name: 'Failed to successfully integrate EHR extract', value: 73 },
           { name: 'EHR extract message not well formed or not able to be processed', value: 56 },
           { name: 'GP2GP not enabled on this sytem', value: 38 },
           { name: 'Non A-B-A EHR extract received and filed as an attachment', value: 10 },
@@ -31,6 +31,8 @@ items: [
     ]
 ---
 A chart representing the details of GP2GP failures.
+
+**[Click here to see the same information broken down into supplier pathways](/prm-funnel/charts/2019-03/errors-pathways.html)**
 
 The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
 

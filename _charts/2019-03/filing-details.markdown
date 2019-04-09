@@ -8,39 +8,44 @@ confidence: Medium
 funnel_slice: Integrations
 datasource: NMS (gp2gp-mi)
 categories: data    
-items: [ 
-    {
-      "RequestingSupplier": "Emis",
-      "NotAcknowleged": 27656,
-      "NotSent": 131,
-      "Integrated": 115361 ,
-      "FilingRej" : 182,
-      "Duplicate" : 635,
-      "Suppressed": 8333,
-      "FilingFailed": 26,
-      "Other": 32
-    }, {
-      "RequestingSupplier": "TPP",
-      "NotAcknowleged": 0,
-      "NotSent": 10127,
-      "Integrated": 27721 ,
-      "FilingRej" : 44,
-      "Duplicate" : 480,
-      "Suppressed": 0,
-      "FilingFailed": 35,
-      "Other": 347
-    }, {
-      "RequestingSupplier": "Unknown",
-      "NotAcknowleged": 775,
-      "NotSent": 0,
-      "Integrated": 2070 ,
-      "FilingRej" : 0,
-      "Duplicate" : 9,
-      "Suppressed": 153,
-      "FilingFailed": 1,
-      "Other": 1
-    }
-    ]
+items: [
+  {
+    "RequestorSupplier": "EMIS",
+    "not_acknowledged_count": 23871,
+    "not_sent_count": 47,
+    "integrated_count": 88782,
+    "rejected_count": 140,
+    "duplicate_count": 651,
+    "suppressed_count": 6437,
+    "filing_failed_count": 23,
+    "other_count": 21,
+    "Total": 119972
+  },
+  {
+    "RequestorSupplier": "TPP",
+    "not_acknowledged_count": 0,
+    "not_sent_count": 3799,
+    "integrated_count": 9377,
+    "rejected_count": 18,
+    "duplicate_count": 148,
+    "suppressed_count": 0,
+    "filing_failed_count": 11,
+    "other_count": 113,
+    "Total": 13466
+  },
+  {
+    "RequestorSupplier": "Unknown",
+    "not_acknowledged_count": 844,
+    "not_sent_count": 0,
+    "integrated_count": 1914,
+    "rejected_count": 1,
+    "duplicate_count": 18,
+    "suppressed_count": 159,
+    "filing_failed_count": 1,
+    "other_count": 1,
+    "Total": 2938
+  }
+]
 ---
 A chart representing the filing details.
 

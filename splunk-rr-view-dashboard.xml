@@ -469,8 +469,7 @@
           | eval pathway=RequestorSupplier + "-" + SenderSupplier 
           | eval category=case(
               ErrorCode==-1,"Unknown",
-              ErrorCode==25 or (ErrorCode &gt;= 29 and ErrorCode &lt;= 31),"Large message failure",
-              ErrorCode==23,"Sender not LM compliant",
+              ErrorCode==23 or ErrorCode==25 or (ErrorCode &gt;= 29 and ErrorCode &lt;= 31),"Large message failure",
               ErrorCode==100 or ErrorCode==101,"TPP LM limits",
               ErrorCode==12,"Duplicate",
               ErrorCode==10,"Failed to generate",
@@ -479,7 +478,6 @@
               1=1,"Other")
           | eval is_unknown=if(category=="Unknown",1,0)
           | eval is_lm_failure=if(category=="Large message failure",1,0)
-          | eval is_sender_not_lm=if(category=="Sender not LM compliant",1,0)
           | eval is_tpp_limits=if(category=="TPP LM limits",1,0)
           | eval is_duplicate=if(category=="Duplicate",1,0)
           | eval is_failed_to_generate=if(category=="Failed to generate",1,0)
@@ -489,7 +487,6 @@
           | dedup key 
           | stats sum(is_unknown) as unknown_count 
              sum(is_lm_failure) as lm_failure_count
-             sum(is_sender_not_lm) as sender_not_lm_count
              sum(is_tpp_limits) as tpp_limits_count
              sum(is_duplicate) as duplicate_count
              sum(is_failed_to_generate) as failed_to_generate_count
@@ -542,8 +539,7 @@
           | eval pathway=RequestorSupplier + "-" + SenderSupplier 
           | eval category=case(
               ErrorCode==-1,"Unknown",
-              ErrorCode==25 or (ErrorCode &gt;= 29 and ErrorCode &lt;= 31),"Large message failure",
-              ErrorCode==23,"Sender not LM compliant",
+              ErrorCode==23 or ErrorCode==25 or (ErrorCode &gt;= 29 and ErrorCode &lt;= 31),"Large message failure",
               ErrorCode==100 or ErrorCode==101,"TPP LM limits",
               ErrorCode==12,"Duplicate",
               ErrorCode==10,"Failed to generate",
@@ -552,7 +548,6 @@
               1=1,"Other")
           | eval is_unknown=if(category=="Unknown",1,0)
           | eval is_lm_failure=if(category=="Large message failure",1,0)
-          | eval is_sender_not_lm=if(category=="Sender not LM compliant",1,0)
           | eval is_tpp_limits=if(category=="TPP LM limits",1,0)
           | eval is_duplicate=if(category=="Duplicate",1,0)
           | eval is_failed_to_generate=if(category=="Failed to generate",1,0)
@@ -562,7 +557,6 @@
           | dedup key 
           | stats sum(is_unknown) as unknown_count 
              sum(is_lm_failure) as lm_failure_count
-             sum(is_sender_not_lm) as sender_not_lm_count
              sum(is_tpp_limits) as tpp_limits_count
              sum(is_duplicate) as duplicate_count
              sum(is_failed_to_generate) as failed_to_generate_count
