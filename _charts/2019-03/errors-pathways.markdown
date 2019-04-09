@@ -170,7 +170,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
             sum(is_unknown_patient) as unknown_patient_count
             sum(is_received_and_rejected) as received_and_rejected_count
             sum(is_other) as other_count
-            by RequestorSupplier
+            by pathway
     | addcoltotals 
     | addtotals
 ```
