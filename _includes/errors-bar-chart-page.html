@@ -1,0 +1,50 @@
+
+
+  <div id="canvas-holder">
+    <div id="chartdiv"></div>
+  </div>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+
+    <div class="data-table">
+      <h3>Raw data</h3>
+      <table>
+        <tr>
+          <th>Supplier Pathway</th>
+          <th>Unknown</th>
+          <th>Large Message Failure</th> 
+          <th>TPP Limits</th> 
+          <th>Duplicate</th> 
+          <th>Failed To Generate</th> 
+          <th>Unknown Patient</th> 
+          <th>Received And Rejected</th> 
+          <th>Other</th> 
+        </tr>
+        {%- for item in page.items -%}
+        <tr>
+          <td>{{item.pathway}}</td>
+          <td>{{item.unknown_count}}</td>
+          <td>{{item.lm_failure_count}}</td>
+          <td>{{item.tpp_limits_count}}</td>
+          <td>{{item.duplicate_count}}</td> 
+          <td>{{item.failed_to_generate_count}}</td>
+          <td>{{item.unknown_patient_count}}</td>
+          <td>{{item.received_and_rejected_count}}</td> 
+          <td>{{item.other_count}}</td> 
+        </tr>
+        {%- endfor -%}
+        <tfoot>
+          <th>Total</th>
+          <th>{{ totalUnknown }}</th> 
+          <th>{{ totalLargeMessageFailure }}</th> 
+          <th>{{ totalTPPLimits}}</th> 
+          <th>{{ totalDuplicate }}</th> 
+          <th>{{ totalFailedToGenerate}}</th> 
+          <th>{{ totalUnknownPatient}}</th> 
+          <th>{{ totalReceivedAndRejected}}</th> 
+          <th>{{ totalOther}}</th> 
+        </tfoot>
+      </table>
+    </div>
+  </div>
