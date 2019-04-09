@@ -10,100 +10,160 @@ datasource: NMS (gp2gp-mi)
 categories: data    
 items: [
   {
-    "pathway": "EMIS-EMIS",
-    "unknown_count": 287,
-    "lm_failure_count": 4,
-    "tpp_limits_count": 0,
-    "duplicate_count": 186,
-    "failed_to_generate_count": 1,
-    "unknown_patient_count": 23,
-    "received_and_rejected_count": 18,
-    "other_count": 19,
-    "Total": 538
-  },
-  {
     "pathway": "EMIS-Vision",
-    "unknown_count": 315,
+    "unknown_count": 2921,
     "lm_failure_count": 0,
     "tpp_limits_count": 0,
-    "duplicate_count": 0,
+    "duplicate_count": 152,
     "failed_to_generate_count": 0,
-    "unknown_patient_count": 0,
-    "received_and_rejected_count": 1,
-    "other_count": 7,
-    "Total": 323
+    "unknown_patient_count": 1,
+    "received_and_rejected_count": 4,
+    "other_count": 47,
+    "Total": 3125
   },
   {
-    "pathway": "EMIS-Microtest",
-    "unknown_count": 4,
-    "lm_failure_count": 28,
-    "tpp_limits_count": 0,
-    "duplicate_count": 0,
-    "failed_to_generate_count": 17,
-    "unknown_patient_count": 0,
-    "received_and_rejected_count": 0,
-    "other_count": 8,
-    "Total": 57
+    "pathway": "EMIS-EMIS",
+    "unknown_count": 1490,
+    "lm_failure_count": 33,
+    "tpp_limits_count": 1,
+    "duplicate_count": 924,
+    "failed_to_generate_count": 4,
+    "unknown_patient_count": 125,
+    "received_and_rejected_count": 116,
+    "other_count": 111,
+    "Total": 2804
   },
   {
     "pathway": "EMIS-TPP",
-    "unknown_count": 54,
-    "lm_failure_count": 237,
+    "unknown_count": 265,
+    "lm_failure_count": 1197,
     "tpp_limits_count": 0,
-    "duplicate_count": 6,
+    "duplicate_count": 19,
     "failed_to_generate_count": 0,
-    "unknown_patient_count": 5,
-    "received_and_rejected_count": 5,
-    "other_count": 12,
-    "Total": 319
+    "unknown_patient_count": 27,
+    "received_and_rejected_count": 22,
+    "other_count": 46,
+    "Total": 1576
   },
   {
     "pathway": "TPP-EMIS",
-    "unknown_count": 53,
-    "lm_failure_count": 2,
-    "tpp_limits_count": 111,
-    "duplicate_count": 145,
-    "failed_to_generate_count": 0,
-    "unknown_patient_count": 11,
-    "received_and_rejected_count": 18,
-    "other_count": 13,
-    "Total": 353
+    "unknown_count": 140,
+    "lm_failure_count": 12,
+    "tpp_limits_count": 335,
+    "duplicate_count": 472,
+    "failed_to_generate_count": 2,
+    "unknown_patient_count": 28,
+    "received_and_rejected_count": 42,
+    "other_count": 56,
+    "Total": 1087
   },
   {
     "pathway": "TPP-Vision",
-    "unknown_count": 173,
+    "unknown_count": 500,
     "lm_failure_count": 0,
     "tpp_limits_count": 0,
-    "duplicate_count": 2,
+    "duplicate_count": 4,
+    "failed_to_generate_count": 0,
+    "unknown_patient_count": 0,
+    "received_and_rejected_count": 2,
+    "other_count": 1,
+    "Total": 507
+  },
+  {
+    "pathway": "TPP-Microtest",
+    "unknown_count": 10,
+    "lm_failure_count": 180,
+    "tpp_limits_count": 0,
+    "duplicate_count": 3,
+    "failed_to_generate_count": 130,
+    "unknown_patient_count": 0,
+    "received_and_rejected_count": 0,
+    "other_count": 12,
+    "Total": 335
+  },
+  {
+    "pathway": "EMIS-Microtest",
+    "unknown_count": 10,
+    "lm_failure_count": 171,
+    "tpp_limits_count": 0,
+    "duplicate_count": 0,
+    "failed_to_generate_count": 89,
+    "unknown_patient_count": 1,
+    "received_and_rejected_count": 1,
+    "other_count": 19,
+    "Total": 291
+  },
+  {
+    "pathway": "Unknown-EMIS",
+    "unknown_count": 129,
+    "lm_failure_count": 1,
+    "tpp_limits_count": 0,
+    "duplicate_count": 60,
+    "failed_to_generate_count": 0,
+    "unknown_patient_count": 12,
+    "received_and_rejected_count": 4,
+    "other_count": 7,
+    "Total": 213
+  },
+  {
+    "pathway": "Unknown-TPP",
+    "unknown_count": 14,
+    "lm_failure_count": 84,
+    "tpp_limits_count": 0,
+    "duplicate_count": 0,
+    "failed_to_generate_count": 0,
+    "unknown_patient_count": 3,
+    "received_and_rejected_count": 2,
+    "other_count": 2,
+    "Total": 105
+  },
+  {
+    "pathway": "Unknown-Vision",
+    "unknown_count": 90,
+    "lm_failure_count": 0,
+    "tpp_limits_count": 0,
+    "duplicate_count": 0,
     "failed_to_generate_count": 0,
     "unknown_patient_count": 0,
     "received_and_rejected_count": 0,
     "other_count": 0,
-    "Total": 175
-  },
-  {
-    "pathway": "TPP-Microtest",
-    "unknown_count": 3,
-    "lm_failure_count": 88,
-    "tpp_limits_count": 0,
-    "duplicate_count": 2,
-    "failed_to_generate_count": 54,
-    "unknown_patient_count": 0,
-    "received_and_rejected_count": 0,
-    "other_count": 8,
-    "Total": 155
+    "Total": 90
   },
   {
     "pathway": "TPP-TPP",
-    "unknown_count": 6,
+    "unknown_count": 22,
     "lm_failure_count": 0,
     "tpp_limits_count": 0,
     "duplicate_count": 0,
     "failed_to_generate_count": 0,
+    "unknown_patient_count": 1,
+    "received_and_rejected_count": 0,
+    "other_count": 0,
+    "Total": 23
+  },
+  {
+    "pathway": "Unknown-Microtest",
+    "unknown_count": 1,
+    "lm_failure_count": 6,
+    "tpp_limits_count": 0,
+    "duplicate_count": 0,
+    "failed_to_generate_count": 8,
     "unknown_patient_count": 0,
     "received_and_rejected_count": 0,
+    "other_count": 0,
+    "Total": 15
+  },
+  {
+    "pathway": "EMIS-Unknown",
+    "unknown_count": 0,
+    "lm_failure_count": 0,
+    "tpp_limits_count": 0,
+    "duplicate_count": 0,
+    "failed_to_generate_count": 0,
+    "unknown_patient_count": 1,
+    "received_and_rejected_count": 0,
     "other_count": 1,
-    "Total": 7
+    "Total": 2
   }
 ]
 ---
@@ -126,7 +186,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
     | eval SenderSupplier=case(
         SenderSupplier=="EMIS", "EMIS", 
         SenderSupplier=="TPP", "TPP", 
-        SenderSupplier=="INPS", "INPS", 
+        SenderSupplier=="Vision", "Vision", 
         SenderSupplier=="Microtest", "Microtest", 
         1=1, "Unknown")
     | eval RegistrationType=coalesce(RegistrationType,0)
