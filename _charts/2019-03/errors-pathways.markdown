@@ -94,42 +94,6 @@ items: [
     "Total": 291
   },
   {
-    "pathway": "Unknown-EMIS",
-    "unknown_count": 129,
-    "lm_failure_count": 1,
-    "tpp_limits_count": 0,
-    "duplicate_count": 60,
-    "failed_to_generate_count": 0,
-    "unknown_patient_count": 12,
-    "received_and_rejected_count": 4,
-    "other_count": 7,
-    "Total": 213
-  },
-  {
-    "pathway": "Unknown-TPP",
-    "unknown_count": 14,
-    "lm_failure_count": 84,
-    "tpp_limits_count": 0,
-    "duplicate_count": 0,
-    "failed_to_generate_count": 0,
-    "unknown_patient_count": 3,
-    "received_and_rejected_count": 2,
-    "other_count": 2,
-    "Total": 105
-  },
-  {
-    "pathway": "Unknown-Vision",
-    "unknown_count": 90,
-    "lm_failure_count": 0,
-    "tpp_limits_count": 0,
-    "duplicate_count": 0,
-    "failed_to_generate_count": 0,
-    "unknown_patient_count": 0,
-    "received_and_rejected_count": 0,
-    "other_count": 0,
-    "Total": 90
-  },
-  {
     "pathway": "TPP-TPP",
     "unknown_count": 22,
     "lm_failure_count": 0,
@@ -140,30 +104,6 @@ items: [
     "received_and_rejected_count": 0,
     "other_count": 0,
     "Total": 23
-  },
-  {
-    "pathway": "Unknown-Microtest",
-    "unknown_count": 1,
-    "lm_failure_count": 6,
-    "tpp_limits_count": 0,
-    "duplicate_count": 0,
-    "failed_to_generate_count": 8,
-    "unknown_patient_count": 0,
-    "received_and_rejected_count": 0,
-    "other_count": 0,
-    "Total": 15
-  },
-  {
-    "pathway": "EMIS-Unknown",
-    "unknown_count": 0,
-    "lm_failure_count": 0,
-    "tpp_limits_count": 0,
-    "duplicate_count": 0,
-    "failed_to_generate_count": 0,
-    "unknown_patient_count": 1,
-    "received_and_rejected_count": 0,
-    "other_count": 1,
-    "Total": 2
   }
 ]
 ---
