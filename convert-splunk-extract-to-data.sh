@@ -6,4 +6,4 @@ if [ -z $1 ]; then
   exit 1
 fi
 
-cat "$1" | jq -n 'def keyfield: [inputs][0].result | to_entries | .[0].key; [[inputs] | .[] | .result | with_entries(if (.value | test("\\d+")) then {"key":.key, "value":.value|tonumber} else {"key":.key, "value":.value} end)]'
+cat "$1" | jq -n 'def keyfield: [inputs][0].result | to_entries | .[0].key; [[inputs] | .[] | .result | with_entries(if (.value | test("\\d+")) then {"key":.key, "value":.value|tonumber} else {"key":.key, "value":.value} end)] | sort_by(.Total) | reverse'
