@@ -11,7 +11,7 @@ items: [
     { "name": "Records Sent", "value": 189805 }
 ]
 links: [
-  { "document_name": "charts/2019-03/sender/extract-failure-points" },
+  { "document_name": "charts/2019-03/sender/extract-success-vs-failures" },
   { "document_name": "" }
 ] 
 ---

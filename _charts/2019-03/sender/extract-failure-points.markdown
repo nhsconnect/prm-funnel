@@ -1,6 +1,6 @@
 ---
 layout: chart
-title:  "GP2GP errors"
+title:  "Request Failure Points"
 date:   2019-03-20 12:28:00 +0000
 timeframe: March 2019
 datatype: Quantitative
@@ -13,7 +13,6 @@ chart_config:
     legend:
       position: "bottom"
 items: [ 
-          { name: 'No Failure', value: 189569 },
           { name: 'Patient look-up', value: 202 },
           { name: 'PDS comparison with Requestor', value: 35 },
           { name: 'SDS lookup for Large Message support', value: 3440 },
