@@ -8,7 +8,7 @@ datasource: NMS
 categories: data
 items: [
     { "name": "Requests Received", "value": 194762 },
-    { "name": "Extracts Sent", "value": 189805 }
+    { "name": "Records Sent", "value": 189805 }
 ]
 links: [
   { "document_name": "charts/2019-03/sender/extract-failure-points" },
@@ -21,7 +21,7 @@ index="gp2gp-mi" sourcetype="gppractice-SR"
   | stats dc(ConversationID)
 ```
 
-Splunk query to retrieve extracts sent:
+Splunk query to retrieve records sent:
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR" 
   | where isnotnull(ExtractTime) 

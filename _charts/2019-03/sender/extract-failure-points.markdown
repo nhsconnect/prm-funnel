@@ -17,8 +17,8 @@ items: [
           { name: 'Patient look-up', value: 202 },
           { name: 'PDS comparison with Requestor', value: 35 },
           { name: 'SDS lookup for Large Message support', value: 3440 },
-          { name: 'Send EHR', value: 1525 },
-          { name: 'Manually Send duplicate EHR', value: 12 }
+          { name: 'Send record', value: 1525 },
+          { name: 'Manually send duplicate record', value: 12 }
     ]
 ---
 The total of extract failure points differ from the total requests received by ~20 data points. This is due to retries that eventually succeeded, however.
