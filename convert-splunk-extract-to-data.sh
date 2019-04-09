@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ -z $1 ]; then
+if [ -z "$1" ]; then
   echo "Must specify file"
   echo "Usage: $0 <file>"
   exit 1

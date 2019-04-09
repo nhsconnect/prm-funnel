@@ -17,20 +17,6 @@ items: [
     "Total": 86443
   },
   {
-    "pathway": "EMIS-Vision",
-    "integrated_count": 2930,
-    "not_integrated_count": 761,
-    "error_count": 2600,
-    "Total": 6291
-  },
-  {
-    "pathway": "EMIS-Microtest",
-    "integrated_count": 92,
-    "not_integrated_count": 26,
-    "error_count": 201,
-    "Total": 319
-  },
-  {
     "pathway": "EMIS-TPP",
     "integrated_count": 18501,
     "not_integrated_count": 4318,
@@ -45,11 +31,39 @@ items: [
     "Total": 12544
   },
   {
-    "pathway": "TPP-Vision",
+    "pathway": "EMIS-INPS",
+    "integrated_count": 2930,
+    "not_integrated_count": 761,
+    "error_count": 2600,
+    "Total": 6291
+  },
+  {
+    "pathway": "Unknown-EMIS",
+    "integrated_count": 3213,
+    "not_integrated_count": 1072,
+    "error_count": 118,
+    "Total": 4403
+  },
+  {
+    "pathway": "Unknown-TPP",
+    "integrated_count": 891,
+    "not_integrated_count": 310,
+    "error_count": 49,
+    "Total": 1250
+  },
+  {
+    "pathway": "TPP-INPS",
     "integrated_count": 364,
     "not_integrated_count": 128,
     "error_count": 174,
     "Total": 666
+  },
+  {
+    "pathway": "EMIS-Microtest",
+    "integrated_count": 92,
+    "not_integrated_count": 26,
+    "error_count": 201,
+    "Total": 319
   },
   {
     "pathway": "TPP-Microtest",
@@ -59,13 +73,49 @@ items: [
     "Total": 247
   },
   {
+    "pathway": "Unknown-INPS",
+    "integrated_count": 113,
+    "not_integrated_count": 29,
+    "error_count": 49,
+    "Total": 191
+  },
+  {
+    "pathway": "EMIS-Unknown",
+    "integrated_count": 44,
+    "not_integrated_count": 10,
+    "error_count": 1,
+    "Total": 55
+  },
+  {
+    "pathway": "Unknown-Microtest",
+    "integrated_count": 4,
+    "not_integrated_count": 0,
+    "error_count": 7,
+    "Total": 11
+  },
+  {
     "pathway": "TPP-TPP",
     "integrated_count": 0,
     "not_integrated_count": 0,
     "error_count": 6,
     "Total": 6
+  },
+  {
+    "pathway": "Unknown-Unknown",
+    "integrated_count": 5,
+    "not_integrated_count": 0,
+    "error_count": 0,
+    "Total": 5
+  },
+  {
+    "pathway": "TPP-Unknown",
+    "integrated_count": 0,
+    "not_integrated_count": 3,
+    "error_count": 0,
+    "Total": 3
   }
 ]
+
 ---
 A chart representing the details of GP2GP failures.
 
