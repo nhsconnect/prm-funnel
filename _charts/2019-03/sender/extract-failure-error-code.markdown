@@ -15,7 +15,7 @@ chart_config:
 items: [ 
         { name: 'Not specified', value: 4271 },
         { name: '20: Spine system responded with an error', value: 826 },
-        { name: '303', value: 13 },
+        { name: '303: Message size exceeds maximum message size allowed (TMS)', value: 13 },
         { name: '-31', value: 6 },
         { name: '-3', value: 1 }
     ]
