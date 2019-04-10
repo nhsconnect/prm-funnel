@@ -31,14 +31,14 @@ items: [
     "Total": 12544
   },
   {
-    "pathway": "EMIS-INPS",
+    "pathway": "EMIS-Vision",
     "integrated_count": 2930,
     "not_integrated_count": 761,
     "error_count": 2600,
     "Total": 6291
   },
   {
-    "pathway": "TPP-INPS",
+    "pathway": "TPP-Vision",
     "integrated_count": 364,
     "not_integrated_count": 128,
     "error_count": 174,
