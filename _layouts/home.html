@@ -12,21 +12,27 @@ layout: default
   {%- if site.funnels.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Available months, latest first:" }}</h2>
     <ul class="post-list">
-      {% assign funnels = site.funnels | reverse %}
-      {%- for funnel in funnels -%}
+    {% assign funnels = site.funnels | reverse %}
+    {%- for funnel in funnels -%}
+      {%- if funnel.perspectives -%}
+        <li>
+          <h3>{{ funnel.month }}</h3>
+          <ul>
+          {%- for perspective in funnel.perspectives -%}
+            <a href="{{site.baseurl}}{{perspective.link}}"><li>{{ perspective.title }}</li></a>
+          {%- endfor -%}
+          </ul>
+        </li>
+      {%- else -%}
       <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         <h3>
           <a class="post-link" href="{{ funnel.url | relative_url }}">
             {{ funnel.title | escape }}
           </a>
         </h3>
-        {%- if site.show_excerpts -%}
-          {{ funnel.excerpt }}
-        {%- endif -%}
       </li>
-      {%- endfor -%}
-    </ul>
+      {%- endif -%}
+    {%- endfor -%}
   {%- endif -%}
 
 </div>
