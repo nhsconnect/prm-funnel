@@ -10,7 +10,7 @@ items: [
     { "name": "Registrations", "value": 439502 },
     { "name": "Transfers", "value": 268775 },
     { "name": "GP2GP", "value": 196989 },
-    { "name": "Integratations", "value": 157569 }
+    { "name": "Integrations", "value": 157569 }
 ]
 links: [
   { "document_name": "charts/2019-03/registrations" },
