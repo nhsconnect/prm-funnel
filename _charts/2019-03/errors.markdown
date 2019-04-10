@@ -27,7 +27,7 @@ items: [
           { name: 'GP2GP not enabled on this sytem', value: 38 },
           { name: 'Non A-B-A EHR extract received and filed as an attachment', value: 10 },
           { name: 'Requester is not the patients current healthcare provider', value: 9 },
-          { name: 'EHR extract receeived without corresponding request', value: 1 }
+          { name: 'EHR extract received without corresponding request', value: 1 }
     ]
 ---
 A chart representing the details of GP2GP failures.
