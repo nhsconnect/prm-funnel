@@ -7,10 +7,10 @@ confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
 items: [
-    { "name": "Registrations", "value": 439502, "link": "month/2019-03/rr-funnel/registrations/" },
-    { "name": "Transfers", "value": 268775, "link": "month/2019-03/rr-funnel/transfers/" },
-    { "name": "GP2GP", "value": 196989, "link": "month/2019-03/rr-funnel/gp2gp/" },
-    { "name": "Integrations", "value": 157569, "link": "month/2019-03/rr-funnel/integrations/" }
+    { "name": "Registrations", "value": 439502, "link": "month/2019-03/rr-funnel/registrations/index" },
+    { "name": "Transfers", "value": 268775, "link": "month/2019-03/rr-funnel/transfers/index" },
+    { "name": "GP2GP", "value": 196989, "link": "month/2019-03/rr-funnel/gp2gp/index" },
+    { "name": "Integrations", "value": 157569, "link": "month/2019-03/rr-funnel/integrations/index" }
 ] 
 ---
 Data is sourced from **suppliers' data (MI) - March 2019**.
