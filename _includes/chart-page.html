@@ -12,20 +12,34 @@
           <th>Detail</th>
           <th>Data</th> 
         </tr>
-        {%- for item in page.items -%}
+        {% for item in page.items %}
           <tr>
-            <td>{{item.name}}</td>
             <td>
-              <a href="{{site.baseurl}}/{{item.link}}.html">{{item.value}}</a>
-            </td> 
+              {% if item.link %} 
+              <a href="{{site.baseurl}}/{{item.link}}.html" >
+                {{item.name}}
+              </a>
+              {% else %}
+              {{item.name}}
+              {% endif %} 
+          </td>
+          <td>
+              {% if item.link %} 
+              <a href="{{site.baseurl}}/{{item.link}}.html" >
+                {{item.value}}
+              </a>
+              {% else %}
+              {{item.value}}
+              {% endif %}
+          </td>
           </tr>
-        {%- endfor -%}
-        {%- if total -%}
+        {% endfor %}
+        {% if total %}
         <tfoot>
           <th>Total</th>
           <th>{{ total }}</th> 
         </tfoot>
-        {%- endif -%}
+        {% endif %}
       </table>
     </div>
   </div>
