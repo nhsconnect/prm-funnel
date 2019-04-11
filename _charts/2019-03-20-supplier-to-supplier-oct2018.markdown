@@ -11,56 +11,54 @@ categories: data
 items: [
   {
     "name": "EMIS -> EMIS",
-    "value": 148053
+    "value": 148053,
+    "link": "charts/extract-ack-codes/oct2018/emis-to-emis-extract-ack-codes" 
   },
   {
     "name": "EMIS -> TPP",
-    "value": 50072
+    "value": 50072,
+    "link": "charts/extract-ack-codes/oct2018/emis-to-tpp-extract-ack-codes" 
   },
   {
     "name": "TPP -> EMIS",
-    "value": 46953
+    "value": 46953,
+    "link": "charts/extract-ack-codes/oct2018/tpp-to-emis-extract-ack-codes" 
   },
   {
     "name": "Vision -> EMIS",
-    "value": 7776
+    "value": 7776,
+    "link": "charts/extract-ack-codes/oct2018/vision-to-emis-extract-ack-codes" 
   },
   {
     "name": "Vision -> TPP",
-    "value": 2699
+    "value": 2699,
+    "link": "charts/extract-ack-codes/oct2018/vision-to-tpp-extract-ack-codes" 
   },
   {
     "name": "MicroTest -> EMIS",
-    "value": 671
+    "value": 671,
+    "link": "charts/extract-ack-codes/oct2018/microtest-to-emis-extract-ack-codes" 
   },
   {
     "name": "MicroTest -> TPP",
-    "value": 637
+    "value": 637,
+    "link": "charts/extract-ack-codes/oct2018/microtest-to-tpp-extract-ack-codes" 
   },
   {
     "name": "TPP -> TPP",
-    "value": 129
+    "value": 129,
+    "link": "charts/extract-ack-codes/oct2018/tpp-to-tpp-extract-ack-codes" 
   },
   {
     "name": "EMIS -> unknown",
-    "value": 8
+    "value": 8,
+    "link": "charts/extract-ack-codes/oct2018/emis-to-unknown-extract-ack-codes" 
   },
   {
     "name": "Vision -> unknown",
-    "value": 2
+    "value": 2,
+    "link": "charts/extract-ack-codes/oct2018/vision-to-unknown-extract-ack-codes" 
   }
-]
-links: [
-  { "document_name": "charts/extract-ack-codes/oct2018/emis-to-emis-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/oct2018/emis-to-tpp-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/oct2018/tpp-to-emis-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/oct2018/vision-to-emis-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/oct2018/vision-to-tpp-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/oct2018/microtest-to-emis-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/oct2018/microtest-to-tpp-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/oct2018/tpp-to-tpp-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/oct2018/emis-to-unknown-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/oct2018/vision-to-unknown-extract-ack-codes" }
 ]
 ---
 A chart representing the EHR Sent Requests split into source and target system.

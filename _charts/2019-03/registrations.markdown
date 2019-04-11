@@ -9,21 +9,13 @@ funnel_slice: Registrations
 datasource: NMS (gp2gp-mi)
 categories: data
 items: [ 
-          { name: 'Transfer', value: 268775 },
+          { name: 'Transfer', value: 268775, "link": "charts/2019-03/transfers" },
           { name: 'New registrant', value: 71355 },
           { name: 'Unknown', value: 52159 },
           { name: 'Patient lookup failure', value: 23101 },
           { name: 'Returning registrant (no other GP)', value: 14112 } ,
           { name: 'Already registered at practice', value: 10000 } 
     ]
-links : [
-          { "document_name": "charts/2019-03/transfers" },
-          {},
-          {},
-          {},
-          {},
-          {}
-]
 ---
 A chart representing the breakdown of registrations by category.
 

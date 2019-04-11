@@ -15,12 +15,9 @@ chart_config:
       position: "left"
 
 items: [
-          { "name": "Large Messages", "value": 120711 },
-          { "name": "Standard Messages", "value": 111376 }
+          { "name": "Large Messages", "value": 120711, "link": "charts/2019-03-13-large-message-details-jan2019" },
+          { "name": "Standard Messages", "value": 111376, "link": "charts/2019-03-13-standard-message-details-jan2019" }
       ]
-links: [
-  { "document_name": "charts/2019-03-13-large-message-details-jan2019" },
-  { "document_name": "charts/2019-03-13-standard-message-details-jan2019" }
 ] 
 ---
 A chart representing the EHR Extracts split into message types. The data covers Emis and TPP only, as MicroTest and Vision do not report their MI.

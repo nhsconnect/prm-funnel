@@ -9,15 +9,10 @@ funnel_slice: Transfers
 datasource: NMS (gp2gp-mi)
 categories: data
 items: [ 
-          { name: 'GP2GP', value: 196989 },
+          { name: 'GP2GP', value: 196989, "link": "charts/2019-03/gp2gp" },
           { name: 'TPP internal', value: 67475 },
           { name: 'Non GP2GP practice', value: 4311 }
     ]
-links : [
-          { "document_name": "charts/2019-03/gp2gp" },
-          {},
-          {}
-]
 ---
 A chart representing the details of transfer registrations.
 

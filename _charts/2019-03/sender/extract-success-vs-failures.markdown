@@ -14,12 +14,8 @@ chart_config:
       position: "bottom"
 items: [ 
         { name: 'Succeeded', value: 189661 },
-        { name: 'Failed', value: 5117 }
+        { name: 'Failed', value: 5117, link: "charts/2019-03/sender/extract-failure-error-code" }
     ]
-links: [
-          { "document_name": "" },
-          { "document_name": "charts/2019-03/sender/extract-failure-error-code" }
-        ] 
 ---
 To get a view on the failure points, please click [here](/prm-funnel/charts/2019-03/sender/extract-failure-points.html).
 The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:

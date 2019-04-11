@@ -43,25 +43,14 @@ items: [
   },
   {
     "name": "30: Large Message general failure",
-    "value": 687
+    "value": 687,
+    "link": "charts/2019-03-22-large-msg-30-supplier-to-supplier-oct2018"
   },
   {
     "name": "99: Undocumented error code",
     "value": 8
   }
 ]
-links: [
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  { "document_name": "charts/2019-03-22-large-msg-30-supplier-to-supplier-oct2018" },
-  {}
-] 
 ---
 A chart representing the details of Standard messages.
 

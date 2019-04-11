@@ -19,20 +19,9 @@ items: [
     { "name": "19: Sender check indicates that requestor is not the patients current health care provider", "value": 34 },
     { "name": "20: Spine system responded with an error", "value": 21 },
     { "name": "23: Message not sent because sending practice is not large message compliant", "value": 10 },
-    { "name": "30: Large Message general failure", "value": 731 },
+    { "name": "30: Large Message general failure", "value": 731, "link": "charts/2019-03-21-large-msg-30-supplier-to-supplier-jan2019" },
     { "name": "99: Undocumented error code", "value": 5 }
-      ]
-links: [
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  { "document_name": "charts/2019-03-21-large-msg-30-supplier-to-supplier-jan2019" },
-  {}
-] 
+  ]
 ---
 A chart representing the details of Standard messages.
 

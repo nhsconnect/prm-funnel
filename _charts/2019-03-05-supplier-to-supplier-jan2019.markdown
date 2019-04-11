@@ -9,27 +9,15 @@ confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
 items: [
-          { "name": "EMIS -> EMIS", "value": 138679 },
-          { "name": "EMIS -> TPP", "value": 40375 },
-          { "name": "TPP -> EMIS", "value": 7778 },      
-          { "name": "Vision -> EMIS", "value": 2283 },
-          { "name": "Vision -> TPP", "value": 608 },
-          { "name": "MicroTest -> TPP", "value": 16 },
-          { "name": "MicroTest -> EMIS", "value": 581 },
-          { "name": "TPP -> TPP", "value": 61 }        
+          { "name": "EMIS -> EMIS", "value": 138679, "link": "charts/extract-ack-codes/jan2019/emis-to-emis-extract-ack-codes"},
+          { "name": "EMIS -> TPP", "value": 40375, "link": "charts/extract-ack-codes/jan2019/emis-to-tpp-extract-ack-codes" },
+          { "name": "TPP -> EMIS", "value": 7778, "link": "charts/extract-ack-codes/jan2019/tpp-to-emis-extract-ack-codes" },      
+          { "name": "Vision -> EMIS", "value": 2283, "link": "charts/extract-ack-codes/jan2019/vision-to-emis-extract-ack-codes" },
+          { "name": "Vision -> TPP", "value": 608, "link": "charts/extract-ack-codes/jan2019/microtest-to-emis-extract-ack-codes" },
+          { "name": "MicroTest -> TPP", "value": 16, "link": "charts/extract-ack-codes/jan2019/microtest-to-tpp-extract-ack-codes" },
+          { "name": "MicroTest -> EMIS", "value": 581, "link": "charts/extract-ack-codes/jan2019/tpp-to-tpp-extract-ack-codes" },
+          { "name": "TPP -> TPP", "value": 61, "link": "charts/extract-ack-codes/jan2019/emis-to-unknown-extract-ack-codes8"  }        
         ]
-
-links: [
-  { "document_name": "charts/extract-ack-codes/jan2019/emis-to-emis-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/jan2019/emis-to-tpp-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/jan2019/tpp-to-emis-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/jan2019/vision-to-emis-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/jan2019/vision-to-tpp-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/jan2019/microtest-to-emis-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/jan2019/microtest-to-tpp-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/jan2019/tpp-to-tpp-extract-ack-codes" },
-  { "document_name": "charts/extract-ack-codes/jan2019/emis-to-unknown-extract-ack-codes8" }
-]
 ---
 A chart representing the EHR Sent Requests split into source and target system.
 

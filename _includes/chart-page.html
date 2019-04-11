@@ -15,10 +15,12 @@
           <th>Data</th> 
         </tr>
         {%- for item in page.items -%}
-        <tr>
-          <td>{{item.name}}</td>
-          <td>{{item.value}}</td> 
-        </tr>
+        <a href="{{site.base_url}}{{}}">
+          <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.value}}</td> 
+          </tr>
+        </a>
         {%- endfor -%}
         {%- if total -%}
         <tfoot>

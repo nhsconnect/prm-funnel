@@ -16,7 +16,6 @@ layout: default
   <script>
   // Themes begin
   am4core.useTheme(am4themes_material);
-  am4core.useTheme(am4themes_animated);
   // Themes end
   
   
@@ -24,7 +23,6 @@ layout: default
   chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
   
   const data = JSON.parse('{{page.items | jsonify}}');
-  const links = JSON.parse('{{page.links | jsonify}}');
 
   let url = '{{ site.url }}';
   const baseUrl = '{{ site.baseurl }}';
@@ -44,9 +42,9 @@ layout: default
   series.slices.template.tooltipText = "{category}: {value.value}";
 
   series.slices.template.events.on("hit", function(ev) {
-    let document = links[ev.target.dataItem.index];
-    if (document && document.document_name) {
-      let link = url + document.document_name + ".html";
+    let item = data[ev.target.dataItem.index];
+    if (item && item.link) {
+      let link = url + item.link + ".html";
       window.location.href = link;
     }
   }, this);

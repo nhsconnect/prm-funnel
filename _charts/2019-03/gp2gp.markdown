@@ -9,15 +9,10 @@ funnel_slice: GP2GP
 datasource: NMS (gp2gp-mi)
 categories: data
 items: [ 
-          { name: 'Integrated', value: 157569 },
-          { name: 'Not integrated', value: 30254 },
-          { name: 'Error', value: 9166 }
+          { name: 'Integrated', value: 157569, link: "charts/2019-03/integrations" },
+          { name: 'Not integrated', value: 30254, link: "charts/2019-03/integrations" },
+          { name: 'Error', value: 9166, link: "charts/2019-03/errors" }
         ]
-links: [
-          { "document_name": "charts/2019-03/integrations" },
-          { "document_name": "charts/2019-03/integrations" },
-          { "document_name": "charts/2019-03/errors" }
-        ] 
 ---
 A chart representing the details of GP2GP registrations.
 

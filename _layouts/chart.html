@@ -21,7 +21,6 @@ am4core.useTheme(am4themes_animated);
 var chart = am4core.create("chartdiv", am4charts.PieChart);
 
 const items = JSON.parse('{{page.items | jsonify}}');
-const links = JSON.parse('{{page.links | jsonify}}');
 
 let url = '{{ site.url }}';
 const baseUrl = '{{ site.baseurl }}';
@@ -48,9 +47,9 @@ if (pageChartConfig.options && pageChartConfig.options.legend.position === "bott
 var pieSeries = chart.series.push(new am4charts.PieSeries());
 
 pieSeries.slices.template.events.on("hit", function(ev) {
-    let document = links[ev.target.dataItem.index];
-    if (document && document.document_name) {
-      let link = url + document.document_name + ".html";
+    let item = items[ev.target.dataItem.index];
+    if (item && item.link) {
+      let link = url + item.link + ".html";
       window.location.href = link;
     }
   }, this);

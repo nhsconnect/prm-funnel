@@ -7,13 +7,9 @@ confidence: Medium
 datasource: NMS
 categories: data
 items: [
-    { "name": "Requests Received", "value": 194762 },
+    { "name": "Requests Received", "value": 194762, "link": "charts/2019-03/sender/extract-success-vs-failures"},
     { "name": "Records Sent", "value": 189805 }
 ]
-links: [
-  { "document_name": "charts/2019-03/sender/extract-success-vs-failures" },
-  { "document_name": "" }
-] 
 ---
 Splunk query to retrieve requests received:
 ```sql
