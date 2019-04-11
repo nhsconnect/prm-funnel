@@ -12,6 +12,7 @@ chart_config:
   options:
     legend:
       position: "bottom"
+      
 items: [ 
         { name: 'Succeeded', value: 189661 },
         { name: 'Failed', value: 5117, link: "month/2019-03/sr-funnel/success-vs-failure/errors/errors" }
