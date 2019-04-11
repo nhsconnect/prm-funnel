@@ -15,7 +15,9 @@
         {%- for item in page.items -%}
           <tr>
             <td>{{item.name}}</td>
-            <td><a href="{{site.base_url}}{{item.link}}.html">{{item.value}}</a></td> 
+            <td>
+              <a href="{{site.baseurl}}/{{item.link}}.html">{{item.value}}</a>
+            </td> 
           </tr>
         {%- endfor -%}
         {%- if total -%}
