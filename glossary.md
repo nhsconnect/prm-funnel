@@ -4,7 +4,7 @@ title: Glossary
 permalink: /glossary/
 ---
 {::options parse_block_html="true"/} 
-<div class="glossary">
+<div class="glossary" tabindex="0">
 | Term     | Acronym      | Definition |
 |----------|--------------|------------|
 | A-B-A | A-B-A | The functionality that allows a Returning Patient’s EHR Extract to be integrated into the requesting primary care system. e.g. student going to university, then returning home |
