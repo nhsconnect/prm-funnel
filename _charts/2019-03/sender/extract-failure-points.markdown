@@ -15,7 +15,7 @@ chart_config:
 items: [ 
           { name: 'Patient look-up', value: 202 },
           { name: 'PDS comparison with Requestor', value: 35 },
-          { name: 'SDS lookup for Large Message support', value: 3440 },
+          { name: 'Requestor not large message compliant', value: 3440 },
           { name: 'Send record', value: 1525 },
           { name: 'Manually send duplicate record', value: 12 }
     ]
@@ -27,3 +27,5 @@ The data was collected from **Splunk** with the following query, and the date ra
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR" | stats  dc(ConversationID) as Requests by ExtractFailurePoint 
 ```
+
+The extract failure point *PDS comparison with Requestor* has *RequestAckCodes* of *Sender check indicates that Requestor is not the patient’s current healthcare provider* as well as *Sender check indicates that Requestor is not the patient’s current healthcare provider*. This means the failure could happen due to either one of those reasons.
