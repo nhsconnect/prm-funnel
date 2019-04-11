@@ -7,7 +7,7 @@ confidence: Medium
 datasource: NMS
 categories: data
 items: [
-    { "name": "Requests Received", "value": 194762, "link": "charts/2019-03/sender/extract-success-vs-failures"},
+    { "name": "Requests Received", "value": 194762, "link": "month/2019-03/sr-funnel/success-vs-failure/success-vs-failure"},
     { "name": "Records Sent", "value": 189805 }
 ]
 ---

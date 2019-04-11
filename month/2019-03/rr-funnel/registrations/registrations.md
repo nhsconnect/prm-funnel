@@ -1,20 +1,25 @@
 ---
-layout: funnel
-title:  "March 2019 Requester View"
-date:   2019-03-28 15:46:00 +0000
+layout: chart
+title:  "Registration details"
+date:   2019-03-20 12:28:00 +0000
+timeframe: March 2019
 datatype: Quantitative
 confidence: Medium
+funnel_slice: Registrations
 datasource: NMS (gp2gp-mi)
 categories: data
-items: [
-    { "name": "Registrations", "value": 439502, "link": "month/2019-03/rr-funnel/registrations/index" },
-    { "name": "Transfers", "value": 268775, "link": "month/2019-03/rr-funnel/transfers/index" },
-    { "name": "GP2GP", "value": 196989, "link": "month/2019-03/rr-funnel/gp2gp/index" },
-    { "name": "Integrations", "value": 157569, "link": "month/2019-03/rr-funnel/integrations/index" }
-] 
+items: [ 
+          { name: 'Transfer', value: 268775, "link": "month/2019-03/rr-funnel/transfers/transfers" },
+          { name: 'New registrant', value: 71355 },
+          { name: 'Unknown', value: 52159 },
+          { name: 'Patient lookup failure', value: 23101 },
+          { name: 'Returning registrant (no other GP)', value: 14112 } ,
+          { name: 'Already registered at practice', value: 10000 } 
+    ]
 ---
-Data is sourced from **suppliers' data (MI) - March 2019**.
-This is the query that gave us the information: 
+A chart representing the breakdown of registrations by category.
+
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-RR" 
@@ -32,11 +37,11 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
         RequestFailureType==2,"Already registered",
         RequestFailurePoint==10 or RequestFailurePoint==20,"Patient lookup failure",
         RequestFailureType!=3 and RequestFailureType!=4 and 
-            (RequestFailurePoint==40 or RequestFailurePoint==50),"GP system lookup failure",
+          (RequestFailurePoint==40 or RequestFailurePoint==50),"GP system lookup failure",
         (RegistrationType==3 and RequestFailureType==0) or 
-            RequestFailureType==3 or RequestFailureType==4 or 
-            (RequestFailureType !=5 and RequestFailurePoint==60) or 
-            (RequestFailurePoint==0 and isnull(RequestFailureTime)),"Transfer",
+          RequestFailureType==3 or RequestFailureType==4 or 
+          (RequestFailureType !=5 and RequestFailurePoint==60) or 
+          (RequestFailurePoint==0 and isnull(RequestFailureTime)),"Transfer",
         1=1,"Unknown")
     | dedup key 
     | stats count by category 

@@ -14,8 +14,32 @@
     {% include masthead.html %}
 
     <main class="page-content" aria-label="Content">
+
       <div class="prm-wrapper">
+
         <div class="default-content-wrapper">
+            <div>
+                <ol class="breadcrumb">
+                    <li><a href="{{ site.baseurl }}/">Home</a></li>
+                    {% capture page_url_without_index_html %}{{ page.url | remove: "/index.html" }}{% endcapture %}
+                    {% assign splitted_url_parts = page.url | split: '/' %}
+                    {% capture forLoopMaxInt %}{{ splitted_url_parts.size | minus:2 }}{% endcapture %}
+                    {% for i in (1..forLoopMaxInt) %}
+                        {% capture current_breadcrumb_url %}{{next_prepender}}/{{ splitted_url_parts[i] }}/{{ splitted_url_parts[i] }}.html{% endcapture %}
+                        {% capture current_breadcrumb_md_url %}{{next_prepender}}/{{ splitted_url_parts[i] }}/{% endcapture %}
+                        {% capture next_prepender %}{{next_prepender}}/{{ splitted_url_parts[i] }}{% endcapture %}
+                        {% for breadcrumb_page in site.pages %}
+                            {% if current_breadcrumb_url == breadcrumb_page.url or current_breadcrumb_md_url == breadcrumb_page.url  %}
+                            {% assign j = forLoopMaxInt | plus: 0 %}
+                                <li {% if i == j %}class="active"{% endif %}>
+                                    {% capture breadcrumb_page_page_url_without_index_html %}{{ breadcrumb_page.url | remove: "index.html" }}{% endcapture %}
+                                    <a href="{{ site.baseurl }}{{breadcrumb_page_page_url_without_index_html}}">{{breadcrumb_page.title}}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                    </ol>
+                  </div>
           {{ content }}
         </div>
       </div>

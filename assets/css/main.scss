@@ -62,3 +62,23 @@ sitemap: false
 .glossary td:first-of-type + td {
     text-align: center;
 }
+
+.breadcrumb {
+    padding-inline-start : 0px;
+    list-style: none;
+    border: 0px;  
+    display: block;
+}
+.breadcrumb > li {
+    display: inline-block;
+}
+
+.breadcrumb > li + li:before {
+    padding: 0 5px;
+}
+  
+.breadcrumb li {font-size: 14px;}
+.breadcrumb a {color: blue;}
+.breadcrumb a:hover {color: darken(blue, 20%);}
+.breadcrumb>.active a {color: #555555; }
+.breadcrumb>li+li:before {color:blue; content: "\003E\00a0";}
