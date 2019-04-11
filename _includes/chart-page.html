@@ -16,7 +16,7 @@
           <tr>
             <td>
               {% if item.link %} 
-              <a href="{{site.baseurl}}/{{item.link}}.html" >
+              <a href="{{site.baseurl}}/{{item.link}}.html" tabindex="{{forloop.index}}">
                 {{item.name}}
               </a>
               {% else %}
@@ -25,7 +25,7 @@
           </td>
           <td>
               {% if item.link %} 
-              <a href="{{site.baseurl}}/{{item.link}}.html" >
+              <a href="{{site.baseurl}}/{{item.link}}.html" tabindex="{{forloop.index}}">
                 {{item.value}}
               </a>
               {% else %}
