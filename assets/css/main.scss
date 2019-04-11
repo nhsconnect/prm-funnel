@@ -40,3 +40,25 @@ sitemap: false
 .post-list ul {
     margin-bottom: 10px;
 }
+
+.glossary table {
+    table-layout: fixed;
+}
+
+.glossary table th + th, 
+.glossary table td + td {
+    border-left: 1px solid black;
+}
+
+.glossary th:first-of-type {
+    width: 300px;
+}
+
+.glossary th:first-of-type + th {
+    width: 100px;
+    text-align: center;
+}
+
+.glossary td:first-of-type + td {
+    text-align: center;
+}
