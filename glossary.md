@@ -14,7 +14,7 @@ permalink: /glossary/
 | GP2GP || The process for transferring EHR extracts between GP practices |
 |Integrated | | Processed by requesting practice staff and made available for clinicians |
 | Internal Transfer || A patient registers with a General Practice surgery that shares a single patient database with the patient’s previous General Practice surgery |
-| Management Information | MI | Information recovered from permanent patient registrations or use of GP2GP, to be formatted into management reports |
+| Management Information | MI | Information recovered from permanent patient registrations or use of GP2GP, provided by suppliers, to be formatted into management reports |
 | National Monitoring Service| NMS | A Splunk instance that is used to store MI and TMS metadata |
 | Not Integrated | | Waiting for requesting practice to  carry out the action of integration |
 | Patient Demographic Service | PDS | The Spine sub-system that stores patient demographic data |

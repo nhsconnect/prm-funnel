@@ -7,7 +7,7 @@ This site visualises data collated from the GP2GP Utilisation Report (July 2018)
 
 The PRM team does not have a 100% reliable source of information about the clinical supplier for each GP practice over time.  For suppliers that provide MI information we can deduce the current clinical supplier based on the system reporting the MI data (with the caveat that this may not be accurate if a GP practice is running multiple systems as part of a process of transitioning suppliers).  For other cases static lookup tables are used which do not track suppliers over time.
 
-The information presented is mainly gathered from the MI data. The PRM teame have a good-degree of confidence in this data as:
+The information presented is mainly gathered from the MI data. The PRM team have a good-degree of confidence in this data as:
 1. Approximately, 89% of GP practices provide this data.
 2. Between 99-100% of GP practices that provide this data, provide it every day.
 3. For patient registrations that result in a GP2GP interaction, there is a high correlation between the data reported by the MI data and the data recorded by the NHS Spine.
