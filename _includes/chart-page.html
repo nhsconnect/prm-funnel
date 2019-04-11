@@ -1,5 +1,3 @@
-
-
   <div id="canvas-holder">
     <div id="chartdiv"></div>
   </div>
@@ -15,12 +13,10 @@
           <th>Data</th> 
         </tr>
         {%- for item in page.items -%}
-        <a href="{{site.base_url}}{{}}">
           <tr>
             <td>{{item.name}}</td>
-            <td>{{item.value}}</td> 
+            <td><a href="{{site.base_url}}{{item.link}}.html">{{item.value}}</a></td> 
           </tr>
-        </a>
         {%- endfor -%}
         {%- if total -%}
         <tfoot>
