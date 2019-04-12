@@ -1,6 +1,6 @@
 ---
 layout: funnel
-title:  "March 2019 Sender View"
+title:  "Sender View"
 date: "2019-04-05 15:46:00 +0000"
 datatype: Quantitative
 confidence: Medium
