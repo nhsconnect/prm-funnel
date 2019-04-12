@@ -3,7 +3,7 @@ layout: chart
 title:  "Integrations"
 date:   2019-03-20 15:46:00 +0000
 funnel_slice: Successfully Integrated
-timeframe: Nov 2018
+timeframe: Oct 2018
 datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
@@ -11,45 +11,45 @@ categories: data
 items: [
   {
     "name": "EMIS -> EMIS",
-    "value": 116952
+    "value": 140814
   },
   {
     "name": "TPP -> EMIS",
-    "value": 33597
+    "value": 42981
   },
   {
     "name": "EMIS -> TPP",
-    "value": 30889
+    "value": 38954
   },
   {
     "name": "Vision -> EMIS",
-    "value": 4402
+    "value": 5210
   },
   {
     "name": "Vision -> TPP",
-    "value": 1250
+    "value": 1536
   },
   {
     "name": "MicroTest -> EMIS",
-    "value": 173
+    "value": 232
   },
   {
     "name": "MicroTest -> TPP",
-    "value": 88
+    "value": 157
   },
   {
     "name": "TPP -> TPP",
-    "value": 16
+    "value": 38
   },
   {
     "name": "EMIS -> Unknown",
-    "value": 1
+    "value": 6
   }
 ]
 ---
 A chart representing the successful integrations split into source and target system.
 
-The data was collected from **Splunk** with the following queries, and the date range was the whole of November 2018:
+The data was collected from **Splunk** with the following queries, and the date range was the whole of October 2018:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-RR"

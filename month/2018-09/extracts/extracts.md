@@ -3,7 +3,7 @@ layout: chart
 title:  "EHR Extracts"
 date:   2019-03-20 12:28:00 +0000
 funnel_slice: EHR Extracts
-timeframe: Nov 2018
+timeframe: Sep 2018
 datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
@@ -16,13 +16,13 @@ chart_config:
 items: [
           {
             "name": "Large Messages",
-            "value": 109006,
-            "link": "month/2018-11/extracts/large/large"
+            "value": 131255,
+            "link": "month/2018-09/extracts/large/large"
           },
           {
             "name": "Standard Messages",
-            "value": 101856,
-            "link": "month/2018-11/extracts/standard/standard"
+            "value": 137959,
+            "link": "month/2018-09/extracts/standard/standard"
           }
 ]
 ---

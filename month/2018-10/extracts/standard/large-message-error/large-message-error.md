@@ -1,22 +1,22 @@
 ---
 layout: chart
 title:  "Large Message Error"
-date:   2019-03-22 10:30:00 +0000
+date:   2019-03-22 10:34:00 +0000
 funnel_slice: EHR Extracts Sent
-timeframe: Dec 2018
+timeframe: Oct 2018
 datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
-items: [ { name: 'TPP -> EMIS', value: 462 },
-  { name: 'TPP -> Unknown', value: 30 },
-  { name: 'EMIS -> EMIS', value: 4 },
-  { name: 'EMIS -> Unknown', value: 1 } ]
-
+items: [ { name: 'TPP -> EMIS', value: 678 },
+  { name: 'TPP -> Unknown', value: 28 },
+  { name: 'EMIS -> EMIS', value: 7 },
+  { name: 'TPP -> TPP', value: 3 } ]
 ---
+
 A chart representing large message generic error 30 in standard messages, grouped by sending and receiving system type.
 
-The data was collected from **Splunk** with the following queries, and the date range was the whole of December 2018:
+The data was collected from **Splunk** with the following queries, and the date range was the whole of October 2019:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"

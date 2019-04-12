@@ -1,26 +1,59 @@
 ---
 layout: chart
-title:  "Large Message Error"
-date:   2019-03-22 10:30:00 +0000
-funnel_slice: EHR Extracts Sent
-timeframe: Dec 2018
+title:  "EHR Requests"
+date:   2019-03-20 12:28:00 +0000
+funnel_slice: EHR Requests Sent
+timeframe: Sep 2018
 datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
-items: [ { name: 'TPP -> EMIS', value: 462 },
-  { name: 'TPP -> Unknown', value: 30 },
-  { name: 'EMIS -> EMIS', value: 4 },
-  { name: 'EMIS -> Unknown', value: 1 } ]
-
+items: [
+  {
+    "name": "EMIS -> EMIS",
+    "value": 150107
+  },
+  {
+    "name": "TPP -> EMIS",
+    "value": 54806
+  },
+  {
+    "name": "EMIS -> TPP",
+    "value": 52371
+  },
+  {
+    "name": "Vision -> EMIS",
+    "value": 8541
+  },
+  {
+    "name": "Vision -> TPP",
+    "value": 2919
+  },
+  {
+    "name": "MicroTest -> EMIS",
+    "value": 757
+  },
+  {
+    "name": "MicroTest -> TPP",
+    "value": 690
+  },
+  {
+    "name": "TPP -> TPP",
+    "value": 349
+  },
+  {
+    "name": "EMIS -> unknown",
+    "value": 6
+  }
+]
 ---
-A chart representing large message generic error 30 in standard messages, grouped by sending and receiving system type.
+A chart representing the EHR Sent Requests split into source and target system.
 
-The data was collected from **Splunk** with the following queries, and the date range was the whole of December 2018:
+The data was collected from **Splunk** with the following queries, and the date range was 1st-30th September 2018:
 
 ```sql
-index="gp2gp-mi" sourcetype="gppractice-SR"
-    LargeMessagingRequired=0 RequestAckCode=30
+ index="gp2gp-mi" sourcetype="gppractice-RR"
+    | where RequestFailurePoint=0 OR RequestFailurePoint=60 
     | join type=outer RequestorODS 
       [search index="gp2gp-mi" sourcetype="gppractice-HR"] 
     | join type=outer SenderODS 

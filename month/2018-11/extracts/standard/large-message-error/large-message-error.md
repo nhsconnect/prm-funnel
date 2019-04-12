@@ -14,7 +14,7 @@ items: [ { name: 'TPP -> EMIS', value: 683 },
 ---
 A chart representing large message generic error 30 in standard messages, grouped by sending and receiving system type.
 
-The data was collected from **Splunk** with the following queries, and the date range was the whole of January 2019:
+The data was collected from **Splunk** with the following queries, and the date range was the whole of November 2018:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"

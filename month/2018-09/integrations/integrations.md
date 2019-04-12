@@ -1,26 +1,57 @@
 ---
 layout: chart
-title:  "Large Message Error"
-date:   2019-03-22 10:30:00 +0000
-funnel_slice: EHR Extracts Sent
-timeframe: Dec 2018
+title:  "Integrations"
+date:   2019-03-20 15:46:00 +0000
+funnel_slice: Successfully Integrated
+timeframe: Sep 2018
 datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
-items: [ { name: 'TPP -> EMIS', value: 462 },
-  { name: 'TPP -> Unknown', value: 30 },
-  { name: 'EMIS -> EMIS', value: 4 },
-  { name: 'EMIS -> Unknown', value: 1 } ]
-
+items: [
+  {
+    "name": "EMIS -> EMIS",
+    "value": 54931
+  },
+  {
+    "name": "TPP -> EMIS",
+    "value": 20858
+  },
+  {
+    "name": "EMIS -> TPP",
+    "value": 11260
+  },
+  {
+    "name": "Vision -> EMIS",
+    "value": 2510
+  },
+  {
+    "name": "Vision -> TPP",
+    "value": 499
+  },
+  {
+    "name": "MicroTest -> EMIS",
+    "value": 125
+  },
+  {
+    "name": "MicroTest -> TPP",
+    "value": 33
+  },
+  {
+    "name": "TPP -> TPP",
+    "value": 2
+  }
+]
 ---
-A chart representing large message generic error 30 in standard messages, grouped by sending and receiving system type.
+A chart representing the successful integrations split into source and target system.
 
-The data was collected from **Splunk** with the following queries, and the date range was the whole of December 2018:
+The data was collected from **Splunk** with the following queries, and the date range was the whole of September 2018:
 
 ```sql
-index="gp2gp-mi" sourcetype="gppractice-SR"
-    LargeMessagingRequired=0 RequestAckCode=30
+index="gp2gp-mi" sourcetype="gppractice-RR"
+    | where RequestFailurePoint=0 OR RequestFailurePoint=60 
+    | where ExtractAckCode=0 OR ExtractAckCode=00
+    | where ExtractAckStatus=1
     | join type=outer RequestorODS 
       [search index="gp2gp-mi" sourcetype="gppractice-HR"] 
     | join type=outer SenderODS 
