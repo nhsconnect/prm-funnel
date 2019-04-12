@@ -26,14 +26,6 @@ remote_theme: "mmistakes/so-simple-theme"
 plugins:
   - jekyll-feed
 
-collections:
-  funnels:
-    output: true
-    title: Data Funnels
-  charts:
-    output: true
-    title: Charts
-
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
