@@ -34,6 +34,7 @@ layout: default
   series.dataFields.value = "value";
   series.dataFields.category = "name";
   series.labels.template.text = "{category}: {value}";
+  series.slices.template.tooltipText = "";
 
   series.slices.template.events.on("hit", function(ev) {
     let item = data[ev.target.dataItem.index];
