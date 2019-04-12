@@ -43,5 +43,3 @@ index="gp2gp-mi" sourcetype="gppractice-SR"
   | stats count by failurereason
   | sort -count
 ```
-
-The extract failure point *PDS comparison with Requestor* has *RequestAckCodes* of *Sender check indicates that Requestor is not the patient’s current healthcare provider* as well as *Sender check indicates that Requestor is not the patient’s current healthcare provider*. This means the failure could happen due to either one of those reasons.
