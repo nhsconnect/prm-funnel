@@ -1,7 +1,7 @@
 ---
 layout: chart
 title:  "EHR Requests sent grouped by sending and receiving system type"
-date:   2019-03-20 12:28:00 +0000
+date: "2019-03-20 12:28:00 +0000"
 funnel_slice: EHR Requests Sent
 timeframe: Nov 2018
 datatype: Quantitative

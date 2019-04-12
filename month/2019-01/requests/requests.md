@@ -1,7 +1,7 @@
 ---
 layout: chart
 title:  "EHR Requests"
-date:   2019-03-05 15:46:00 +0000
+date: "2019-03-05 15:46:00 +0000"
 funnel_slice: EHR Requests Sent
 timeframe: Jan 2019
 datatype: Quantitative

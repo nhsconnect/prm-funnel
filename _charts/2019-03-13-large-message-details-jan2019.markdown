@@ -1,7 +1,7 @@
 ---
 layout: chart
 title:  "Large message details"
-date:   2019-03-05 15:46:00 +0000
+date: "2019-03-05 15:46:00 +0000"
 timeframe: Jan 2019
 datatype: Quantitative
 confidence: Medium

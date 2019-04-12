@@ -1,7 +1,7 @@
 ---
 layout: chart
 title:  "Integrations"
-date:   2019-03-20 15:46:00 +0000
+date: "2019-03-20 15:46:00 +0000"
 funnel_slice: Successfully Integrated
 timeframe: Sep 2018
 datatype: Quantitative

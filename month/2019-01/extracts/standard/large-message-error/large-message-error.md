@@ -1,7 +1,7 @@
 ---
 layout: chart
 title:  "Large Message Error"
-date:   2019-03-21 15:46:00 +0000
+date: "2019-03-21 15:46:00 +0000"
 funnel_slice: EHR Extracts Sent
 timeframe: Jan 2019
 datatype: Quantitative

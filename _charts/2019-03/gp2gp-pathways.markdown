@@ -1,7 +1,7 @@
 ---
 layout: integration-bar
 title:  "GP2GP"
-date:   203-20 12:28:00 +0000
+date: "2019-03-20 12:28:00 +0000"
 timeframe: March 2019
 datatype: Quantitative
 confidence: Medium

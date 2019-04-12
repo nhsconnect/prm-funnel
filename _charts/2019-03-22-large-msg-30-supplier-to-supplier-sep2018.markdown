@@ -1,7 +1,7 @@
 ---
 layout: chart
 title:  "Large message generic error 30 in standard messages, grouped by sending and receiving system type"
-date:   2019-03-22 10:32:00 +0000
+date: "2019-03-22 10:32:00 +0000"
 funnel_slice: EHR Extracts Sent
 timeframe: Sep 2018
 datatype: Quantitative

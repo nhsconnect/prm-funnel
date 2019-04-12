@@ -1,7 +1,7 @@
 ---
 layout: chart
 title:  "Vision to EMIS ExtractAckCodes"
-date:   2019-03-23 16:29:00 +0000
+date: "2019-03-23 16:29:00 +0000"
 timeframe: Dec 2018
 datatype: Quantitative
 confidence: Medium

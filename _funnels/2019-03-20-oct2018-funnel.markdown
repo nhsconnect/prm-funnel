@@ -1,7 +1,7 @@
 ---
 layout: funnel
 title:  "October 2018"
-date:   2018-10-20 12:26:00 +0000
+date: "2018-10-20 12:26:00 +0000"
 datatype: Quantitative
 confidence: Low
 datasource: NMS
