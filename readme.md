@@ -10,30 +10,27 @@ The hosted site can be found [here](https://nhsconnect.github.io/prm-funnel/).
 Ensure you have access to the `gp2gp-mi` index in the NMS Trends instance of Splunk.  
 
 **Process**
-1. Import the `splunk-rr-view-dashboard.xml` file into Splunk
+1. Import the `_splunk/splunk-rr-view-dashboard.xml` file into Splunk
 2. Set the date range for the month you wish to produce statistics for.
-3. Create the funnel
-   1. Duplicate the previous month's file from the `_funnels` directory
-   2. Update the `title` and `date` fields
-   3. Update the date range referenced in the text 
-   4. Copy data from splunk 
+3. Duplicate the previous month's directory from the `month` directory
+4. Update the `title` and `date` and where present `timeframe` fields in all the markdown files
+5. Update the date range referenced in the text 
+6. Update any links to reference the correct month
+7. Create the RR funnel
+   1. For the `rr-funnel.md` file: copy the following data from splunk 
       * Registrations: Total from high level registration category
       * Transfers: Total from Transfer category
       * GP2GP : Total from GP2GP category
       * Integrations: GP2GP success and integrated from GP2GP category
-   5. Update the dates in file names in the `links` section
-4. Create layers
-   1. Copy the previous months files from the `_charts` directory
-   2. Update the `date` and `timeframe` fields
-   3. Update the date range referenced in the text
-   4. Update data in `items` in `registrations.markdown` from High level registration category
-   5. Update data in `items` in `transfers.markdown` from Transfer category
-   6. Update data in `items` in `gp2gp.markdown` from GP2GP category
-   7. Update data in `items` in `integrations.markdown` from Filing status
-   8. Update data in `items` in `errors.markdown` from GP2GP failures
-   9. Update data in `items` in `gp2gp-pathways.markdown` from GP2GP category by pathway
-   10. Update data in `items` in `filing-details.markdown` from Filing details by pathway
-   11. Update the dates in file names in the `links` section and the links within text
+   2. Create layers
+      1. Update data in `items` in `rr-funnel/gp2gp/gp2gp.md` from GP2GP category
+      2. Update data in `items` in `rr-funnel/gp2gp/errors/errors.md` from GP2GP failures
+      3. Update data in `items` in `rr-funnel/gp2gp/errors-pathway/errors-pathways.md` from errors by pathway
+      4. Update data in `items` in `rr-funnel/gp2gp/pathways/pathways.md` from GP2GP category by pathway
+      5. Update data in `items` in `rr-funnel/integrations/integrations.md` from Filing status
+      6. Update data in `items` in `rr-funnel/integrations/filing-by-requestor/filing-by-requestor.md` from Filing details by requestor
+      7. Update data in `items` in `rr-funnel/registrations/registrations.md` from High level registration category
+      8. Update data in `items` in `rr-funnel/transfers/transfers.md` from Transfer category
  
 ## How to run the site locally
 
