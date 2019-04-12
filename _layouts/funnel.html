@@ -33,7 +33,7 @@ layout: default
   series.colors.step = 2;
   series.dataFields.value = "value";
   series.dataFields.category = "name";
-  series.slices.template.tooltipText = "";
+  series.labels.template.text = "{category}: {value}";
 
   series.slices.template.events.on("hit", function(ev) {
     let item = data[ev.target.dataItem.index];
