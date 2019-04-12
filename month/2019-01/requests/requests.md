@@ -1,59 +1,27 @@
 ---
 layout: chart
 title:  "EHR Requests"
-date:   2019-03-20 11:32:00 +0000
+date:   2019-03-05 15:46:00 +0000
 funnel_slice: EHR Requests Sent
-timeframe: Feb 2019
+timeframe: Jan 2019
 datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
 items: [
-  {
-    "name": "EMIS -> EMIS",
-    "value": 90095,
-    "link": "month/2019-02/requests/emis-to-emis/emis-to-emis"
-  },
-  {
-    "name": "EMIS -> TPP",
-    "value": 30455,
-    "link": "month/2019-02/requests/emis-to-tpp/emis-to-tpp"
-  },
-  {
-    "name": "TPP -> EMIS",
-    "value": 26843,
-    "link": "month/2019-02/requests/tpp-to-emis/tpp-to-emis"
-  },
-  {
-    "name": "Vision -> EMIS",
-    "value": 5448,
-    "link": "month/2019-02/requests/vision-to-emis/vision-to-emis"
-  },
-  {
-    "name": "Vision -> TPP",
-    "value": 1634,
-    "link": "month/2019-02/requests/vision-to-tpp/vision-to-tpp"
-  },
-  {
-    "name": "MicroTest -> TPP",
-    "value": 413,
-    "link": "month/2019-02/requests/microtest-to-emis/microtest-to-emis"
-  },
-  {
-    "name": "MicroTest -> EMIS",
-    "value": 387,
-    "link": "month/2019-02/requests/microtest-to-tpp/microtest-to-tpp"
-  },
-  {
-    "name": "TPP -> TPP",
-    "value": 48,
-    "link": "month/2019-02/requests/tpp-to-tpp/tpp-to-tpp"
-  }
-]
+          { "name": "EMIS -> EMIS", "value": 138679, "link": "month/2019-01/requests/emis-to-emis/emis-to-emis"},
+          { "name": "EMIS -> TPP", "value": 40375, "link": "month/2019-01/requests/emis-to-tpp/emis-to-tpp" },
+          { "name": "TPP -> EMIS", "value": 7778, "link": "month/2019-01/requests/tpp-to-emis/tpp-to-emis" },
+          { "name": "Vision -> EMIS", "value": 2283, "link": "month/2019-01/requests/vision-to-emis/vision-to-emis" },
+          { "name": "Vision -> TPP", "value": 608, "link": "month/2019-01/requests/vision-to-tpp/vision-to-tpp" },
+          { "name": "MicroTest -> TPP", "value": 16, "link": "month/2019-01/requests/microtest-to-tpp/microtest-to-tpp" },
+          { "name": "MicroTest -> EMIS", "value": 581, "link": "cmonth/2019-01/requests/microtest-to-emis/microtest-to-emis" },
+          { "name": "TPP -> TPP", "value": 61, "link": "month/2019-01/requests/tpp-to-tpp/tpp-to-tpp"  }        
+        ]
 ---
 A chart representing the EHR Sent Requests split into source and target system.
 
-The data was collected from **Splunk** with the following queries, and the date range was 1st-28th February 2019:
+The data was collected from **Splunk** with the following queries, and the date range was 1st-31st January 2019:
 
 ```sql
  index="gp2gp-mi" sourcetype="gppractice-RR"
