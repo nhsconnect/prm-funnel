@@ -9,9 +9,9 @@ layout: default
 
   {{ content }}
 
-  <h2 class="post-list-heading">{{ page.list_title | default: "Available months, latest first:" }}</h2>
+  <h2 class="index-heading">{{ page.list_title | default: "Available months, latest first:" }}</h2>
 
-  <ol class="post-list">
+  <ol class="index">
   {%- assign funnels = site.pages | sort: 'date' -%}
   {%- assign funnels = funnels | reverse -%}
   {%- capture toclose -%}{%- increment openelements -%}{%- endcapture -%}

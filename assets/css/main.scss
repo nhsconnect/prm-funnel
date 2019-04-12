@@ -83,3 +83,15 @@ sitemap: false
 .breadcrumb a:hover {color: darken(blue, 20%);}
 .breadcrumb>.active a {color: #555555; }
 .breadcrumb>li+li:before {color:blue; content: "\003E\00a0";}
+
+.index {
+    list-style: square;
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+.index > ol {
+    list-style: none;
+    font-size: .75em;
+    line-height: 1.5em;
+}
