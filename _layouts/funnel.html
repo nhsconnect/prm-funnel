@@ -1,8 +1,6 @@
 ---
 layout: default
 ---
-<!-- <article class="widget" itemscope itemtype="http://schema.org/BlogPosting"> -->
-
   {%- include funnel-description.html -%}
   {%- include chart-page.html -%}
 
@@ -17,7 +15,6 @@ layout: default
   // Themes begin
   am4core.useTheme(am4themes_material);
   // Themes end
-  
   
   var chart = am4core.create("chartdiv", am4charts.SlicedChart);
   chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
@@ -36,10 +33,7 @@ layout: default
   series.colors.step = 2;
   series.dataFields.value = "value";
   series.dataFields.category = "name";
- 
-  series.labels.template.disabled = true;
-  series.ticks.template.disabled = true; 
-  series.slices.template.tooltipText = "{category}: {value.value}";
+  series.slices.template.tooltipText = "";
 
   series.slices.template.events.on("hit", function(ev) {
     let item = data[ev.target.dataItem.index];
@@ -54,11 +48,4 @@ layout: default
   series.legendSettings.itemValueText = " ";
   series.legendSettings.itemLabelText = "{category}";
 
-
   </script>
-  <style>
-    #chartdiv {
-      min-height: 600px;
-      max-width: 800px;
-    }
-  </style>
