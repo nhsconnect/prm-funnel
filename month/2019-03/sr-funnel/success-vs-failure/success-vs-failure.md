@@ -18,8 +18,6 @@ items: [
         { name: 'Failed', value: 5211, link: "month/2019-03/sr-funnel/success-vs-failure/errors/failure-points/failure-points" }
     ]
 ---
-[To get a view on the failure points, please click here](/prm-funnel/month/2019-03/sr-funnel/success-vs-failure/errors/failure-points/failure-points.html).
-
 The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
 
 ```sql

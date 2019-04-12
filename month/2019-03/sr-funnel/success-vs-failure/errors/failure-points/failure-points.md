@@ -21,8 +21,6 @@ items: [
           { name: 'PDS comparison with Requestor', value: 8 }
     ]
 ---
-The total of extract failure points differ from the total requests received by ~20 data points. This is due to retries that eventually succeeded.
-
 The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
 
 ```sql
