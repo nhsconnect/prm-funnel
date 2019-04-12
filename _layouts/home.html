@@ -9,30 +9,34 @@ layout: default
 
   {{ content }}
 
-  {%- if site.funnels.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Available months, latest first:" }}</h2>
-    <ul class="post-list">
-    {% assign funnels = site.funnels | reverse %}
-    {%- for funnel in funnels -%}
-      {%- if funnel.perspectives -%}
-        <li>
-          <h3>{{ funnel.month }}</h3>
-          <ul>
-          {%- for perspective in funnel.perspectives -%}
-            <a href="{{site.baseurl}}{{perspective.link}}" tabindex="{{forloop.index}}"><li>{{ perspective.title }}</li></a>
-          {%- endfor -%}
-          </ul>
-        </li>
-      {%- else -%}
-      <li>
-        <h3>
-          <a class="post-link" href="{{ funnel.url | relative_url }}" tabindex="{{forloop.index}}">
-            {{ funnel.title | escape }}
-          </a>
-        </h3>
-      </li>
-      {%- endif -%}
-    {%- endfor -%}
-  {%- endif -%}
+  <h2 class="post-list-heading">{{ page.list_title | default: "Available months, latest first:" }}</h2>
+
+  <ol class="post-list">
+  {%- assign funnels = site.pages | sort: 'date' -%}
+  {%- assign funnels = funnels | reverse -%}
+  {%- capture toclose -%}{%- increment openelements -%}{%- endcapture -%}
+  {%- assign currentindex = 1 -%}
+  {%- for page in funnels -%}
+    {%- if page.index > currentindex -%}
+      {%- assign currentindex = page.index -%}
+      {%- capture toclose -%}{%- increment openelements -%}{%- endcapture -%}
+      <ol>
+    {%- endif -%}
+
+    {%- if page.index < currentindex -%}
+      {%- assign currentindex = page.index -%}
+      {%- capture toclose -%}{%- decrement openelements -%}{%- endcapture -%}
+      </ol>
+    {%- endif -%}
+  
+    {%- if page.index == currentindex -%}
+      <li><a href="{{site.baseurl}}{{page.url}}">{{ page.title }}</a></li>
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- for count in (0..toclose) -%}
+  </ol>
+  {%- endfor -%}
+  </ol>
 
 </div>

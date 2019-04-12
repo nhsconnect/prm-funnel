@@ -10,6 +10,7 @@ items: [
     { "name": "Requests Received", "value": 194762, "link": "month/2019-03/sr-funnel/success-vs-failure/success-vs-failure"},
     { "name": "Records Sent", "value": 189805 }
 ]
+index: 2
 ---
 Splunk query to retrieve requests received:
 ```sql

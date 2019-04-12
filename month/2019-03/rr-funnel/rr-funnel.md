@@ -1,7 +1,7 @@
 ---
 layout: funnel
 title:  "March 2019 Requester View"
-date: "2019-03-28 15:46:00 +0000"
+date: "2019-04-05 15:47:00 +0000"
 datatype: Quantitative
 confidence: Medium
 datasource: NMS (gp2gp-mi)
@@ -11,7 +11,8 @@ items: [
     { "name": "Transfers", "value": 268775, "link": "month/2019-03/rr-funnel/transfers/transfers" },
     { "name": "GP2GP", "value": 196989, "link": "month/2019-03/rr-funnel/gp2gp/gp2gp" },
     { "name": "Integrations", "value": 157569, "link": "month/2019-03/rr-funnel/integrations/integrations" }
-] 
+]
+index: 2
 ---
 Data is sourced from **suppliers' data (MI) - March 2019**.
 This is the query that gave us the information: 
