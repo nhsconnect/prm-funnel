@@ -1,11 +1,11 @@
 ---
-layout: chart
-title:  "Request Failure Points"
+layout: extract-failure-bar
+title:  "Failure Pathways"
 date: "2019-03-20 12:28:00 +0000"
 timeframe: March 2019
 datatype: Quantitative
 confidence: Medium
-funnel_slice: Requests Received
+funnel_slice: EHR extracts
 datasource: NMS (gp2gp-mi)
 categories: data
 chart_config: 
@@ -13,18 +13,106 @@ chart_config:
     legend:
       position: "bottom"
 items: [ 
-          { name: 'GP2GP disabled', value: 29 },
-          { name: 'Patient not at surgery', value: 204 },
-          { name: 'Requestor not current gp', value: 36 },
-          { name: 'Requestor not large message compliant', value: 3428 },
-          { name: 'Large message failure', value: 702 },
-          { name: 'Unable to generate EHR extract', value: 6 },
-          { name: 'Unable to send EHR extract', value: 830 },
-          { name: 'Unknown issue', value: 489 }
-    ]
+  {
+    "pathway": "EMIS-Vision",
+    "gp2_gp_disabled": 2,
+    "patient_not_at_surgery": 3,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 5,
+    "comms_setup": 0,
+    "not_lm": 1698,
+    "lm_problem": 0,
+    "generate_problem": 0,
+    "send_problem": 2,
+    "unknown": 13,
+    "Total": 1723
+  },
+  {
+    "pathway": "TPP-EMIS",
+    "gp2_gp_disabled": 0,
+    "patient_not_at_surgery": 29,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 1,
+    "comms_setup": 0,
+    "not_lm": 0,
+    "lm_problem": 666,
+    "generate_problem": 0,
+    "send_problem": 683,
+    "unknown": 60,
+    "Total": 1439
+  },
+  {
+    "pathway": "TPP-Vision",
+    "gp2_gp_disabled": 0,
+    "patient_not_at_surgery": 1,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 0,
+    "comms_setup": 0,
+    "not_lm": 1059,
+    "lm_problem": 21,
+    "generate_problem": 0,
+    "send_problem": 0,
+    "unknown": 2,
+    "Total": 1083
+  },
+  {
+    "pathway": "EMIS-EMIS",
+    "gp2_gp_disabled": 8,
+    "patient_not_at_surgery": 133,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 19,
+    "comms_setup": 0,
+    "not_lm": 0,
+    "lm_problem": 3,
+    "generate_problem": 3,
+    "send_problem": 82,
+    "unknown": 278,
+    "Total": 526
+  },
+  {
+    "pathway": "TPP-Microtest",
+    "gp2_gp_disabled": 0,
+    "patient_not_at_surgery": 0,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 0,
+    "comms_setup": 0,
+    "not_lm": 411,
+    "lm_problem": 12,
+    "generate_problem": 0,
+    "send_problem": 0,
+    "unknown": 0,
+    "Total": 423
+  },
+  {
+    "pathway": "EMIS-TPP",
+    "gp2_gp_disabled": 8,
+    "patient_not_at_surgery": 28,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 4,
+    "comms_setup": 0,
+    "not_lm": 0,
+    "lm_problem": 0,
+    "generate_problem": 3,
+    "send_problem": 55,
+    "unknown": 105,
+    "Total": 203
+  },
+  {
+    "pathway": "EMIS-Microtest",
+    "gp2_gp_disabled": 0,
+    "patient_not_at_surgery": 0,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 0,
+    "comms_setup": 0,
+    "not_lm": 177,
+    "lm_problem": 0,
+    "generate_problem": 0,
+    "send_problem": 0,
+    "unknown": 2,
+    "Total": 179
+  }
+]
 ---
-**[Click here to see the same information broken down into supplier pathways](/prm-funnel/month/2019-03/sr-funnel/success-vs-failure/errors/failure-points/failure-pathways/failure-pathways.html)**
-
 The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
 
 ```sql

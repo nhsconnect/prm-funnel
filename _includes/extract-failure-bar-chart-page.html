@@ -1,0 +1,56 @@
+
+
+  <div id="canvas-holder">
+    <div id="chartdiv"></div>
+  </div>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+
+    <div class="data-table">
+      <h3>Raw data</h3>
+      <table>
+        <tr>
+          <th>Pathway</th>
+          <th>GP2GP disabled</th> 
+          <th>Patient not at surgery</th> 
+          <th>Patient lookup failure</th> 
+          <th>Requester not current GP</th> 
+          <th>Communications setup failure</th> 
+          <th>Requester is not large message compliant</th> 
+          <th>Large message problem</th>
+          <th>Unable to generate EHR extract</th> 
+          <th>Unable to send EHR extract</th> 
+          <th>Unknown failure</th> 
+        </tr>
+        {%- for item in page.items -%}
+        <tr>
+          <td>{{item.pathway}}</td>
+          <td>{{item.gp2_gp_disabled}}</td>
+          <td>{{item.patient_not_at_surgery}}</td>
+          <td>{{item.patient_lookup_failure}}</td>
+          <td>{{item.requestor_not_current_gp}}</td>
+          <td>{{item.comms_setup}}</td>
+          <td>{{item.not_lm}}</td>
+          <td>{{item.lm_problem}}</td>
+          <td>{{item.generate_problem}}</td>
+          <td>{{item.send_problem}}</td>
+          <td>{{item.unknown}}</td>
+        </tr>
+        {%- endfor -%}
+        <tfoot>
+          <th>Total</th>
+          <th>{{ totalGP2GPDisabled }}</th> 
+          <th>{{ totalPatientNotAtSurgery }}</th> 
+          <th>{{ totalPatientLookupFailure }}</th> 
+          <th>{{ totalRequesterNotCurrentGP }}</th> 
+          <th>{{ totalCommsSetup }}</th> 
+          <th>{{ totalNotLM }}</th> 
+          <th>{{ totalLMProblem }}</th> 
+          <th>{{ totalGenerateProblem }}</th> 
+          <th>{{ totalSendProblem }}</th> 
+          <th>{{ totalUnknown }}</th> 
+        </tfoot>
+      </table>
+    </div>
+  </div>

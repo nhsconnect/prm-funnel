@@ -1,0 +1,45 @@
+
+<header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title 
+        | escape }} {% if page.timeframe %}-{% endif %} {{ page.timeframe }}</h1>
+</header>
+
+{% assign totalSuccess = 0 %}
+{% assign totalFailure = 0 %}
+{% assign total = 0 %}
+
+{% for item in page.items %}
+
+{% assign totalGP2GPDisabled = totalGP2GPDisabled | plus: item.gp2_gp_disabled %}
+{% assign totalPatientNotAtSurgery = totalPatientNotAtSurgery | plus: item.patient_not_at_surgery %}
+{% assign totalPatientLookupFailure = totalPatientLookupFailure | plus: item.patient_lookup_failure %}
+{% assign totalRequesterNotCurrentGP = totalRequesterNotCurrentGP | plus: item.requestor_not_current_gp %}
+{% assign totalCommsSetup = totalCommsSetup | plus: item.comms_setup %}
+{% assign totalNotLM = totalNotLM | plus: item.not_lm %}
+{% assign totalLMProblem = totalLMProblem | plus: item.lm_problem %}
+{% assign totalGenerateProblem = totalGenerateProblem | plus: item.generate_problem %}
+{% assign totalSendProblem = totalSendProblem | plus: item.send_problem %}
+{% assign totalUnknown = totalUnknown | plus: item.unknown %}
+{% assign total = total 
+    | plus: item.gp2_gp_disabled 
+    | plus: item.patient_not_at_surgery 
+    | plus: item.patient_lookup_failure 
+    | plus: item.requestor_not_current_gp 
+    | plus: item.comms_setup 
+    | plus: item.not_lm 
+    | plus: item.lm_problem 
+    | plus: item.generate_problem 
+    | plus: item.send_problem 
+    | plus: item.unknown  %}
+
+{% endfor %}
+
+<div class="post-content e-content">
+    <ul>
+        <li>Funnel slice: {{ page.funnel_slice }}</li>  
+        <li>Data type: {{ page.datatype }}</li>
+        <li>Confidence in data: {{ page.confidence }}</li>
+        <li>Datasource: {{ page.datasource }}</li>
+        <li>Total number of data points: {{ total }}</li>
+    </ul>
+</div>
