@@ -1,0 +1,29 @@
+
+<header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title 
+        | escape }} {% if page.timeframe %}-{% endif %} {{ page.timeframe }}</h1>
+</header>
+
+{% assign totalSuccess = 0 %}
+{% assign totalFailure = 0 %}
+{% assign total = 0 %}
+
+{% for item in page.items %}
+
+{% assign totalSuccess = totalSuccess | plus: item.success %}
+{% assign totalFailure = totalFailure | plus: item.failure %}
+{% assign total = total 
+    | plus: item.success 
+    | plus: item.failure  %}
+
+{% endfor %}
+
+<div class="post-content e-content">
+    <ul>
+        <li>Funnel slice: {{ page.funnel_slice }}</li>  
+        <li>Data type: {{ page.datatype }}</li>
+        <li>Confidence in data: {{ page.confidence }}</li>
+        <li>Datasource: {{ page.datasource }}</li>
+        <li>Total number of data points: {{ total }}</li>
+    </ul>
+</div>

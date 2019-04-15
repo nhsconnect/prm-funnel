@@ -1,26 +1,80 @@
 ---
-layout: chart
-title:  "Request Success vs Failure"
+layout: extract-bar
+title:  "EHR Extract Pathways"
 date: "2019-03-20 12:28:00 +0000"
 timeframe: March 2019
 datatype: Quantitative
 confidence: Medium
-funnel_slice: Requests Received
+funnel_slice: EHR Extracts
 datasource: NMS (gp2gp-mi)
-categories: data
-chart_config: 
-  options:
-    legend:
-      position: "bottom"
-      
-items: [ 
-        { name: 'Succeeded', value: 190285 },
-        { name: 'Failed', value: 5724, link: "month/2019-03/sr-funnel/success-vs-failure/errors/failure-points/failure-points" }
-    ]
----
-The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
+categories: data    
+items: [
+  {
+    "pathway": "EMIS-EMIS",
+    "success": 112322,
+    "failure": 526,
+    "Total": 112848
+  },
+  {
+    "pathway": "EMIS-TPP",
+    "success": 34011,
+    "failure": 203,
+    "Total": 34214
+  },
+  {
+    "pathway": "TPP-EMIS",
+    "success": 32110,
+    "failure": 1439,
+    "Total": 33549
+  },
+  {
+    "pathway": "Unknown-EMIS",
+    "success": 5529,
+    "failure": 44,
+    "Total": 5573
+  },
+  {
+    "pathway": "EMIS-Vision",
+    "success": 3617,
+    "failure": 1723,
+    "Total": 5340
+  },
+  {
+    "pathway": "Unknown-TPP",
+    "success": 1704,
+    "failure": 12,
+    "Total": 1716
+  },
+  {
+    "pathway": "TPP-Vision",
+    "success": 400,
+    "failure": 1083,
+    "Total": 1483
+  },
+  {
+    "pathway": "TPP-Microtest",
+    "success": 83,
+    "failure": 423,
+    "Total": 506
+  },
+  {
+    "pathway": "EMIS-Microtest",
+    "success": 325,
+    "failure": 179,
+    "Total": 504
+  },
+  {
+    "pathway": "Unknown-Vision",
+    "success": 127,
+    "failure": 77,
+    "Total": 204
+  }
+]
 
-**[Click here to see the same information broken down into supplier pathways](/prm-funnel/month/2019-03/sr-funnel/success-vs-failure/pathways/pathways.html)**
+---
+A chart representing the details EHR extract success by pathway.
+
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"

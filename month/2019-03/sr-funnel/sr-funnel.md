@@ -7,20 +7,16 @@ confidence: Medium
 datasource: NMS
 categories: data
 items: [
-    { "name": "Requests Received", "value": 194762, "link": "month/2019-03/sr-funnel/success-vs-failure/success-vs-failure"},
-    { "name": "Records Sent", "value": 189805 }
+    { "name": "Requests Received", "value": 196009, "link": "month/2019-03/sr-funnel/success-vs-failure/success-vs-failure"},
+    { "name": "Records Sent", "value": 191032 }
 ]
 index: 2
 ---
-Splunk query to retrieve requests received:
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR" 
-  | stats dc(ConversationID)
-```
-
-Splunk query to retrieve records sent:
-```sql
-index="gp2gp-mi" sourcetype="gppractice-SR" 
-  | where isnotnull(ExtractTime) 
-  | stats dc(ConversationID)
+  | eval is_request=1
+  | eval is_retrieve=if(isnotnull(ExtractTime),1,0)
+  | dedup ConversationID
+  | stats sum(is_request) as requests, sum(is_retrieve) as retrieves
+  | addtotals
 ```

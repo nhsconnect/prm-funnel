@@ -1,32 +1,74 @@
----
-layout: chart
-title:  "Request Failure Points"
-date: "2019-03-20 12:28:00 +0000"
-timeframe: March 2019
-datatype: Quantitative
-confidence: Medium
-funnel_slice: Requests Received
-datasource: NMS (gp2gp-mi)
-categories: data
-chart_config: 
-  options:
-    legend:
-      position: "bottom"
-items: [ 
-          { name: 'GP2GP disabled', value: 29 },
-          { name: 'Patient not at surgery', value: 204 },
-          { name: 'Requestor not current gp', value: 36 },
-          { name: 'Requestor not large message compliant', value: 3428 },
-          { name: 'Large message failure', value: 702 },
-          { name: 'Unable to generate EHR extract', value: 6 },
-          { name: 'Unable to send EHR extract', value: 830 },
-          { name: 'Unknown issue', value: 489 }
-    ]
----
-The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
-
-```sql
-index="gp2gp-mi" sourcetype="gppractice-SR"
+<form>
+  <label>SR Funnel</label>
+  <fieldset submitButton="false">
+    <input type="time" token="range">
+      <label></label>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <table>
+        <title>Funnel</title>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-SR" 
+  | eval is_request=1
+  | eval is_retrieve=if(isnotnull(ExtractTime),1,0)
+  | dedup ConversationID
+  | stats sum(is_request) as requests, sum(is_retrieve) as retrieves
+  | addtotals
+</query>
+          <earliest>$range.earliest$</earliest>
+          <latest>$range.latest$</latest>
+        </search>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Success vs Failure</title>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-SR"
+  | join type=outer SenderODS [search index="gp2gp-mi" sourcetype="gppractice-HR" 
+      | rename RequestorODS as SenderODS 
+      | rename RequestorSoftware as SenderSoftware]
+  | rex field=SenderSoftware "(?&lt;SenderSupplier>.*)_(?&lt;SenderSystem>.*)_(?&lt;SenderVersion>.*)"
+  | eval SenderSupplier=coalesce(SenderSupplier, "Unknown")
+  | join type=outer RequestorODS [search index="gp2gp-mi" sourcetype="gppractice-HR"] 
+  | rex field=RequestorSoftware "(?&lt;RequestorSupplier>.*)_(?&lt;RequestorSystem>.*)_(?&lt;RequestorVersion>.*)"
+  | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW MName AS MName
+  | eval RequestorSupplier=coalesce(RequestorSupplier, MName, "Unknown")
+  | eval RequestorSupplier=case(
+      RequestorSupplier=="EMIS", "EMIS", 
+      RequestorSupplier=="TPP", "TPP", 
+      RequestorSupplier=="INPS", "Vision", 
+      RequestorSupplier=="Microtest", "Microtest", 
+      1=1, "Unknown")
+  | eval ExtractFailurePoint=coalesce(ExtractFailurePoint, -1)
+  | eval RequestAckCode=coalesce(RequestAckCode, -1)
+  | eval RequestAckCode=tonumber(RequestAckCode) 
+  | eval is_success=if(ExtractFailurePoint==0 and RequestAckCode==0,1,0)
+  | eval is_failure=if(is_success==1,0,1)
+  | eval pathway=SenderSupplier + "-" + RequestorSupplier
+  | dedup ConversationID
+  | stats sum(is_success) as success,
+          sum(is_failure) as failure
+    by pathway
+  | addcoltotals
+  | addtotals
+</query>
+          <earliest>$range.earliest$</earliest>
+          <latest>$range.latest$</latest>
+        </search>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Failures</title>
+        <search>
+          <query>index="gp2gp-mi" sourcetype="gppractice-SR"
   | join type=outer SenderODS [search index="gp2gp-mi" sourcetype="gppractice-HR" 
       | rename RequestorODS as SenderODS 
       | rename RequestorSoftware as SenderSoftware]
@@ -83,4 +125,11 @@ index="gp2gp-mi" sourcetype="gppractice-SR"
     by pathway
   | addcoltotals
   | addtotals
-```
+</query>
+          <earliest>$range.earliest$</earliest>
+          <latest>$range.latest$</latest>
+        </search>
+      </table>
+    </panel>
+  </row>
+</form>
