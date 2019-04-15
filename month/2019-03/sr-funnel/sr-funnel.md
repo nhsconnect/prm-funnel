@@ -12,6 +12,7 @@ items: [
 ]
 index: 2
 ---
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR" 
   | eval is_request=1

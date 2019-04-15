@@ -18,10 +18,9 @@ items: [
         { name: 'Failed', value: 5724, link: "month/2019-03/sr-funnel/success-vs-failure/failure-points/failure-points" }
     ]
 ---
-The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
-
 **[Click here to see the same information broken down into supplier pathways](/prm-funnel/month/2019-03/sr-funnel/success-vs-failure/pathways/pathways.html)**
 
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"
   | join type=outer SenderODS [search index="gp2gp-mi" sourcetype="gppractice-HR" 
