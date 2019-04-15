@@ -5,7 +5,7 @@ date: "2019-03-20 12:28:00 +0000"
 timeframe: March 2019
 datatype: Quantitative
 confidence: Medium
-funnel_slice: EHR extracts
+funnel_slice: Requests received
 datasource: NMS (gp2gp-mi)
 categories: data
 chart_config: 
