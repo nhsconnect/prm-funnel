@@ -15,7 +15,7 @@ chart_config:
       
 items: [ 
         { name: 'Succeeded', value: 190285 },
-        { name: 'Failed', value: 5724, link: "month/2019-03/sr-funnel/success-vs-failure/errors/failure-points/failure-points" }
+        { name: 'Failed', value: 5724, link: "month/2019-03/sr-funnel/success-vs-failure/failure-points/failure-points" }
     ]
 ---
 The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
@@ -27,10 +27,10 @@ index="gp2gp-mi" sourcetype="gppractice-SR"
   | join type=outer SenderODS [search index="gp2gp-mi" sourcetype="gppractice-HR" 
       | rename RequestorODS as SenderODS 
       | rename RequestorSoftware as SenderSoftware]
-  | rex field=SenderSoftware "(?&lt;SenderSupplier>.*)_(?&lt;SenderSystem>.*)_(?&lt;SenderVersion>.*)"
+  | rex field=SenderSoftware "(?<SenderSupplier>.*)_(?<SenderSystem>.*)_(?<SenderVersion>.*)"
   | eval SenderSupplier=coalesce(SenderSupplier, "Unknown")
   | join type=outer RequestorODS [search index="gp2gp-mi" sourcetype="gppractice-HR"] 
-  | rex field=RequestorSoftware "(?&lt;RequestorSupplier>.*)_(?&lt;RequestorSystem>.*)_(?&lt;RequestorVersion>.*)"
+  | rex field=RequestorSoftware "(?<RequestorSupplier>.*)_(?<RequestorSystem>.*)_(?<RequestorVersion>.*)"
   | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW MName AS MName
   | eval RequestorSupplier=coalesce(RequestorSupplier, MName, "Unknown")
   | eval RequestorSupplier=case(
