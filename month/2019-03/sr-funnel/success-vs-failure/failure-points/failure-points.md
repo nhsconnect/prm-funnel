@@ -56,10 +56,10 @@ index="gp2gp-mi" sourcetype="gppractice-SR"
       ExtractFailurePoint==30 or ExtractFailurePoint==40,"Communications setup failure",
       ExtractFailurePoint==50 and RequestAckCode==14,"Requester not large message compliant",
       ExtractFailurePoint==50,"Large message failure",
-      ExtractFailurePoint==60 and RequestAckCode==10,"Unable to generate EHR",
+      ExtractFailurePoint==60 and RequestAckCode==10,"Unable to generate EHR extract",
       ExtractFailurePoint==60 and RequestAckCode==30,"Large message failure",
-      ExtractFailurePoint==60,"Unable to send EHR",
-      1=1,"Unknown failure")
+      ExtractFailurePoint==60,"Unable to send EHR extract",
+      1=1,"Unknown issue")
   | eval pathway = SenderSupplier + "-" + RequestorSupplier
   | eval is_gp2_gp_disabled=if(category=="GP2GP disabled",1,0)
   | eval is_patient_not_at_surgery=if(category=="Patient not at surgery",1,0) 
@@ -68,9 +68,9 @@ index="gp2gp-mi" sourcetype="gppractice-SR"
   | eval is_comms_setup=if(category=="Communications setup failure",1,0)
   | eval is_not_lm=if(category=="Requester not large message compliant",1,0)
   | eval is_lm_problem=if(category=="Large message failure",1,0)
-  | eval is_generate_problem=if(category=="Unable to generate EHR",1,0)
-  | eval is_send_problem=if(category=="Unable to send EHR",1,0)
-  | eval is_unknown=if(category=="Unknown failure",1,0)
+  | eval is_generate_problem=if(category=="Unable to generate EHR extract",1,0)
+  | eval is_send_problem=if(category=="Unable to send EHR extract",1,0)
+  | eval is_unknown=if(category=="Unknown issue",1,0)
   | dedup ConversationID
   | stats sum(is_gp2_gp_disabled) as gp2_gp_disabled,
           sum(is_patient_not_at_surgery) as patient_not_at_surgery,
