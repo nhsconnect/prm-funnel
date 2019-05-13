@@ -50,6 +50,9 @@ N.B. the numeric data in the `items` collection for the "pathways" layers can be
  - clone the repo
  - `cd` into the repo root folder
  - install [homebrew](https://brew.sh)
+ - remove RVM, if you have it installed
+   - `rvm implode`
+   - rvm doesn't play nice with rbenv. You could use just rvm instead, but rbenv is cleaner for managing ruby versions.
  - install [rbenv](https://github.com/rbenv/rbenv) ruby version manager
    - `brew install rbenv`
  - install ruby 2.5.3
