@@ -11,59 +11,59 @@ categories: data
 items: [
   {
     "pathway": "EMIS-EMIS",
-    "integrated_count": 71452,
-    "not_integrated_count": 13135,
-    "error_count": 1856,
-    "Total": 86443
+    "integrated_count": 94638,
+    "not_integrated_count": 6926,
+    "error_count": 3323,
+    "Total": 104887
   },
   {
     "pathway": "EMIS-TPP",
-    "integrated_count": 18501,
-    "not_integrated_count": 4318,
-    "error_count": 1123,
-    "Total": 23942
+    "integrated_count": 25738,
+    "not_integrated_count": 2579,
+    "error_count": 1865,
+    "Total": 30182
   },
   {
     "pathway": "TPP-EMIS",
-    "integrated_count": 8949,
-    "not_integrated_count": 3234,
-    "error_count": 361,
-    "Total": 12544
+    "integrated_count": 24718,
+    "not_integrated_count": 7963,
+    "error_count": 1367,
+    "Total": 34048
   },
   {
     "pathway": "EMIS-Vision",
-    "integrated_count": 2930,
-    "not_integrated_count": 761,
-    "error_count": 2600,
-    "Total": 6291
+    "integrated_count": 3230,
+    "not_integrated_count": 262,
+    "error_count": 1786,
+    "Total": 5278
   },
   {
     "pathway": "TPP-Vision",
-    "integrated_count": 364,
-    "not_integrated_count": 128,
-    "error_count": 174,
-    "Total": 666
+    "integrated_count": 1012,
+    "not_integrated_count": 252,
+    "error_count": 469,
+    "Total": 1733
   },
   {
     "pathway": "EMIS-Microtest",
-    "integrated_count": 92,
-    "not_integrated_count": 26,
-    "error_count": 201,
-    "Total": 319
+    "integrated_count": 167,
+    "not_integrated_count": 17,
+    "error_count": 271,
+    "Total": 455
   },
   {
     "pathway": "TPP-Microtest",
-    "integrated_count": 57,
-    "not_integrated_count": 40,
-    "error_count": 150,
-    "Total": 247
+    "integrated_count": 96,
+    "not_integrated_count": 52,
+    "error_count": 318,
+    "Total": 466
   },
   {
     "pathway": "TPP-TPP",
-    "integrated_count": 0,
-    "not_integrated_count": 0,
-    "error_count": 6,
-    "Total": 6
+    "integrated_count": 62,
+    "not_integrated_count": 2,
+    "error_count": 65,
+    "Total": 129
   }
 ]
 
