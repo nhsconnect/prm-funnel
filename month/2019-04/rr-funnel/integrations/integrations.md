@@ -26,7 +26,7 @@ A chart representing the details of GP2GP integrations.
 
 **[Click here to see more information about the filing of records, broken down by the requesting supplier](/prm-funnel/month/2019-04/rr-funnel/integrations/filing-by-requestor/filing-by-requestor.html)**
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-31st April 2019**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-30th April 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-RR" 
