@@ -1,8 +1,8 @@
 ---
 layout: integration-bar
 title:  "GP2GP Pathways"
-date: "2019-03-20 12:28:00 +0000"
-timeframe: March 2019
+date: "2019-04-14 12:28:00 +0000"
+timeframe: April 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: GP2GP
