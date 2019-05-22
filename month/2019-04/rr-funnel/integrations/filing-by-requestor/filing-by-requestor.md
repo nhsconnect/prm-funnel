@@ -2,7 +2,7 @@
 layout: filing-bar
 title:  "Filing By Requester"
 date: "203-20 12:28:00 +0000"
-timeframe: March 2019
+timeframe: April 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: Integrations
@@ -49,7 +49,7 @@ items: [
 ---
 A chart representing the filing details.
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-30th April 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-RR" 
