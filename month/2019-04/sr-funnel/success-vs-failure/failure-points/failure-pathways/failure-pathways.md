@@ -15,59 +15,59 @@ chart_config:
 items: [ 
   {
     "pathway": "EMIS-Vision",
-    "gp2_gp_disabled": 2,
-    "patient_not_at_surgery": 3,
+    "gp2_gp_disabled": 0,
+    "patient_not_at_surgery": 8,
     "patient_lookup_failure": 0,
-    "requestor_not_current_gp": 5,
+    "requestor_not_current_gp": 2,
     "comms_setup": 0,
-    "not_lm": 1698,
+    "not_lm": 1906,
     "lm_problem": 0,
     "generate_problem": 0,
-    "send_problem": 2,
-    "unknown": 13,
-    "Total": 1723
+    "send_problem": 51,
+    "unknown": 31,
+    "Total": 1998
   },
   {
     "pathway": "TPP-EMIS",
-    "gp2_gp_disabled": 0,
-    "patient_not_at_surgery": 29,
+    "gp2_gp_disabled": 9,
+    "patient_not_at_surgery": 19,
     "patient_lookup_failure": 0,
-    "requestor_not_current_gp": 1,
+    "requestor_not_current_gp": 2,
     "comms_setup": 0,
     "not_lm": 0,
-    "lm_problem": 666,
+    "lm_problem": 635,
     "generate_problem": 0,
-    "send_problem": 683,
-    "unknown": 60,
-    "Total": 1439
+    "send_problem": 670,
+    "unknown": 41,
+    "Total": 1376
   },
   {
     "pathway": "TPP-Vision",
     "gp2_gp_disabled": 0,
-    "patient_not_at_surgery": 1,
+    "patient_not_at_surgery": 2,
     "patient_lookup_failure": 0,
     "requestor_not_current_gp": 0,
     "comms_setup": 0,
-    "not_lm": 1059,
-    "lm_problem": 21,
+    "not_lm": 965,
+    "lm_problem": 24,
     "generate_problem": 0,
     "send_problem": 0,
-    "unknown": 2,
-    "Total": 1083
+    "unknown": 7,
+    "Total": 998
   },
   {
     "pathway": "EMIS-EMIS",
-    "gp2_gp_disabled": 8,
-    "patient_not_at_surgery": 133,
+    "gp2_gp_disabled": 17,
+    "patient_not_at_surgery": 123,
     "patient_lookup_failure": 0,
     "requestor_not_current_gp": 19,
     "comms_setup": 0,
     "not_lm": 0,
-    "lm_problem": 3,
-    "generate_problem": 3,
-    "send_problem": 82,
-    "unknown": 278,
-    "Total": 526
+    "lm_problem": 4,
+    "generate_problem": 5,
+    "send_problem": 66,
+    "unknown": 350,
+    "Total": 584
   },
   {
     "pathway": "TPP-Microtest",
@@ -76,26 +76,26 @@ items: [
     "patient_lookup_failure": 0,
     "requestor_not_current_gp": 0,
     "comms_setup": 0,
-    "not_lm": 411,
-    "lm_problem": 12,
+    "not_lm": 347,
+    "lm_problem": 4,
     "generate_problem": 0,
     "send_problem": 0,
     "unknown": 0,
-    "Total": 423
+    "Total": 351
   },
   {
     "pathway": "EMIS-TPP",
-    "gp2_gp_disabled": 8,
-    "patient_not_at_surgery": 28,
+    "gp2_gp_disabled": 24,
+    "patient_not_at_surgery": 37,
     "patient_lookup_failure": 0,
     "requestor_not_current_gp": 4,
     "comms_setup": 0,
-    "not_lm": 0,
+    "not_lm": 3,
     "lm_problem": 0,
-    "generate_problem": 3,
-    "send_problem": 55,
-    "unknown": 105,
-    "Total": 203
+    "generate_problem": 2,
+    "send_problem": 324,
+    "unknown": 101,
+    "Total": 495
   },
   {
     "pathway": "EMIS-Microtest",
@@ -104,12 +104,12 @@ items: [
     "patient_lookup_failure": 0,
     "requestor_not_current_gp": 0,
     "comms_setup": 0,
-    "not_lm": 177,
+    "not_lm": 189,
     "lm_problem": 0,
     "generate_problem": 0,
-    "send_problem": 0,
-    "unknown": 2,
-    "Total": 179
+    "send_problem": 2,
+    "unknown": 4,
+    "Total": 195
   }
 ]
 ---
