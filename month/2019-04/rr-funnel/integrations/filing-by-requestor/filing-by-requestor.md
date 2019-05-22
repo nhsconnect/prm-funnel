@@ -11,39 +11,39 @@ categories: data
 items: [
   {
     "RequestorSupplier": "EMIS",
-    "not_acknowledged_count": 23871,
-    "not_sent_count": 47,
-    "integrated_count": 88782,
-    "rejected_count": 140,
-    "duplicate_count": 651,
-    "suppressed_count": 6437,
-    "filing_failed_count": 23,
-    "other_count": 21,
-    "Total": 119972
+    "not_acknowledged_count": 15253,
+    "not_sent_count": 88,
+    "integrated_count": 115449,
+    "rejected_count": 203,
+    "duplicate_count": 525,
+    "suppressed_count": 9301,
+    "filing_failed_count": 25,
+    "other_count": 17,
+    "Total": 140861
   },
   {
     "RequestorSupplier": "TPP",
-    "not_acknowledged_count": 0,
-    "not_sent_count": 3799,
-    "integrated_count": 9377,
-    "rejected_count": 18,
-    "duplicate_count": 148,
+    "not_acknowledged_count": 3,
+    "not_sent_count": 9603,
+    "integrated_count": 25902,
+    "rejected_count": 50,
+    "duplicate_count": 410,
     "suppressed_count": 0,
-    "filing_failed_count": 11,
-    "other_count": 113,
-    "Total": 13466
+    "filing_failed_count": 54,
+    "other_count": 355,
+    "Total": 36377
   },
   {
     "RequestorSupplier": "Unknown",
-    "not_acknowledged_count": 844,
-    "not_sent_count": 0,
-    "integrated_count": 1914,
-    "rejected_count": 1,
+    "not_acknowledged_count": 558,
+    "not_sent_count": 3,
+    "integrated_count": 2925,
+    "rejected_count": 3,
     "duplicate_count": 18,
-    "suppressed_count": 159,
+    "suppressed_count": 230,
     "filing_failed_count": 1,
-    "other_count": 1,
-    "Total": 2938
+    "other_count": 0,
+    "Total": 3738
   }
 ]
 ---
