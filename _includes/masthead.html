@@ -1,0 +1,37 @@
+<header class="masthead">
+
+        {% if site.data.navigation %}
+        <div class="navigation-wrapper">
+          <a href="#menu-toggle" id="menu-toggle">{{ site.data.text[site.locale].menu_label | default: 'Menu' }}</a>
+          <nav id="primary-nav" class="site-nav animated drop">
+            <ul>
+              {%- for link in site.data.navigation -%}
+                {%- if link.url contains '://' -%}
+                  {%- assign url = link.url -%}
+                {%- else -%}
+                  {%- assign url = link.url | relative_url -%}
+                {%- endif -%}
+                <li><a href="{{ url }}">{{ link.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          </nav>
+        </div><!-- /.navigation-wrapper -->
+      {% endif %}
+
+    <div class="wrap">
+      {% if site.logo %}
+        <a href="{{ '/' | relative_url }}" class="site-logo" rel="home" title="{{ site.title }}">
+          <img src="{{ site.logo | relative_url }}" class="site-logo-img animated fadeInDown" alt="{{ site.title }}">
+        </a>
+      {% endif %}
+      {% assign page_image = page.image.path | default: page.image %}
+      {% unless page_image %}
+        {% if page.url == '/' %}
+          <h1 class="site-title animated fadeIn"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        {% else %}
+          <div class="site-title animated fadeIn"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></div>
+        {% endif %}
+        <p class="site-description animated fadeIn" itemprop="description">{{ site.description }}</p>
+      {% endunless %}
+    </div>
+  </header>

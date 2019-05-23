@@ -7,6 +7,10 @@ sitemap: false
 
 @import "so-simple";
 
+body {
+    background-color: #f0f4f5;
+}
+
 .prm-wrapper {
     display: flex;
     justify-content: center;
@@ -97,4 +101,39 @@ sitemap: false
     list-style: none;
     font-size: .75em;
     line-height: 1.5em;
+}
+
+html, body, h1, h2, h3, h4, p, .page-title {
+    font-family: Frutiger W01, Helvetica, Arial, Sans-serif;
+    font-weight: 400;
+    // font-size: 17px;
+    line-height: normal;
+    font-style: unset;
+}
+
+h1, .page-title {
+    font-size: 3rem;
+}
+
+// Footer
+.site-footer {
+    background-color: #d8dde0;
+    border-top: 4px solid #005eb8;
+    margin-bottom: 0;
+}
+
+// Header
+
+
+header.masthead {
+    background-color: #005eb8;
+    color: #ffffff;
+    .site-description {
+        font-family: Frutiger W01, Helvetica, Arial, Sans-serif; 
+        font-style: unset;
+    }
+}
+
+.site-title a {
+    color: #ffffff;
 }
