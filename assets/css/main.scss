@@ -105,7 +105,7 @@ body {
 
 html, body, h1, h2, h3, h4, p, .page-title {
     font-family: Frutiger W01, Helvetica, Arial, Sans-serif;
-    font-weight: 400;
+    // font-weight: 400;
     // font-size: 17px;
     line-height: normal;
     font-style: unset;
@@ -131,6 +131,9 @@ header.masthead {
     .site-description {
         font-family: Frutiger W01, Helvetica, Arial, Sans-serif; 
         font-style: unset;
+    }
+    a:visited {
+        color: #ffffff;
     }
 }
 
