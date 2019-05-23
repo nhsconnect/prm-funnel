@@ -11,13 +11,6 @@ body {
     background-color: #f0f4f5;
 }
 
-.prm-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-left: 40px;
-    margin-right: 40px;
-}
-
 #funnel {
     margin-bottom: 30px;
 }
@@ -128,6 +121,7 @@ h1, .page-title {
 header.masthead {
     background-color: #005eb8;
     color: #ffffff;
+    margin-bottom: 0;
     .site-description {
         font-family: Frutiger W01, Helvetica, Arial, Sans-serif; 
         font-style: unset;
