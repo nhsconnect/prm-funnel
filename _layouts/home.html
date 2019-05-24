@@ -11,32 +11,78 @@ layout: default
 
   <h1 class="index-heading">{{ page.list_title | default: "Available months, latest first:" }}</h1>
 
-  <ol class="index">
-  {%- assign funnels = site.pages | sort: 'date' -%}
-  {%- assign funnels = funnels | reverse -%}
-  {%- capture toclose -%}{%- increment openelements -%}{%- endcapture -%}
-  {%- assign currentindex = 1 -%}
-  {%- for page in funnels -%}
-    {%- if page.index > currentindex -%}
-      {%- assign currentindex = page.index -%}
-      {%- capture toclose -%}{%- increment openelements -%}{%- endcapture -%}
+  <!--
+    Current Index    | Page Index    | Action
+    ----------------------------------------------------
+    1                  1               <li>
+    1                  2               <ol><li>
+    2                  2               </li><li>
+    2                  1               </li></ol><li>
+    1                  2               <ol><li>
+    2                  2               </li><li>
+    2                  1               </li></ol><li>
+    1                  1               </li><li>
+    1                  2               <ol><li>
+    2                  <end>           </li>[</ol></li>](*depth-1)
+
+    <li><a href="month-view-1.html">
       <ol>
-    {%- endif -%}
-
-    {%- if page.index < currentindex -%}
-      {%- assign currentindex = page.index -%}
-      {%- capture toclose -%}{%- decrement openelements -%}{%- endcapture -%}
+        <li><a href="requester-view.html"></li>
+        <li><a href="sender-view.html"></li>
       </ol>
-    {%- endif -%}
-  
-    {%- if page.index == currentindex -%}
-      <li><a href="{{site.baseurl}}{{page.url}}">{{ page.title }}</a></li>
-    {%- endif -%}
-  {%- endfor -%}
+    </li>
+    <li><a href="month-view-2.html">
+      <ol>
+        <li><a href="requester-view.html"></li>
+        <li><a href="sender-view.html"></li>
+      </ol>
+    </li>
+    <li><a href="month-3.html"></li>
+    <li><a href="month-4.html"></li>
+    <li><a href="month-5.html">
+      <ol>
+        <li><a href="last-page.html"></li>
+      </ol>
+    </li>
+  -->
 
-  {%- for count in (0..toclose) -%}
-  </ol>
-  {%- endfor -%}
-  </ol>
+  <nav class="nhsuk-contents-list" role="navigation" aria-label="Data per month">
+    <ol class="nhsuk-contents-list__list">
+    {%- assign funnels = site.pages | sort: 'date' -%}
+    {%- assign funnels = funnels | reverse -%}
+    {%- capture toclose -%}{%- increment openelements -%}{%- endcapture -%}
+    {%- assign firstpage = 1 -%}
+    {%- assign currentindex = 1 -%}
+    {%- for page in funnels -%}
+      {%- if page.index == currentindex -%}
+        {%- if firstpage == 0 -%}
+          </li>
+        {%- endif -%}
+        {%- assign firstpage = 0 -%}
+        <li class="nhsuk-contents-list__item"><a href="{{site.baseurl}}{{page.url}}">{{ page.title }}</a>
+      {%- endif -%}
+      {%- if page.index > currentindex -%}
+        {%- assign currentindex = page.index -%}
+        {%- capture toclose -%}{%- increment openelements -%}{%- endcapture -%}
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item"><a href="{{site.baseurl}}{{page.url}}">{{ page.title }}</a>
+      {%- endif -%}
+      {%- if page.index < currentindex -%}
+        {%- assign currentindex = page.index -%}
+        {%- capture toclose -%}{%- decrement openelements -%}{%- endcapture -%}
+          </li>
+        </ol>
+        <li class="nhsuk-contents-list__item"><a href="{{site.baseurl}}{{page.url}}">{{ page.title }}</a>
+      {%- endif -%}    
+    {%- endfor -%}
+
+    {%- if firstpage == 0 -%}
+    </li>
+    {%- endif -%}
+    {%- for count in (0..toclose) -%}
+    </ol></li>
+    {%- endfor -%}
+    </ol>
+  </nav>
 
 </div>
