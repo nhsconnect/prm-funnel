@@ -9,7 +9,7 @@ layout: default
 
   {{ content }}
 
-  <h2 class="index-heading">{{ page.list_title | default: "Available months, latest first:" }}</h2>
+  <h1 class="index-heading">{{ page.list_title | default: "Available months, latest first:" }}</h1>
 
   <ol class="index">
   {%- assign funnels = site.pages | sort: 'date' -%}
