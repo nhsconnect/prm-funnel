@@ -23,7 +23,7 @@ items: [
           { name: 'Unknown issue', value: 489 }
     ]
 ---
-**[Click here to see the same information broken down into supplier pathways](/prm-funnel/month/2019-03/sr-funnel/success-vs-failure/failure-points/failure-pathways/failure-pathways.html)**
+The same information is represented **[broken down into supplier pathways](/prm-funnel/month/2019-03/sr-funnel/success-vs-failure/failure-points/failure-pathways/failure-pathways.html)**
 
 The data was collected from **Splunk** with the following query, and the date range was **1st-31st March 2019**:
 
