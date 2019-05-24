@@ -42,28 +42,6 @@ body {
     margin-bottom: 10px;
 }
 
-.glossary table {
-    table-layout: fixed;
-}
-
-.glossary table th + th, 
-.glossary table td + td {
-    border-left: 1px solid black;
-}
-
-.glossary th:first-of-type {
-    width: 300px;
-}
-
-.glossary th:first-of-type + th {
-    width: 100px;
-    text-align: center;
-}
-
-.glossary td:first-of-type + td {
-    text-align: center;
-}
-
 .breadcrumb {
     padding-inline-start : 0px;
     list-style: none;
@@ -96,41 +74,9 @@ body {
     line-height: 1.5em;
 }
 
-html, body, h1, h2, h3, h4, p, .page-title {
-    font-family: Frutiger W01, Helvetica, Arial, Sans-serif;
-    // font-weight: 400;
-    // font-size: 17px;
-    line-height: normal;
-    font-style: unset;
-}
-
-h1, .page-title {
-    font-size: 3rem;
-}
-
 // Footer
 .site-footer {
     background-color: #d8dde0;
     border-top: 4px solid #005eb8;
     margin-bottom: 0;
-}
-
-// Header
-
-
-header.masthead {
-    background-color: #005eb8;
-    color: #ffffff;
-    margin-bottom: 0;
-    .site-description {
-        font-family: Frutiger W01, Helvetica, Arial, Sans-serif; 
-        font-style: unset;
-    }
-    a:visited {
-        color: #ffffff;
-    }
-}
-
-.site-title a {
-    color: #ffffff;
 }

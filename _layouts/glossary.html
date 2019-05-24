@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<h1>Glossary</h1>
+
+<div class="nhsuk-table-responsive">
+    <table class="nhsuk-table">
+        <caption class="nhsuk-table__caption">Glossary</caption>
+        <thead class="nhsuk-table__head">
+            <tr class="nhsuk-table__row">
+                <th class="nhsuk-table__header" scope="col">Term</th>
+                <th class="nhsuk-table__header" scope="col">Acronym</th>
+                <th class="nhsuk-table__header" scope="col">Definition</th>
+            </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+            {% for item in page.terms %}
+                <tr class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell">{{ item.term }}</td>
+                    <td class="nhsuk-table__cell ">{{ item.acronym }}</td>
+                    <td class="nhsuk-table__cell ">{{ item.definition }}</td>
+                </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+</div>
