@@ -1,0 +1,21 @@
+<footer role="contentinfo">
+    <div class="nhsuk-footer" id="nhsuk-footer">
+        <div class="nhsuk-width-container">
+            {% if site.data.navigation %}
+            <ul class="nhsuk-footer__list">
+                    {%- for link in site.data.navigation -%}
+                    {%- if link.url contains '://' -%}
+                    {%- assign url = link.url -%}
+                    {%- else -%}
+                    {%- assign url = link.url | relative_url -%}
+                    {%- endif -%}
+                <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link"
+                        href="{{link.url}}">{{ link.title }}</a></li>
+{%-endfor-%}
+                    </ul>
+            {%-endif-%}
+            
+            <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+        </div>
+    </div>
+</footer>
