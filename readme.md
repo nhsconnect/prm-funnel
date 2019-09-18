@@ -75,3 +75,4 @@ The site is built with Jekyll, so their [site](https://jekyllrb.com/) is a great
  - change the metadata accordingly (the content between the ---)
  - the *items* field takes an array in which each element has a label for the funnel slice and a value that will inform the width of the funnel slice. It takes an optional *link* key-value pair where the link value maps to a document in the *_charts* folder. This page will be the one that is linked to by the funnel *item* at the same array index.
  - confirm that the changes made show up correctly in your local environment and push to the repository to release the change
+
