@@ -2,7 +2,7 @@
 layout: chart
 title: "Registration details"
 date: "2019-09-20 11:28:00 +0000"
-timeframe: April 2019
+timeframe: May 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: Registrations
