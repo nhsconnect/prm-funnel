@@ -11,59 +11,59 @@ categories: data
 items: [
   {
     "pathway": "EMIS-EMIS",
-    "integrated_count": 94638,
-    "not_integrated_count": 6926,
-    "error_count": 3323,
-    "Total": 104887
+    "integrated_count": 99176,
+    "not_integrated_count": 10381,
+    "error_count": 2534,
+    "Total": 112091
   },
   {
     "pathway": "EMIS-TPP",
-    "integrated_count": 25738,
-    "not_integrated_count": 2579,
-    "error_count": 1865,
-    "Total": 30182
+    "integrated_count": 27064,
+    "not_integrated_count": 3365,
+    "error_count": 1206,
+    "Total": 31635
   },
   {
     "pathway": "TPP-EMIS",
-    "integrated_count": 24718,
-    "not_integrated_count": 7963,
-    "error_count": 1367,
-    "Total": 34048
+    "integrated_count": 24700,
+    "not_integrated_count": 8989,
+    "error_count": 1146,
+    "Total": 34835
   },
   {
     "pathway": "EMIS-Vision",
-    "integrated_count": 3230,
-    "not_integrated_count": 262,
-    "error_count": 1786,
-    "Total": 5278
+    "integrated_count": 3129,
+    "not_integrated_count": 379,
+    "error_count": 1806,
+    "Total": 5314
   },
   {
     "pathway": "TPP-Vision",
-    "integrated_count": 1012,
-    "not_integrated_count": 252,
-    "error_count": 469,
-    "Total": 1733
+    "integrated_count": 765,
+    "not_integrated_count": 281,
+    "error_count": 556,
+    "Total": 1602
   },
   {
     "pathway": "EMIS-Microtest",
-    "integrated_count": 167,
-    "not_integrated_count": 17,
-    "error_count": 271,
-    "Total": 455
+    "integrated_count": 123,
+    "not_integrated_count": 25,
+    "error_count": 281,
+    "Total": 429
   },
   {
     "pathway": "TPP-Microtest",
-    "integrated_count": 96,
-    "not_integrated_count": 52,
-    "error_count": 318,
-    "Total": 466
+    "integrated_count": 100,
+    "not_integrated_count": 74,
+    "error_count": 319,
+    "Total": 493
   },
   {
     "pathway": "TPP-TPP",
-    "integrated_count": 62,
-    "not_integrated_count": 2,
-    "error_count": 65,
-    "Total": 129
+    "integrated_count": 6,
+    "not_integrated_count": 1,
+    "error_count": 20,
+    "Total": 27
   }
 ]
 
@@ -86,7 +86,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
     | eval SenderSupplier=coalesce(SenderSupplier, SenderMName, "Unknown")
     | eval SenderSupplier=case(
         SenderSupplier=="EMIS", "EMIS", SenderSupplier=="TPP", "TPP",
-        SenderSupplier=="INPS", "INPS", SenderSupplier=="Microtest", "Microtest",
+        SenderSupplier=="INPS", "Vision", SenderSupplier=="Microtest", "Microtest",
         1=1, "Unknown")
     | eval RegistrationType=coalesce(RegistrationType,0)
     | eval RequestFailureType=coalesce(RequestFailureType,-1)

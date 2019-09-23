@@ -14,15 +14,15 @@ chart_config:
       position: "bottom"
 items:
   [
-    { name: "GP2GP disabled", value: 91 },
-    { name: "Patient not at surgery", value: 189 },
+    { name: "GP2GP disabled", value: 143 },
+    { name: "Patient not at surgery", value: 195 },
     { name: "Patient lookup failure", value: 0 },
-    { name: "Requestor not current gp", value: 34 },
-    { name: "Requestor not large message compliant", value: 3351 },
-    { name: "Large message failure", value: 668 },
-    { name: "Unable to generate EHR extract", value: 8 },
-    { name: "Unable to send EHR extract", value: 1108 },
-    { name: "Unknown issue", value: 555 },
+    { name: "Requestor not current gp", value: 43 },
+    { name: "Requestor not large message compliant", value: 3341 },
+    { name: "Large message failure", value: 687 },
+    { name: "Unable to generate EHR extract", value: 5 },
+    { name: "Unable to send EHR extract", value: 317 },
+    { name: "Unknown issue", value: 652 },
   ]
 ---
 

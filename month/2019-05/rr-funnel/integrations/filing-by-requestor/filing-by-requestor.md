@@ -11,39 +11,39 @@ categories: data
 items: [
   {
     "RequestorSupplier": "EMIS",
-    "not_acknowledged_count": 15253,
-    "not_sent_count": 88,
-    "integrated_count": 115449,
-    "rejected_count": 203,
-    "duplicate_count": 525,
-    "suppressed_count": 9301,
-    "filing_failed_count": 25,
-    "other_count": 17,
-    "Total": 140861
+    "not_acknowledged_count": 19241,
+    "not_sent_count": 186,
+    "integrated_count": 119962,
+    "rejected_count": 187,
+    "duplicate_count": 406,
+    "suppressed_count": 9562,
+    "filing_failed_count": 39,
+    "other_count": 24,
+    "Total": 149607
   },
   {
     "RequestorSupplier": "TPP",
-    "not_acknowledged_count": 3,
-    "not_sent_count": 9603,
-    "integrated_count": 25902,
-    "rejected_count": 50,
-    "duplicate_count": 410,
-    "suppressed_count": 0,
-    "filing_failed_count": 54,
-    "other_count": 355,
-    "Total": 36377
+    "not_acknowledged_count": 1,
+    "not_sent_count": 10509,
+    "integrated_count": 25581,
+    "rejected_count": 57,
+    "duplicate_count": 401,
+    "suppressed_count": 1,
+    "filing_failed_count": 42,
+    "other_count": 365,
+    "Total": 36957
   },
   {
     "RequestorSupplier": "Unknown",
-    "not_acknowledged_count": 558,
-    "not_sent_count": 3,
-    "integrated_count": 2925,
-    "rejected_count": 3,
-    "duplicate_count": 18,
-    "suppressed_count": 230,
-    "filing_failed_count": 1,
+    "not_acknowledged_count": 0,
+    "not_sent_count": 13,
+    "integrated_count": 17,
+    "rejected_count": 0,
+    "duplicate_count": 0,
+    "suppressed_count": 0,
+    "filing_failed_count": 0,
     "other_count": 0,
-    "Total": 3738
+    "Total": 30
   }
 ]
 ---
@@ -66,7 +66,7 @@ index="gp2gp-mi" sourcetype="gppractice-RR"
     | eval SenderSupplier=coalesce(SenderSupplier, SenderSupplier, MName, MName, "Unknown")
     | eval SenderSupplier=case(
         SenderSupplier=="EMIS", "EMIS", SenderSupplier=="TPP", "TPP",
-        SenderSupplier=="INPS", "INPS", SenderSupplier=="Microtest", "Microtest",
+        SenderSupplier=="INPS", "Vision", SenderSupplier=="Microtest", "Microtest",
         1=1, "Unknown")
     | eval RegistrationType=coalesce(RegistrationType,0)
     | eval RequestFailureType=coalesce(RequestFailureType,-1)
