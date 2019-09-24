@@ -10,14 +10,14 @@ datasource: NMS (gp2gp-mi)
 categories: data
 items:
   [
-    { name: "Integrated", value: 147123 },
-    { name: "Not acknowledged", value: 17565 },
+    { name: "Integrated", value: 145640 },
+    { name: "Not acknowledged", value: 19149 },
     { name: "Not sent", value: 10708 },
-    { name: "Suppressed", value: 9651 },
-    { name: "Duplicate", value: 827 },
+    { name: "Suppressed", value: 9557 },
+    { name: "Duplicate", value: 822 },
     { name: "Other", value: 352 },
-    { name: "Filing rejected", value: 242 },
-    { name: "Filing failed", value: 83 },
+    { name: "Filing rejected", value: 243 },
+    { name: "Filing failed", value: 80 },
     { name: "Large message failure", value: 35 },
     { name: "Filed as attachment", value: 6 },
     { name: "Not requested", value: 2 },

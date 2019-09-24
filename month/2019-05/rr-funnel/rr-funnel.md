@@ -10,7 +10,7 @@ items: [
     { "name": "Registrations", "value": 420178, "link": "month/2019-05/rr-funnel/registrations/registrations" },
     { "name": "Transfers", "value": 256290, "link": "month/2019-05/rr-funnel/transfers/transfers" },
     { "name": "GP2GP", "value": 186594, "link": "month/2019-05/rr-funnel/gp2gp/gp2gp" },
-    { "name": "Integrations", "value": 153935, "link": "month/2019-05/rr-funnel/integrations/integrations" }
+    { "name": "Integrations", "value": 155197, "link": "month/2019-05/rr-funnel/integrations/integrations" }
 ]
 index: 2
 ---
