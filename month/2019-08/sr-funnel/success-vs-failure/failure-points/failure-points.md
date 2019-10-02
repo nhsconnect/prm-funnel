@@ -1,36 +1,34 @@
 ---
-layout: extract-failure-bar
-title:  "Failure Pathways"
-date: "<Timestamp>"
-timeframe: <Month> <Year>
+layout: chart
+title: "Request Failure Points"
+date: "2019-10-02 09:21:06"
+timeframe: August 2019
 datatype: Quantitative
 confidence: Medium
-funnel_slice: Requests received
+funnel_slice: Requests Received
 datasource: NMS (gp2gp-mi)
 categories: data
-chart_config: 
+chart_config:
   options:
     legend:
       position: "bottom"
-items: [ 
-  {
-    "pathway": "<Pathway>",
-    "gp2_gp_disabled": <Pathway:gp2_gp_disabled>,
-    "patient_not_at_surgery": <Pathway:patient_not_at_surgery>,
-    "patient_lookup_failure": <Pathway:patient_lookup_failure>,
-    "requestor_not_current_gp": <Pathway:requestor_not_current_gp>,
-    "comms_setup": <Pathway:comms_setup>,
-    "not_lm": <Pathway:not_lm>,
-    "lm_problem": <Pathway:lm_problem>,
-    "generate_problem": <Pathway:generate_problem>,
-    "send_problem": <Pathway:send_problem>,
-    "unknown": <Pathway:unknown>,
-    "Total": <Pathway:Total>
-  },
-]
+items:
+  [
+    { name: "GP2GP disabled", value: 50 },
+    { name: "Patient not at surgery", value: 145 },
+    { name: "Patient lookup failure", value: 0 },
+    { name: "Requestor not current gp", value: 24 },
+    { name: "Requestor not large message compliant", value: 3218 },
+    { name: "Large message failure", value: 809 },
+    { name: "Unable to generate EHR extract", value: 6 },
+    { name: "Unable to send EHR extract", value: 173 },
+    { name: "Unknown issue", value: 521 },
+  ]
 ---
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-<Month:LastDate> <Month> <Year>**:
+The same information is represented **[broken down into supplier pathways](/prm-funnel/month/2019-08/sr-funnel/success-vs-failure/failure-points/failure-pathways/failure-pathways.html)**
+
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st August 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"

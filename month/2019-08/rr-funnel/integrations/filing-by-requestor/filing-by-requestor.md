@@ -1,8 +1,8 @@
 ---
 layout: filing-bar
 title:  "Filing By Requester"
-date: "<Timestamp>"
-timeframe: <Month> <Year>
+date: "2019-10-02 11:50:55"
+timeframe: August 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: Integrations
@@ -10,23 +10,35 @@ datasource: NMS (gp2gp-mi)
 categories: data    
 items: [
   {
-    "RequestorSupplier": "<Supplier>",
-    "not_acknowledged_count": <Supplier:not_acknowledged_count>,
-    "not_sent_count": <Supplier:not_sent_count>,
-    "integrated_count": <Supplier:integrated_count>,
-    "rejected_count": <Supplier:rejected_count>,
-    "duplicate_count": <Supplier:duplicate_count>,
-    "suppressed_count": <Supplier:suppressed_count>,
-    "filing_failed_count": <Supplier:filing_failed_count>,
-    "other_count": <Supplier:other_count>,
-    "Total": <Supplier:Total>
+    "RequestorSupplier": "EMIS",
+    "not_acknowledged_count": 25327,
+    "not_sent_count": 243,
+    "integrated_count": 131260,
+    "rejected_count": 175,
+    "duplicate_count": 533,
+    "suppressed_count": 11236,
+    "filing_failed_count": 61,
+    "other_count": 40,
+    "Total": 168875
+  },
+  {
+    "RequestorSupplier": "TPP",
+    "not_acknowledged_count": 0,
+    "not_sent_count": 11884,
+    "integrated_count": 29330,
+    "rejected_count": 37,
+    "duplicate_count": 401,
+    "suppressed_count": 0,
+    "filing_failed_count": 28,
+    "other_count": 444,
+    "Total": 42124
   }
 ]
 ---
 
 A chart representing the filing details.
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-<Month:LastDate> <Month> <Year>**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st August 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-RR"

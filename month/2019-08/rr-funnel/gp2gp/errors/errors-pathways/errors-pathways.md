@@ -1,8 +1,8 @@
 ---
 layout: errors-bar
 title:  "GP2GP Errors Pathways"
-date: "<Timestamp>"
-timeframe: <Month> <Year>
+date: "2019-10-02 11:18:02"
+timeframe: August 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: GP2GP
@@ -10,23 +10,107 @@ datasource: NMS (gp2gp-mi)
 categories: data    
 items: [
   {
-    "pathway": "<Pathway>",
-    "unknown_count": <Pathway:unknown_count>,
-    "lm_failure_count": <Pathway:lm_failure_count>,
-    "tpp_limits_count": <Pathway:tpp_limits_count>,
-    "duplicate_count": <Pathway:duplicate_count>,
-    "failed_to_generate_count": <Pathway:failed_to_generate_count>,
-    "unknown_patient_count": <Pathway:unknown_patient_count>,
-    "received_and_rejected_count": <Pathway:received_and_rejected_count>,
-    "other_count": <Pathway:other_count>,
-    "Total": <Pathway:Total>
+    "pathway": "EMIS-EMIS",
+    "unknown_count": 475,
+    "lm_failure_count": 29,
+    "tpp_limits_count": 9,
+    "duplicate_count": 1094,
+    "failed_to_generate_count": 6,
+    "unknown_patient_count": 84,
+    "received_and_rejected_count": 105,
+    "other_count": 191,
+    "Total": 1993
   },
+  {
+    "pathway": "EMIS-Microtest",
+    "unknown_count": 19,
+    "lm_failure_count": 158,
+    "tpp_limits_count": 0,
+    "duplicate_count": 2,
+    "failed_to_generate_count": 129,
+    "unknown_patient_count": 0,
+    "received_and_rejected_count": 2,
+    "other_count": 12,
+    "Total": 322
+  },
+  {
+    "pathway": "EMIS-TPP",
+    "unknown_count": 51,
+    "lm_failure_count": 784,
+    "tpp_limits_count": 0,
+    "duplicate_count": 47,
+    "failed_to_generate_count": 0,
+    "unknown_patient_count": 24,
+    "received_and_rejected_count": 45,
+    "other_count": 77,
+    "Total": 1028
+  },
+  {
+    "pathway": "EMIS-Vision",
+    "unknown_count": 2007,
+    "lm_failure_count": 0,
+    "tpp_limits_count": 0,
+    "duplicate_count": 1,
+    "failed_to_generate_count": 0,
+    "unknown_patient_count": 0,
+    "received_and_rejected_count": 5,
+    "other_count": 42,
+    "Total": 2055
+  },
+  {
+    "pathway": "TPP-EMIS",
+    "unknown_count": 126,
+    "lm_failure_count": 10,
+    "tpp_limits_count": 435,
+    "duplicate_count": 400,
+    "failed_to_generate_count": 1,
+    "unknown_patient_count": 35,
+    "received_and_rejected_count": 35,
+    "other_count": 57,
+    "Total": 1099
+  },
+  {
+    "pathway": "TPP-Microtest",
+    "unknown_count": 12,
+    "lm_failure_count": 148,
+    "tpp_limits_count": 0,
+    "duplicate_count": 0,
+    "failed_to_generate_count": 119,
+    "unknown_patient_count": 0,
+    "received_and_rejected_count": 0,
+    "other_count": 4,
+    "Total": 283
+  },
+  {
+    "pathway": "TPP-TPP",
+    "unknown_count": 2,
+    "lm_failure_count": 2,
+    "tpp_limits_count": 0,
+    "duplicate_count": 0,
+    "failed_to_generate_count": 0,
+    "unknown_patient_count": 2,
+    "received_and_rejected_count": 0,
+    "other_count": 13,
+    "Total": 19
+  },
+  {
+    "pathway": "TPP-Vision",
+    "unknown_count": 542,
+    "lm_failure_count": 0,
+    "tpp_limits_count": 0,
+    "duplicate_count": 0,
+    "failed_to_generate_count": 0,
+    "unknown_patient_count": 1,
+    "received_and_rejected_count": 1,
+    "other_count": 1,
+    "Total": 545
+  }
 ]
 ---
 
 A chart representing the details of GP2GP failures by supplier pathways.
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-<Month:LastDate> <Month> <Year>**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st August 2019**:
 
 ```sql
     index="gp2gp-mi" sourcetype="gppractice-RR"

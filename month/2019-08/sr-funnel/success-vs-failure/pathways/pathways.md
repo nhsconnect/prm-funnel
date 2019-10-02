@@ -1,8 +1,8 @@
 ---
 layout: extract-bar
 title:  "EHR Extract Pathways"
-date: "<Timestamp>"
-timeframe: <Month> <Year>
+date: "2019-10-02 09:13:12"
+timeframe: August 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: Requests received
@@ -10,18 +10,78 @@ datasource: NMS (gp2gp-mi)
 categories: data    
 items: [
   {
-    "pathway": "<Pathway>",
-    "success": <Pathway:Success>,
-    "failure": <Pathway:Failure>,
-    "Total": <Pathway:Total>
+    "pathway": "EMIS-EMIS",
+    "success": 127425,
+    "failure": 568,
+    "Total": 127993
   },
+  {
+    "pathway": "EMIS-Microtest",
+    "success": 263,
+    "failure": 189,
+    "Total": 452
+  },
+  {
+    "pathway": "EMIS-TPP",
+    "success": 40074,
+    "failure": 207,
+    "Total": 40281
+  },
+  {
+    "pathway": "EMIS-Unknown",
+    "success": 0,
+    "failure": 5,
+    "Total": 5
+  },
+  {
+    "pathway": "EMIS-Vision",
+    "success": 3388,
+    "failure": 1781,
+    "Total": 5169
+  },
+  {
+    "pathway": "TPP-EMIS",
+    "success": 34108,
+    "failure": 894,
+    "Total": 35002
+  },
+  {
+    "pathway": "TPP-Microtest",
+    "success": 52,
+    "failure": 298,
+    "Total": 350
+  },
+  {
+    "pathway": "TPP-TPP",
+    "success": 2,
+    "failure": 2,
+    "Total": 4
+  },
+  {
+    "pathway": "TPP-Vision",
+    "success": 306,
+    "failure": 996,
+    "Total": 1302
+  },
+  {
+    "pathway": "Unknown-EMIS",
+    "success": 1,
+    "failure": 0,
+    "Total": 1
+  },
+  {
+    "pathway": "Unknown-Vision",
+    "success": 0,
+    "failure": 3,
+    "Total": 3
+  }
 ]
 
 ---
 
 A chart representing the details EHR extract success by pathway.
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-<Month:LastDate> <Month> <Year>**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st August 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"

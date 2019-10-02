@@ -10,10 +10,10 @@ The hosted site can be found [here](https://nhsconnect.github.io/prm-funnel/).
 Ensure you have access to the `gp2gp-mi` index in the NMS Trends instance of Splunk.  
 
 **Process**
-1. Duplicate the previous month's directory from the `month` directory
-2. Update the `title` and `date` and where present `timeframe` fields in all the markdown files
-3. Update the date range referenced in the text 
-4. Update any links to reference the correct month
+1. Duplicate the `_template` directory into a new directory with name `YYYY-MM` (e.g. `2019-08`)
+2. Update the `title` and `date` and where present `timeframe` fields in all the markdown files; this involves replacing: `<Month>` with e.g. `August`; `<Year>` with e.g. `2019`; `<Timeframe>` with a datetime stamp.
+3. Update the date range referenced in the text: replace `<Month:LastDate>` with e.g. `31st`; `<Month>` with e.g. `August`; `<Year>` with e.g. 2019.
+4. Update any links to reference the correct month - replace `<Year-Month-Directory>` with `YYYY-MM`.
 5. Create the RR funnel
    1. Import the `_splunk/splunk-rr-view-dashboard.xml` file into Splunk
    2. Set the date range for the month you wish to produce statistics for.

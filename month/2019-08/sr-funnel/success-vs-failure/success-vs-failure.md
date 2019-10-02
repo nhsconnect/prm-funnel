@@ -1,37 +1,42 @@
 ---
-layout: extract-bar
-title:  "EHR Extract Pathways"
-date: "<Timestamp>"
-timeframe: <Month> <Year>
+layout: chart
+title: "Request Success vs Failure"
+date: "2019-10-02 09:08:08"
+timeframe: August 2019
 datatype: Quantitative
 confidence: Medium
-funnel_slice: Requests received
+funnel_slice: Requests Received
 datasource: NMS (gp2gp-mi)
-categories: data    
-items: [
-  {
-    "pathway": "<Pathway>",
-    "success": <Pathway:Success>,
-    "failure": <Pathway:Failure>,
-    "Total": <Pathway:Total>
-  },
-]
+categories: data
+chart_config:
+  options:
+    legend:
+      position: "bottom"
 
+items:
+  [
+    { name: "Succeeded", value: 205619 },
+    {
+      name: "Failed",
+      value: 4943,
+      link: "month/2019-08/sr-funnel/success-vs-failure/failure-points/failure-points",
+    },
+  ]
 ---
 
-A chart representing the details EHR extract success by pathway.
+The same information is represented **[broken down into supplier pathways](/prm-funnel/month/2019-08/sr-funnel/success-vs-failure/pathways/pathways.html)**
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-<Month:LastDate> <Month> <Year>**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st August 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"
   | join type=outer SenderODS [search index="gp2gp-mi" sourcetype="gppractice-HR"
       | rename RequestorODS as SenderODS
       | rename RequestorSoftware as SenderSoftware]
-  | rex field=SenderSoftware "(?&lt;SenderSupplier>.*)_(?&lt;SenderSystem>.*)_(?&lt;SenderVersion>.*)"
+  | rex field=SenderSoftware "(?<SenderSupplier>.*)_(?<SenderSystem>.*)_(?<SenderVersion>.*)"
   | eval SenderSupplier=coalesce(SenderSupplier, "Unknown")
   | join type=outer RequestorODS [search index="gp2gp-mi" sourcetype="gppractice-HR"]
-  | rex field=RequestorSoftware "(?&lt;RequestorSupplier>.*)_(?&lt;RequestorSystem>.*)_(?&lt;RequestorVersion>.*)"
+  | rex field=RequestorSoftware "(?<RequestorSupplier>.*)_(?<RequestorSystem>.*)_(?<RequestorVersion>.*)"
   | lookup Spine2-NACS-Lookup NACS AS RequestorODS OUTPUTNEW MName AS MName
   | eval RequestorSupplier=coalesce(RequestorSupplier, MName, "Unknown")
   | eval RequestorSupplier=case(

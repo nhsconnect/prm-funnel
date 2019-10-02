@@ -1,8 +1,8 @@
 ---
 layout: integration-bar
 title:  "GP2GP Pathways"
-date: "<Timestamp>"
-timeframe: <Month> <Year>
+date: "2019-10-02 11:41:35"
+timeframe: August 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: GP2GP
@@ -10,11 +10,88 @@ datasource: NMS (gp2gp-mi)
 categories: data    
 items: [
   {
-    "pathway": "<Pathway>",
-    "integrated_count": <Pathway:integrated_count>,
-    "not_integrated_count": <Pathway:not_integrated_count>,
-    "error_count": <Pathway:error_count>,
-    "Total": <Pathway:Total>
+    "pathway": "EMIS-EMIS",
+    "integrated_count": 111399,
+    "not_integrated_count": 15272,
+    "error_count": 1374,
+    "Total": 128045
+  },
+  {
+    "pathway": "EMIS-Microtest",
+    "integrated_count": 121,
+    "not_integrated_count": 23,
+    "error_count": 321,
+    "Total": 465
+  },
+  {
+    "pathway": "EMIS-TPP",
+    "integrated_count": 29012,
+    "not_integrated_count": 5014,
+    "error_count": 986,
+    "Total": 35012
+  },
+  {
+    "pathway": "EMIS-Unknown",
+    "integrated_count": 0,
+    "not_integrated_count": 0,
+    "error_count": 0,
+    "Total": 0
+  },
+  {
+    "pathway": "EMIS-Vision",
+    "integrated_count": 2971,
+    "not_integrated_count": 421,
+    "error_count": 1961,
+    "Total": 5353
+  },
+  {
+    "pathway": "TPP-EMIS",
+    "integrated_count": 28467,
+    "not_integrated_count": 10488,
+    "error_count": 1112,
+    "Total": 40067
+  },
+  {
+    "pathway": "TPP-Microtest",
+    "integrated_count": 86,
+    "not_integrated_count": 46,
+    "error_count": 283,
+    "Total": 415
+  },
+  {
+    "pathway": "TPP-TPP",
+    "integrated_count": 2,
+    "not_integrated_count": 1,
+    "error_count": 19,
+    "Total": 22
+  },
+  {
+    "pathway": "TPP-Unknown",
+    "integrated_count": 0,
+    "not_integrated_count": 0,
+    "error_count": 0,
+    "Total": 0
+  },
+  {
+    "pathway": "TPP-Vision",
+    "integrated_count": 768,
+    "not_integrated_count": 307,
+    "error_count": 545,
+    "Total": 1620
+  },
+  {
+    "pathway": "Unknown-TPP",
+    "integrated_count": 0,
+    "not_integrated_count": 0,
+    "error_count": 0,
+    "Total": 0
+  },
+  {
+    "pathway": "Unknown-Unknown",
+    "integrated_count": 0,
+    "not_integrated_count": 0,
+    "error_count": 0,
+    "Total": 0
   },
 ]
 
@@ -22,7 +99,7 @@ items: [
 
 A chart representing the details of GP2GP failures.
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-<Month:LastDate> <Month> <Year>**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st August 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-RR"

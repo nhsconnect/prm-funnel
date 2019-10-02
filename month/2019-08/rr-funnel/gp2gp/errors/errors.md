@@ -1,8 +1,8 @@
 ---
 layout: chart
 title: "GP2GP Errors"
-date: "<Timestamp>"
-timeframe: <Month> <Year>
+date: "2019-10-02 11:26:46"
+timeframe: August 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: GP2GP
@@ -14,15 +14,29 @@ chart_config:
       position: "bottom"
 items:
   [
-    { name: <JDIEText>, value: <JDIEText:count> },
+    { name: "Unknown", value: 3248 },
+    { name: "Duplicate EHR extract received", value: 1545 },
+    { name: "Large message failure", value: 1130 },
+    { name: "TPP attachment limit", value: 444 },
+    { name: "Failed to successfully generate EHR extract", value: 254 },
+    { name: "Patient not at surgery", value: 146 },
+    { name: "Spine system responded with an error", value: 126 },
+    { name: "Failed to successfully integrate EHR extract", value: 116 },
+    { name: "A-B-A EHR extract received and rejected", value: 98 },
+    { name: "Non A-B-A EHR extract received and rejected", value: 92 },
+    { name: "GP2GP not enabled on this sytem", value: 82 },
+    { name: "EHR extract message not well formed or not able to be processed", value: 42 },
+    { name: "Non A-B-A EHR extract received and filed as an attachment", value: 12 },
+    { name: "Requester is not the patients current healthcare provider", value: 8 },
+    { name: "Request message not well-formed or not able to be processed", value: 1 },
   ]
 ---
 
 A chart representing the details of GP2GP failures.
 
-The same information is represented **[broken down into supplier pathways](/prm-funnel/month/<Year-Month-Directory>/rr-funnel/gp2gp/errors/errors-pathways/errors-pathways.html)**
+The same information is represented **[broken down into supplier pathways](/prm-funnel/month/2019-08/rr-funnel/gp2gp/errors/errors-pathways/errors-pathways.html)**
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-<Month:LastDate> <Month> <Year>**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st August 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-RR"
