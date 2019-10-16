@@ -66,7 +66,7 @@ items: [
     "Total": 93
   },
   {
-    "pathway": "TPP-Unknown",1
+    "pathway": "TPP-Unknown",
     "integrated_count": 0,
     "not_integrated_count": 0,
     "error_count": 0,
