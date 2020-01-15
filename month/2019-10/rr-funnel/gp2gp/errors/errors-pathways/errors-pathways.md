@@ -1,8 +1,8 @@
 ---
 layout: errors-bar
 title:  "GP2GP Errors Pathways"
-date: "2019-11-01 14:10:00 +0000"
-timeframe: September 2019
+date: "2019-11-02 14:10:00 +0000"
+timeframe: October 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: GP2GP
@@ -11,118 +11,106 @@ categories: data
 items: [
   {
     "pathway": "EMIS-EMIS",
-    "unknown_count": 596,
-    "lm_failure_count": 93,
-    "tpp_limits_count": 1,
-    "duplicate_count": 1811,
-    "failed_to_generate_count": 8,
-    "unknown_patient_count": 134,
-    "received_and_rejected_count": 137,
-    "other_count": 581,
-    "Total": 3361
+    "unknown_count": 636,
+    "lm_failure_count": 68,
+    "tpp_limits_count": 5,
+    "duplicate_count": 1756,
+    "failed_to_generate_count": 6,
+    "unknown_patient_count": 209,
+    "received_and_rejected_count": 180,
+    "other_count": 617,
+    "Total": 3477
   },
   {
     "pathway": "EMIS-Microtest",
-    "unknown_count": 29,
-    "lm_failure_count": 234,
+    "unknown_count": 27,
+    "lm_failure_count": 184,
     "tpp_limits_count": 0,
-    "duplicate_count": 3,
-    "failed_to_generate_count": 159,
-    "unknown_patient_count": 1,
-    "received_and_rejected_count": 0,
-    "other_count": 25,
-    "Total": 451
+    "duplicate_count": 0,
+    "failed_to_generate_count": 150,
+    "unknown_patient_count": 0,
+    "received_and_rejected_count": 2,
+    "other_count": 13,
+    "Total": 376
   },
   {
     "pathway": "EMIS-TPP",
-    "unknown_count": 124,
-    "lm_failure_count": 955,
+    "unknown_count": 89,
+    "lm_failure_count": 919,
     "tpp_limits_count": 0,
-    "duplicate_count": 32,
-    "failed_to_generate_count": 6,
-    "unknown_patient_count": 28,
-    "received_and_rejected_count": 47,
-    "other_count": 188,
-    "Total": 1380
+    "duplicate_count": 77,
+    "failed_to_generate_count": 7,
+    "unknown_patient_count": 41,
+    "received_and_rejected_count": 63,
+    "other_count": 183,
+    "Total": 1379
   },
   {
     "pathway": "EMIS-Vision",
-    "unknown_count": 2359,
+    "unknown_count": 2129,
     "lm_failure_count": 0,
-    "tpp_limits_count": 0,
-    "duplicate_count": 0,
-    "failed_to_generate_count": 0,
-    "unknown_patient_count": 9,
-    "received_and_rejected_count": 4,
-    "other_count": 53,
-    "Total": 2425
-  },
-  {
-    "pathway": "TPP-EMIS",
-    "unknown_count": 190,
-    "lm_failure_count": 19,
-    "tpp_limits_count": 398,
-    "duplicate_count": 669,
-    "failed_to_generate_count": 4,
-    "unknown_patient_count": 40,
-    "received_and_rejected_count": 54,
-    "other_count": 188,
-    "Total": 1562
-  },
-  {
-    "pathway": "TPP-Microtest",
-    "unknown_count": 21,
-    "lm_failure_count": 169,
-    "tpp_limits_count": 0,
-    "duplicate_count": 1,
-    "failed_to_generate_count": 154,
-    "unknown_patient_count": 0,
-    "received_and_rejected_count": 0,
-    "other_count": 11,
-    "Total": 356
-  },
-  {
-    "pathway": "TPP-TPP",
-    "unknown_count": 5,
-    "lm_failure_count": 2,
     "tpp_limits_count": 0,
     "duplicate_count": 0,
     "failed_to_generate_count": 0,
     "unknown_patient_count": 5,
-    "received_and_rejected_count": 0,
-    "other_count": 3,
-    "Total": 10
+    "received_and_rejected_count": 3,
+    "other_count": 55,
+    "Total": 2192
   },
   {
-    "pathway": "TPP-Vision",
-    "unknown_count": 659,
-    "lm_failure_count": 0,
+    "pathway": "TPP-EMIS",
+    "unknown_count": 213,
+    "lm_failure_count": 20,
+    "tpp_limits_count": 349,
+    "duplicate_count": 529,
+    "failed_to_generate_count": 12,
+    "unknown_patient_count": 36,
+    "received_and_rejected_count": 57,
+    "other_count": 136,
+    "Total": 1352
+  },
+  {
+    "pathway": "TPP-Microtest",
+    "unknown_count": 25,
+    "lm_failure_count": 166,
+    "tpp_limits_count": 0,
+    "duplicate_count": 2,
+    "failed_to_generate_count": 141,
+    "unknown_patient_count": 0,
+    "received_and_rejected_count": 0,
+    "other_count": 14,
+    "Total": 348
+  },
+  {
+    "pathway": "TPP-TPP",
+    "unknown_count": 16,
+    "lm_failure_count": 6,
     "tpp_limits_count": 0,
     "duplicate_count": 0,
     "failed_to_generate_count": 0,
-    "unknown_patient_count": 0,
-    "received_and_rejected_count": 3,
-    "other_count": 4,
-    "Total": 666
+    "unknown_patient_count": 2,
+    "received_and_rejected_count": 0,
+    "other_count": 2,
+    "Total": 26
   },
   {
-    "pathway": "Unknown-EMIS",
-    "unknown_count": 0,
+    "pathway": "TPP-Vision",
+    "unknown_count": 623,
     "lm_failure_count": 0,
-    "tpp_limits_count": 3,
-    "duplicate_count": 0,
+    "tpp_limits_count": 0,
+    "duplicate_count": 1,
     "failed_to_generate_count": 0,
     "unknown_patient_count": 0,
     "received_and_rejected_count": 0,
     "other_count": 0,
-    "Total": 3
-  }  
+    "Total": 624
+  },
 ]
 ---
 
 A chart representing the details of GP2GP failures by supplier pathways.
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-30th September 2019**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st October 2019**:
 
 ```sql
     index="gp2gp-mi" sourcetype="gppractice-RR"

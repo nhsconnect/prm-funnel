@@ -1,27 +1,32 @@
 ---
-layout: extract-bar
-title:  "EHR Extract Pathways"
-date: "<Timestamp>"
-timeframe: <Month> <Year>
+layout: chart
+title: "Request Success vs Failure"
+date: "2019-11-02 14:10:00 +0000"
+timeframe: October 2019
 datatype: Quantitative
 confidence: Medium
-funnel_slice: Requests received
+funnel_slice: Requests Received
 datasource: NMS (gp2gp-mi)
-categories: data    
-items: [
-  {
-    "pathway": "<Pathway>",
-    "success": <Pathway:Success>,
-    "failure": <Pathway:Failure>,
-    "Total": <Pathway:Total>
-  },
-]
+categories: data
+chart_config:
+  options:
+    legend:
+      position: "bottom"
 
+items:
+  [
+    { name: "Succeeded", value: 266099 },
+    {
+      name: "Failed",
+      value: 5950,
+      link: "month/2019-10/sr-funnel/success-vs-failure/failure-points/failure-points",
+    },
+  ]
 ---
 
-A chart representing the details EHR extract success by pathway.
+The same information is represented **[broken down into supplier pathways](/prm-funnel/month/2019-10/sr-funnel/success-vs-failure/pathways/pathways.html)**
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-<Month:LastDate> <Month> <Year>**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-31st October 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"
