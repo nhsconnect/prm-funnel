@@ -18,9 +18,9 @@ layout: default
   // Themes end
 
   // Create chart instance
-  var chart = am4core.create("chartdiv", am4charts.PieChart);
+  const chart = am4core.create("chartdiv", am4charts.PieChart);
 
-  let legendContainer = am4core.create("legenddiv", am4core.Container);
+  const legendContainer = am4core.create("legenddiv", am4core.Container);
   legendContainer.width = am4core.percent(100);
   legendContainer.height = am4core.percent(100);
 
@@ -51,6 +51,10 @@ layout: default
     document.getElementById("legenddiv").style.height = chart.legend.contentHeight + "px";
   }
 
+  // remove duplicated amCharts attribution
+  let element = document.querySelector('[aria-labelledby="id-96-title"]');
+  element.remove();
+
   const pageChartConfig = JSON.parse('{{page.chart_config | jsonify}}') || {};
   if (pageChartConfig.options && pageChartConfig.options.legend.position === "left") {
     chart.legend.position = "left";
@@ -59,7 +63,7 @@ layout: default
     chart.legend.labels.template.maxWidth = 300;
   }
   // Add and configure Series
-  var pieSeries = chart.series.push(new am4charts.PieSeries());
+  let pieSeries = chart.series.push(new am4charts.PieSeries());
 
   pieSeries.slices.template.events.on("hit", function (ev) {
     let item = items[ev.target.dataItem.index];
