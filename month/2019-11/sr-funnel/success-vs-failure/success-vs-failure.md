@@ -1,8 +1,8 @@
 ---
 layout: chart
 title: "Request Success vs Failure"
-date: "<Timestamp>"
-timeframe: <Month> <Year>
+date: "2019-12-02 14:10:00 +0000"
+timeframe: 2019 11
 datatype: Quantitative
 confidence: Medium
 funnel_slice: Requests Received
@@ -13,20 +13,22 @@ chart_config:
     legend:
       position: "bottom"
 
-items:
-  [
-    { name: "Succeeded", value: <success> },
-    {
-      name: "Failed",
-      value: <failure>,
-      link: "month/<Year-Month-Directory>/sr-funnel/success-vs-failure/failure-points/failure-points",
-    },
-  ]
+items: [
+  {
+    "name": "Succeeded",
+    "value": 206096
+  },
+  {
+    "name": "Failed",
+    "value": 4799,
+    "link": "month/2019-11/sr-funnel/success-vs-failure/failure-points/failure-points"
+  }
+]
 ---
 
-The same information is represented **[broken down into supplier pathways](/prm-funnel/month/<Year-Month-Directory>/sr-funnel/success-vs-failure/pathways/pathways.html)**
+The same information is represented **[broken down into supplier pathways](/prm-funnel/month/2019-11/sr-funnel/success-vs-failure/pathways/pathways.html)**
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-<Month:LastDate> <Month> <Year>**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-30th November 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"

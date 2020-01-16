@@ -1,8 +1,8 @@
 ---
 layout: extract-failure-bar
 title:  "Failure Pathways"
-date: "<Timestamp>"
-timeframe: <Month> <Year>
+date: "2019-12-02 14:10:30 +0000"
+timeframe: November 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: Requests received
@@ -12,25 +12,151 @@ chart_config:
   options:
     legend:
       position: "bottom"
-items: [ 
+items: [
   {
-    "pathway": "<Pathway>",
-    "gp2_gp_disabled": <Pathway:gp2_gp_disabled>,
-    "patient_not_at_surgery": <Pathway:patient_not_at_surgery>,
-    "patient_lookup_failure": <Pathway:patient_lookup_failure>,
-    "requestor_not_current_gp": <Pathway:requestor_not_current_gp>,
-    "comms_setup": <Pathway:comms_setup>,
-    "not_lm": <Pathway:not_lm>,
-    "lm_problem": <Pathway:lm_problem>,
-    "generate_problem": <Pathway:generate_problem>,
-    "send_problem": <Pathway:send_problem>,
-    "unknown": <Pathway:unknown>,
-    "Total": <Pathway:Total>
+    "pathway": "EMIS-EMIS",
+    "gp2_gp_disabled": 59,
+    "patient_not_at_surgery": 184,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 19,
+    "comms_setup": 0,
+    "not_lm": 17,
+    "lm_problem": 16,
+    "generate_problem": 20,
+    "send_problem": 103,
+    "unknown": 296,
+    "Total": 714
   },
+  {
+    "pathway": "EMIS-Microtest",
+    "gp2_gp_disabled": 0,
+    "patient_not_at_surgery": 0,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 0,
+    "comms_setup": 0,
+    "not_lm": 190,
+    "lm_problem": 2,
+    "generate_problem": 0,
+    "send_problem": 0,
+    "unknown": 0,
+    "Total": 192
+  },
+  {
+    "pathway": "EMIS-TPP",
+    "gp2_gp_disabled": 16,
+    "patient_not_at_surgery": 31,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 5,
+    "comms_setup": 0,
+    "not_lm": 11,
+    "lm_problem": 3,
+    "generate_problem": 9,
+    "send_problem": 57,
+    "unknown": 111,
+    "Total": 243
+  },
+  {
+    "pathway": "EMIS-Unknown",
+    "gp2_gp_disabled": 12,
+    "patient_not_at_surgery": 0,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 20,
+    "comms_setup": 0,
+    "not_lm": 0,
+    "lm_problem": 0,
+    "generate_problem": 0,
+    "send_problem": 0,
+    "unknown": 4,
+    "Total": 36
+  },
+  {
+    "pathway": "EMIS-Vision",
+    "gp2_gp_disabled": 3,
+    "patient_not_at_surgery": 3,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 2,
+    "comms_setup": 0,
+    "not_lm": 1536,
+    "lm_problem": 0,
+    "generate_problem": 0,
+    "send_problem": 1,
+    "unknown": 16,
+    "Total": 1561
+  },
+  {
+    "pathway": "TPP-EMIS",
+    "gp2_gp_disabled": 11,
+    "patient_not_at_surgery": 23,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 0,
+    "comms_setup": 3,
+    "not_lm": 6,
+    "lm_problem": 763,
+    "generate_problem": 0,
+    "send_problem": 48,
+    "unknown": 46,
+    "Total": 900
+  },
+  {
+    "pathway": "TPP-Microtest",
+    "gp2_gp_disabled": 1,
+    "patient_not_at_surgery": 0,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 0,
+    "comms_setup": 0,
+    "not_lm": 225,
+    "lm_problem": 10,
+    "generate_problem": 0,
+    "send_problem": 0,
+    "unknown": 0,
+    "Total": 236
+  },
+  {
+    "pathway": "TPP-TPP",
+    "gp2_gp_disabled": 5,
+    "patient_not_at_surgery": 0,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 0,
+    "comms_setup": 0,
+    "not_lm": 8,
+    "lm_problem": 1,
+    "generate_problem": 0,
+    "send_problem": 0,
+    "unknown": 0,
+    "Total": 14
+  },
+  {
+    "pathway": "TPP-Vision",
+    "gp2_gp_disabled": 0,
+    "patient_not_at_surgery": 2,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 0,
+    "comms_setup": 0,
+    "not_lm": 877,
+    "lm_problem": 21,
+    "generate_problem": 0,
+    "send_problem": 0,
+    "unknown": 4,
+    "Total": 904
+  },
+  {
+    "pathway": "Unknown-EMIS",
+    "gp2_gp_disabled": 0,
+    "patient_not_at_surgery": 0,
+    "patient_lookup_failure": 0,
+    "requestor_not_current_gp": 0,
+    "comms_setup": 0,
+    "not_lm": 0,
+    "lm_problem": 0,
+    "generate_problem": 0,
+    "send_problem": 0,
+    "unknown": 0,
+    "Total": 0
+  }  
 ]
 ---
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-<Month:LastDate> <Month> <Year>**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-30th November 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"

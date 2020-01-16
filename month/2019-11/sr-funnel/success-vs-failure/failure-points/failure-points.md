@@ -1,8 +1,8 @@
 ---
 layout: chart
 title: "Request Failure Points"
-date: "<Timestamp>"
-timeframe: <Month> <Year>
+date: "2019-12-02 14:10:00 +0000"
+timeframe: November 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: Requests Received
@@ -12,23 +12,53 @@ chart_config:
   options:
     legend:
       position: "bottom"
-items:
-  [
-    { name: "GP2GP disabled", value: <gp2_gp_disabled> },
-    { name: "Patient not at surgery", value: <patient_not_at_surgery> },
-    { name: "Patient lookup failure", value: <patient_lookup_failure> },
-    { name: "Requestor not current gp", value: <requestor_not_current_gp> },
-    { name: "Requestor not large message compliant", value: <not_lm> },
-    { name: "Large message failure", value: <lm_problem> },
-    { name: "Unable to generate EHR extract", value: <generate_problem> },
-    { name: "Unable to send EHR extract", value: <send_problem> },
-    { name: "Unknown issue", value: <unknown> },
-  ]
+items: [
+  {
+    "name": "GP2GP disabled",
+    "value": 107
+  },
+  {
+    "name": "Patient not at surgery",
+    "value": 243
+  },
+  {
+    "name": "Patient lookup failure",
+    "value": 0
+  },
+  {
+    "name": "Requestor not current gp",
+    "value": 46
+  },
+  {
+    "name": "Communications setup failure",
+    "value": 3
+  },
+  {
+    "name": "Requestor not large message compliant",
+    "value": 2870
+  },
+  {
+    "name": "Large message failure",
+    "value": 816
+  },
+  {
+    "name": "Unable to generate EHR extract",
+    "value": 29
+  },
+  {
+    "name": "Unable to send EHR extract",
+    "value": 209
+  },
+  {
+    "name": "Unknown issue",
+    "value": 477
+  }
+]
 ---
 
-The same information is represented **[broken down into supplier pathways](/prm-funnel/month/<Year-Month-Directory>/sr-funnel/success-vs-failure/failure-points/failure-pathways/failure-pathways.html)**
+The same information is represented **[broken down into supplier pathways](/prm-funnel/month/2019-11/sr-funnel/success-vs-failure/failure-points/failure-pathways/failure-pathways.html)**
 
-The data was collected from **Splunk** with the following query, and the date range was **1st-<Month:LastDate> <Month> <Year>**:
+The data was collected from **Splunk** with the following query, and the date range was **1st-30th November 2019**:
 
 ```sql
 index="gp2gp-mi" sourcetype="gppractice-SR"
