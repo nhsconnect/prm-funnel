@@ -1,39 +1,40 @@
-  <div id="canvas-holder">
-    <div id="chartdiv" class="chart"></div>
-  </div>
+<div id="canvas-holder">
+  <div id="chartdiv" class="chart"></div>
+  <div id="legenddiv"></div>
+</div>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
+<div class=" post-content e-content" itemprop="articleBody">
+  {{ content }}
 
-    <div class="data-table">
-      <h2>Raw data</h2>
-      <table>
-        <tr>
-          <th>Detail</th>
-          <th>Data</th> 
-        </tr>
-        {% for item in page.items %}
-          <tr>
-            <td>
-              {% if item.link %} 
-              <a href="{{site.baseurl}}/{{item.link}}.html">
-                {{item.name}}
-              </a>
-              {% else %}
-              {{item.name}}
-              {% endif %} 
-          </td>
-          <td>
-            {{item.value}}
-          </td>
-          </tr>
-        {% endfor %}
-        {% if total %}
-        <tfoot>
-          <th>Total</th>
-          <th>{{ total }}</th> 
-        </tfoot>
-        {% endif %}
-      </table>
-    </div>
+  <div class="data-table">
+    <h2>Raw data</h2>
+    <table>
+      <tr>
+        <th>Detail</th>
+        <th>Data</th>
+      </tr>
+      {% for item in page.items %}
+      <tr>
+        <td>
+          {% if item.link %}
+          <a href="{{site.baseurl}}/{{item.link}}.html">
+            {{item.name}}
+          </a>
+          {% else %}
+          {{item.name}}
+          {% endif %}
+        </td>
+        <td>
+          {{item.value}}
+        </td>
+      </tr>
+      {% endfor %}
+      {% if total %}
+      <tfoot>
+        <th>Total</th>
+        <th>{{ total }}</th>
+      </tfoot>
+      {% endif %}
+    </table>
   </div>
+</div>
