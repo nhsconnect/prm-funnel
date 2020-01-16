@@ -2,8 +2,8 @@
 layout: default
 ---
 
-  {%- include chart-description.html -%}
-  {%- include chart-page.html -%}
+{%- include chart-description.html -%}
+{%- include chart-page.html -%}
 
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
@@ -12,41 +12,56 @@ layout: default
 
 <!-- Chart code -->
 <script>
-// Themes begin
-am4core.useTheme(am4themes_kelly);
-am4core.useTheme(am4themes_animated);
-// Themes end
+  // Themes begin
+  am4core.useTheme(am4themes_kelly);
+  am4core.useTheme(am4themes_animated);
+  // Themes end
 
-// Create chart instance
-var chart = am4core.create("chartdiv", am4charts.PieChart);
+  // Create chart instance
+  var chart = am4core.create("chartdiv", am4charts.PieChart);
 
-const items = JSON.parse('{{page.items | jsonify}}');
+  let legendContainer = am4core.create("legenddiv", am4core.Container);
+  legendContainer.width = am4core.percent(100);
+  legendContainer.height = am4core.percent(100);
 
-let url = '{{ site.url }}';
-const baseUrl = '{{ site.baseurl }}';
-if (url.indexOf(baseUrl) < 0) {
-  url = url + baseUrl + "/";
-}
+  const items = JSON.parse('{{page.items | jsonify}}');
 
-// Add data
-chart.data = items;
-chart.legend = new am4charts.Legend();
-chart.legend.labels.template.maxWidth = 500;
-chart.legend.itemContainers.template.tooltipText = "{category}";
-chart.legend.labels.template.truncate = false;
-chart.legend.labels.template.wrap = true;
+  let url = '{{ site.url }}';
+  const baseUrl = '{{ site.baseurl }}';
+  if (url.indexOf(baseUrl) < 0) {
+    url = url + baseUrl + "/";
+  }
 
-const pageChartConfig = JSON.parse('{{page.chart_config | jsonify}}') || {};
-if (pageChartConfig.options && pageChartConfig.options.legend.position === "left"){
-  chart.legend.position = "left";
-}
-if (pageChartConfig.options && pageChartConfig.options.legend.position === "bottom"){
-  chart.legend.labels.template.maxWidth = 300;
-}
-// Add and configure Series
-var pieSeries = chart.series.push(new am4charts.PieSeries());
+  // Add data
+  chart.data = items;
+  chart.legend = new am4charts.Legend();
+  chart.legend.parent = legendContainer;
+  chart.legend.labels.template.maxWidth = 500;
+  chart.legend.itemContainers.template.tooltipText = "{category}";
+  chart.legend.labels.template.truncate = false;
+  chart.legend.labels.template.wrap = true;
 
-pieSeries.slices.template.events.on("hit", function(ev) {
+  chart.events.on("datavalidated", resizeLegend);
+  chart.events.on("maxsizechanged", resizeLegend);
+
+  chart.legend.events.on("datavalidated", resizeLegend);
+  chart.legend.events.on("maxsizechanged", resizeLegend);
+
+  function resizeLegend(ev) {
+    document.getElementById("legenddiv").style.height = chart.legend.contentHeight + "px";
+  }
+
+  const pageChartConfig = JSON.parse('{{page.chart_config | jsonify}}') || {};
+  if (pageChartConfig.options && pageChartConfig.options.legend.position === "left") {
+    chart.legend.position = "left";
+  }
+  if (pageChartConfig.options && pageChartConfig.options.legend.position === "bottom") {
+    chart.legend.labels.template.maxWidth = 300;
+  }
+  // Add and configure Series
+  var pieSeries = chart.series.push(new am4charts.PieSeries());
+
+  pieSeries.slices.template.events.on("hit", function (ev) {
     let item = items[ev.target.dataItem.index];
     if (item && item.link) {
       let link = url + item.link + ".html";
@@ -54,12 +69,12 @@ pieSeries.slices.template.events.on("hit", function(ev) {
     }
   }, this);
 
-pieSeries.labels.template.disabled = true;
-pieSeries.ticks.template.disabled = true;
-pieSeries.dataFields.value = "value";
-pieSeries.dataFields.category = "name";
-pieSeries.slices.template.stroke = am4core.color("#fff");
-pieSeries.slices.template.strokeWidth = 2;
-pieSeries.slices.template.strokeOpacity = 1;
-pieSeries.legendSettings.itemValueText = " ";
+  pieSeries.labels.template.disabled = true;
+  pieSeries.ticks.template.disabled = true;
+  pieSeries.dataFields.value = "value";
+  pieSeries.dataFields.category = "name";
+  pieSeries.slices.template.stroke = am4core.color("#fff");
+  pieSeries.slices.template.strokeWidth = 2;
+  pieSeries.slices.template.strokeOpacity = 1;
+  pieSeries.legendSettings.itemValueText = " ";
 </script>
