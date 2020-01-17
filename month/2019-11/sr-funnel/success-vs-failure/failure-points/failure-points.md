@@ -22,10 +22,6 @@ items: [
     "value": 243
   },
   {
-    "name": "Patient lookup failure",
-    "value": 0
-  },
-  {
     "name": "Requestor not current gp",
     "value": 46
   },

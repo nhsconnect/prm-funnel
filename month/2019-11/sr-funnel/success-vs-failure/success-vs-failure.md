@@ -2,7 +2,7 @@
 layout: chart
 title: "Request Success vs Failure"
 date: "2019-12-02 14:10:00 +0000"
-timeframe: 2019 11
+timeframe: November 2019
 datatype: Quantitative
 confidence: Medium
 funnel_slice: Requests Received

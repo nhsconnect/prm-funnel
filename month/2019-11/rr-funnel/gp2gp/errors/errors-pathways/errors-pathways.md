@@ -128,18 +128,6 @@ items: [
     "received_and_rejected_count": 1,
     "other_count": 0,
     "Total": 514
-  },
-  {
-    "pathway": "Unknown",
-    "unknown_count": 3193,
-    "lm_failure_count": 1182,
-    "tpp_limits_count": 297,
-    "duplicate_count": 1401,
-    "failed_to_generate_count": 915,
-    "unknown_patient_count": 267,
-    "received_and_rejected_count": 229,
-    "other_count": 530,
-    "Total": 8014
   }
 ]
 ---
