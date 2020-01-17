@@ -1,0 +1,174 @@
+{
+  "data": [
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-EMIS",
+        "gp2_gp_disabled": "17",
+        "patient_not_at_surgery": "122",
+        "patient_lookup_failure": "0",
+        "requestor_not_current_gp": "19",
+        "comms_setup": "0",
+        "not_lm": "15",
+        "lm_problem": "14",
+        "generate_problem": "77",
+        "send_problem": "77",
+        "unknown": "204",
+        "Total": "545"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-Microtest",
+        "gp2_gp_disabled": "0",
+        "patient_not_at_surgery": "0",
+        "patient_lookup_failure": "0",
+        "requestor_not_current_gp": "1",
+        "comms_setup": "0",
+        "not_lm": "124",
+        "lm_problem": "0",
+        "generate_problem": "0",
+        "send_problem": "0",
+        "unknown": "0",
+        "Total": "125"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-TPP",
+        "gp2_gp_disabled": "4",
+        "patient_not_at_surgery": "25",
+        "patient_lookup_failure": "0",
+        "requestor_not_current_gp": "8",
+        "comms_setup": "0",
+        "not_lm": "6",
+        "lm_problem": "2",
+        "generate_problem": "15",
+        "send_problem": "66",
+        "unknown": "110",
+        "Total": "236"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-Unknown",
+        "gp2_gp_disabled": "12",
+        "patient_not_at_surgery": "0",
+        "patient_lookup_failure": "0",
+        "requestor_not_current_gp": "16",
+        "comms_setup": "0",
+        "not_lm": "0",
+        "lm_problem": "0",
+        "generate_problem": "0",
+        "send_problem": "0",
+        "unknown": "1",
+        "Total": "29"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-Vision",
+        "gp2_gp_disabled": "0",
+        "patient_not_at_surgery": "2",
+        "patient_lookup_failure": "0",
+        "requestor_not_current_gp": "2",
+        "comms_setup": "0",
+        "not_lm": "1161",
+        "lm_problem": "0",
+        "generate_problem": "3",
+        "send_problem": "1",
+        "unknown": "6",
+        "Total": "1175"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "TPP-EMIS",
+        "gp2_gp_disabled": "0",
+        "patient_not_at_surgery": "29",
+        "patient_lookup_failure": "0",
+        "requestor_not_current_gp": "1",
+        "comms_setup": "0",
+        "not_lm": "6",
+        "lm_problem": "720",
+        "generate_problem": "0",
+        "send_problem": "78",
+        "unknown": "44",
+        "Total": "878"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "TPP-Microtest",
+        "gp2_gp_disabled": "0",
+        "patient_not_at_surgery": "0",
+        "patient_lookup_failure": "0",
+        "requestor_not_current_gp": "0",
+        "comms_setup": "0",
+        "not_lm": "177",
+        "lm_problem": "6",
+        "generate_problem": "0",
+        "send_problem": "0",
+        "unknown": "3",
+        "Total": "186"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "TPP-TPP",
+        "gp2_gp_disabled": "0",
+        "patient_not_at_surgery": "0",
+        "patient_lookup_failure": "0",
+        "requestor_not_current_gp": "0",
+        "comms_setup": "0",
+        "not_lm": "3",
+        "lm_problem": "0",
+        "generate_problem": "0",
+        "send_problem": "0",
+        "unknown": "0",
+        "Total": "3"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "TPP-Vision",
+        "gp2_gp_disabled": "0",
+        "patient_not_at_surgery": "0",
+        "patient_lookup_failure": "0",
+        "requestor_not_current_gp": "0",
+        "comms_setup": "0",
+        "not_lm": "679",
+        "lm_problem": "19",
+        "generate_problem": "0",
+        "send_problem": "0",
+        "unknown": "3",
+        "Total": "701"
+      }
+    },
+    {
+      "preview": false,
+      "lastrow": true,
+      "result": {
+        "gp2_gp_disabled": "33",
+        "patient_not_at_surgery": "178",
+        "patient_lookup_failure": "0",
+        "requestor_not_current_gp": "47",
+        "comms_setup": "0",
+        "not_lm": "2171",
+        "lm_problem": "761",
+        "generate_problem": "95",
+        "send_problem": "222",
+        "unknown": "371",
+        "Total": "3878"
+      }
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "data": [
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-EMIS",
+        "unknown_count": "366",
+        "lm_failure_count": "55",
+        "tpp_limits_count": "0",
+        "duplicate_count": "905",
+        "failed_to_generate_count": "86",
+        "unknown_patient_count": "122",
+        "received_and_rejected_count": "92",
+        "other_count": "205",
+        "Total": "1831"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-Microtest",
+        "unknown_count": "19",
+        "lm_failure_count": "123",
+        "tpp_limits_count": "0",
+        "duplicate_count": "3",
+        "failed_to_generate_count": "106",
+        "unknown_patient_count": "0",
+        "received_and_rejected_count": "0",
+        "other_count": "14",
+        "Total": "265"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-TPP",
+        "unknown_count": "117",
+        "lm_failure_count": "729",
+        "tpp_limits_count": "0",
+        "duplicate_count": "21",
+        "failed_to_generate_count": "0",
+        "unknown_patient_count": "30",
+        "received_and_rejected_count": "33",
+        "other_count": "65",
+        "Total": "995"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-Unknown",
+        "unknown_count": "0",
+        "lm_failure_count": "0",
+        "tpp_limits_count": "0",
+        "duplicate_count": "0",
+        "failed_to_generate_count": "0",
+        "unknown_patient_count": "0",
+        "received_and_rejected_count": "15",
+        "other_count": "0",
+        "Total": "15"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-Vision",
+        "unknown_count": "1759",
+        "lm_failure_count": "0",
+        "tpp_limits_count": "0",
+        "duplicate_count": "0",
+        "failed_to_generate_count": "0",
+        "unknown_patient_count": "2",
+        "received_and_rejected_count": "2",
+        "other_count": "31",
+        "Total": "1794"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "TPP-EMIS",
+        "unknown_count": "115",
+        "lm_failure_count": "8",
+        "tpp_limits_count": "257",
+        "duplicate_count": "348",
+        "failed_to_generate_count": "18",
+        "unknown_patient_count": "25",
+        "received_and_rejected_count": "39",
+        "other_count": "62",
+        "Total": "872"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "TPP-Microtest",
+        "unknown_count": "539",
+        "lm_failure_count": "187",
+        "tpp_limits_count": "0",
+        "duplicate_count": "0",
+        "failed_to_generate_count": "361",
+        "unknown_patient_count": "0",
+        "received_and_rejected_count": "0",
+        "other_count": "8",
+        "Total": "1095"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "TPP-TPP",
+        "unknown_count": "13",
+        "lm_failure_count": "0",
+        "tpp_limits_count": "1",
+        "duplicate_count": "0",
+        "failed_to_generate_count": "1",
+        "unknown_patient_count": "0",
+        "received_and_rejected_count": "0",
+        "other_count": "3",
+        "Total": "18"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "TPP-Vision",
+        "unknown_count": "397",
+        "lm_failure_count": "0",
+        "tpp_limits_count": "0",
+        "duplicate_count": "0",
+        "failed_to_generate_count": "0",
+        "unknown_patient_count": "1",
+        "received_and_rejected_count": "3",
+        "other_count": "4",
+        "Total": "405"
+      }
+    }
+  ]
+}
