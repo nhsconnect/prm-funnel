@@ -7,10 +7,10 @@ confidence: Medium
 datasource: NMS (gp2gp-mi)
 categories: data
 items: [
-    { "name": "Registrations", "value": <Registrations>, "link": "month/<Year-Month-Directory>/rr-funnel/registrations/registrations" },
-    { "name": "Transfers", "value": <Transfers>, "link": "month/<Year-Month-Directory>/rr-funnel/transfers/transfers" },
-    { "name": "GP2GP", "value": <GP2GP>, "link": "month/<Year-Month-Directory>/rr-funnel/gp2gp/gp2gp" },
-    { "name": "Integrations", "value": <Integrations>, "link": "month/<Year-Month-Directory>/rr-funnel/integrations/integrations" }
+    { "name": "Registrations", "value": <Total registrations>, "link": "month/<Year-Month-Directory>/rr-funnel/registrations/registrations" },
+    { "name": "Transfers", "value": <Total transfers>, "link": "month/<Year-Month-Directory>/rr-funnel/transfers/transfers" },
+    { "name": "GP2GP", "value": <Total GP2GP>, "link": "month/<Year-Month-Directory>/rr-funnel/gp2gp/gp2gp" },
+    { "name": "Integrations", "value": <Total integrations>, "link": "month/<Year-Month-Directory>/rr-funnel/integrations/integrations" }
 ]
 index: 2
 ---
