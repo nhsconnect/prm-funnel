@@ -16,7 +16,6 @@ items:
   [
     { name: "GP2GP disabled", value: 65 },
     { name: "Patient not at surgery", value: 164 },
-    { name: "Patient lookup failure", value: 0 },
     { name: "Requestor not current gp", value: 22 },
     { name: "Communications setup failure", value: 3 },
     { name: "Requestor not large message compliant", value: 3101 },

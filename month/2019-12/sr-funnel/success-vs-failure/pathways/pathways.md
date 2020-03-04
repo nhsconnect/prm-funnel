@@ -62,12 +62,6 @@ items: [
     "success": 191,
     "failure": 701,
     "Total": 892
-  },
-  {
-    "pathway": "Unknown",
-    "success": 159351,
-    "failure": 3878,
-    "Total": 163229
   }
 ]
 
