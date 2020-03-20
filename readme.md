@@ -55,19 +55,14 @@ N.B. the numeric data in the `items` collection for the "pathways" layers can be
    - rvm doesn't play nice with rbenv. You could use just rvm instead, but rbenv is cleaner for managing ruby versions.
  - install [rbenv](https://github.com/rbenv/rbenv) ruby version manager
    - `brew install rbenv`
- - install ruby 2.5.3
-   - `rbenv install 2.5.3`
+ - install ruby 2.6.3
+   - `rbenv install 2.6.3`
  - set local ruby version
-   - `rbenv local 2.5.3`
+   - `rbenv local 2.6.3`
  - install bundler
    - `rbenv exec gem install bundler`
  - install the gems for the website
    - `rbenv exec bundle`
-   - **NB: This may fail with the following error**:
-     
-     ```Can't find gem bundler (>= 0.a) with executable bundle (Gem::GemNotFoundException)```
-     
-     see [here](https://bundler.io/blog/2019/01/04/an-update-on-the-bundler-2-release.html) to solve.(basically: install the version of bundler specified in the ruby gems lockfile).
  - run the site locally
    - `rbenv exec bundle exec jekyll serve`
  - browse to [locally running site](http://127.0.0.1:4000/)
