@@ -1,0 +1,154 @@
+{
+  "data": [
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-EMIS",
+        "unknown_count": "482",
+        "lm_failure_count": "72",
+        "tpp_limits_count": "3",
+        "duplicate_count": "967",
+        "failed_to_generate_count": "215",
+        "unknown_patient_count": "124",
+        "received_and_rejected_count": "110",
+        "other_count": "218",
+        "Total": "2191"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-Microtest",
+        "unknown_count": "3",
+        "lm_failure_count": "113",
+        "tpp_limits_count": "0",
+        "duplicate_count": "0",
+        "failed_to_generate_count": "76",
+        "unknown_patient_count": "0",
+        "received_and_rejected_count": "0",
+        "other_count": "9",
+        "Total": "201"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-TPP",
+        "unknown_count": "135",
+        "lm_failure_count": "931",
+        "tpp_limits_count": "0",
+        "duplicate_count": "25",
+        "failed_to_generate_count": "3",
+        "unknown_patient_count": "20",
+        "received_and_rejected_count": "24",
+        "other_count": "90",
+        "Total": "1228"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-Unknown",
+        "unknown_count": "0",
+        "lm_failure_count": "0",
+        "tpp_limits_count": "0",
+        "duplicate_count": "0",
+        "failed_to_generate_count": "0",
+        "unknown_patient_count": "0",
+        "received_and_rejected_count": "0",
+        "other_count": "1",
+        "Total": "1"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "EMIS-Vision",
+        "unknown_count": "1686",
+        "lm_failure_count": "0",
+        "tpp_limits_count": "0",
+        "duplicate_count": "0",
+        "failed_to_generate_count": "0",
+        "unknown_patient_count": "3",
+        "received_and_rejected_count": "4",
+        "other_count": "37",
+        "Total": "1730"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "TPP-EMIS",
+        "unknown_count": "106",
+        "lm_failure_count": "37",
+        "tpp_limits_count": "180",
+        "duplicate_count": "409",
+        "failed_to_generate_count": "69",
+        "unknown_patient_count": "30",
+        "received_and_rejected_count": "48",
+        "other_count": "64",
+        "Total": "943"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "TPP-Microtest",
+        "unknown_count": "1",
+        "lm_failure_count": "75",
+        "tpp_limits_count": "0",
+        "duplicate_count": "1",
+        "failed_to_generate_count": "58",
+        "unknown_patient_count": "1",
+        "received_and_rejected_count": "0",
+        "other_count": "1",
+        "Total": "137"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "TPP-TPP",
+        "unknown_count": "4",
+        "lm_failure_count": "16",
+        "tpp_limits_count": "0",
+        "duplicate_count": "0",
+        "failed_to_generate_count": "6",
+        "unknown_patient_count": "0",
+        "received_and_rejected_count": "0",
+        "other_count": "8",
+        "Total": "34"
+      }
+    },
+    {
+      "preview": false,
+      "result": {
+        "pathway": "TPP-Vision",
+        "unknown_count": "415",
+        "lm_failure_count": "0",
+        "tpp_limits_count": "0",
+        "duplicate_count": "0",
+        "failed_to_generate_count": "0",
+        "unknown_patient_count": "1",
+        "received_and_rejected_count": "1",
+        "other_count": "0",
+        "Total": "417"
+      }
+    },
+    {
+      "preview": false,
+      "lastrow": true,
+      "result": {
+        "unknown_count": "2832",
+        "lm_failure_count": "1244",
+        "tpp_limits_count": "183",
+        "duplicate_count": "1402",
+        "failed_to_generate_count": "427",
+        "unknown_patient_count": "179",
+        "received_and_rejected_count": "187",
+        "other_count": "428",
+        "Total": "6882"
+      }
+    }
+  ]
+}
