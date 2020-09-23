@@ -52,8 +52,9 @@ layout: default
   }
 
   // remove duplicated amCharts attribution
-  let element = document.querySelector('[aria-labelledby="id-96-title"]');
-  element.remove();
+  let element = document.querySelectorAll('[aria-label="Chart created using amCharts library"]');
+  if(element[1])
+    element[1].remove();
 
   const pageChartConfig = JSON.parse('{{page.chart_config | jsonify}}') || {};
   if (pageChartConfig.options && pageChartConfig.options.legend.position === "left") {
