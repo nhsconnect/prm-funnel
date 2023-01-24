@@ -1,3 +1,6 @@
+## Deprecated - 24 January 2023
+This site is no longer published and only for historical purposes
+
 # PRM Data Funnel
 
 This is a github pages site used for displaying various meaningful data related to Patient Record Migrations.
